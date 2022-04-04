@@ -44,18 +44,33 @@ const Login = ({ user, setUser }) => {
     <div className="col-sm-6 offset-sm-3 resgister-div">
       <ToastContainer />
       <div className="card card-sign">
-        <div className="btn-group">
-          <Link
-            to="/register"
-            className="btn btn-group-top-reg active"
-            aria-current="page"
-          >
-            SIGN UP
-          </Link>
-          <Link to="/login" className="btn btn-group-top-log ">
-            SIGN IN
-          </Link>
+
+        <div class="card-header">
+
+          <div className="row">
+            <div className="col-md-6 card-top-link">
+              <Link
+                to="/register"
+                className="card-header-sign-link"
+                aria-current="page"
+              >
+                SIGN UP
+              </Link>
+            </div>
+
+            <div className="col-md-6 card-top-link">
+              <Link to="/login" className="card-header-sign-link ">
+                SIGN IN
+              </Link>
+            </div>
+          </div>
+
+          {/* <div className="btn-group btn-full-width-top-register-div">
+        
+        
+          </div> */}
         </div>
+
         <br />
 
         <form action="" className="login-form" onSubmit={onSubmit}>

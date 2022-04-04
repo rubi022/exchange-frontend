@@ -43,7 +43,7 @@
 }
 
 .card-sign {
-  padding: 20px;
+  /* padding: 20px; */
   background-color: transparent !important;
   max-height: 600px !important;
   border: 2px solid black !important;
@@ -67,6 +67,11 @@
 
   color: white;
 }
+/* .btn-full-width-top-register-div {
+  width: 100%;
+  margin: 0 !important;
+padding: 0 !important;
+} */
 
 .card-sign .btn-group-top-reg {
   /* background-color: #28334e; */
@@ -85,6 +90,15 @@
   outline: 0 !important;
   box-shadow: none !important;
 }
+.card-top-link {
+  text-align: center;
+}
+
+.card-top-link .card-header-sign-link {
+  text-decoration: none;
+  text-align: center !important;
+  color: black;
+}
 .card-sign .btn-group-top-log {
   background-color: #929dac;
 
@@ -98,6 +112,10 @@
   color: black;
   outline: 0 !important;
   box-shadow: none !important;
+}
+.login-form,
+.register-form {
+  margin: 20px;
 }
 
 .landing-div {
