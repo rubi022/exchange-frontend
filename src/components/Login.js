@@ -41,7 +41,7 @@ const Login = ({ user, setUser }) => {
     // navigate('/product');
   }
   return (
-    <div className="col-sm-4 offset-sm-4 resgister-div">
+    <div className="col-sm-6 offset-sm-3 resgister-div">
       <ToastContainer />
       <div className="card card-sign">
         <div className="btn-group">
@@ -63,7 +63,7 @@ const Login = ({ user, setUser }) => {
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="form-control"
+            className="form-control form-control-lg"
             placeholder="Email"
             required
           />
@@ -72,7 +72,7 @@ const Login = ({ user, setUser }) => {
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="form-control"
+            className="form-control form-control-lg"
             placeholder="Password"
             required
           />
@@ -82,7 +82,7 @@ const Login = ({ user, setUser }) => {
             onChange={(e) => setKeepLogged(e.target.checked)}
             type="checkbox"
           />{" "}
-          <span style={{ marginLeft: "10px", color: "#FFF" }}>
+          <span style={{ marginLeft: "10px", color: "black", fontWeight: "bold" }}>
             Keep me logged in
           </span>
           <br />

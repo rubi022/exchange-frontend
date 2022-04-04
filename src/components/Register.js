@@ -61,7 +61,7 @@ const Register = ({ user }) => {
   };
 
   return (
-    <div className="col-sm-4 offset-sm-4 resgister-div">
+    <div className="col-sm-6 offset-sm-3 resgister-div">
       <div className="card card-sign">
         <div className="btn-group">
           <Link
@@ -82,7 +82,7 @@ const Register = ({ user }) => {
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="form-control"
+            className="form-control form-control-lg"
             placeholder="Email"
           />
           <br />
@@ -91,7 +91,7 @@ const Register = ({ user }) => {
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="form-control"
+            className="form-control form-control-lg"
             placeholder="Password"
           />
           <br />
@@ -99,7 +99,7 @@ const Register = ({ user }) => {
             type="password"
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
-            className="form-control"
+            className="form-control form-control-lg"
             placeholder="Confirm Password"
           />
           <br />
