@@ -86,7 +86,7 @@ const Register = ({ user }) => {
 
 
         </div>
-
+        <br />
 
         <form action="" className="register-form" onSubmit={onSubmit}>
           <input
