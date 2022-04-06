@@ -84,10 +84,15 @@ export const AuthProvider = ({ children }) => {
     const [state, dispatch] = useReducer(reducer, initialState)
 
     const login = async (email, password) => {
-        const response = await axios.post('/api/auth/login', {
+        // const response = await axios.post('/api/auth/login', {
+        const response = await axios.post('https://cp.btfd.cc/api/v2/barong/identity/sessions', {
+
+
             email,
             password,
         })
+
+        console.log(response.data);
         const { accessToken, user } = response.data
 
         setSession(accessToken)
@@ -100,11 +105,19 @@ export const AuthProvider = ({ children }) => {
         })
     }
 
-    const register = async (email, username, password) => {
-        const response = await axios.post('/api/auth/register', {
+    // const register = async (email, username, password) => {
+    const register = async (email, password, confirmPassword) => {
+
+
+
+        // const response = await axios.post('/api/auth/register', {
+        const response = await axios.post('https://cp.btfd.cc/api/v2/barong/identity/users', {
+
+
             email,
-            username,
             password,
+            confirmPassword
+
         })
 
         const { accessToken, user } = response.data
