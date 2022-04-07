@@ -4,6 +4,7 @@ const LandingPage = ({ user }) => {
   //   const userDetails = JSON.parse(localStorage.getItem("user-info"));
   if (!user) return <Navigate to="/login" />;
 
+
   const { email, state, role, uid } = user;
 
   return (
