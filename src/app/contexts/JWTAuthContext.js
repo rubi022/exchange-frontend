@@ -42,12 +42,12 @@ const reducer = (state, action) => {
             }
         }
         case 'LOGIN': {
-            const { user } = action.payload
+            const { uid } = action.payload
 
             return {
                 ...state,
                 isAuthenticated: true,
-                user,
+                uid,
             }
         }
         case 'LOGOUT': {
@@ -93,14 +93,14 @@ export const AuthProvider = ({ children }) => {
         })
 
         console.log(response.data);
-        const { accessToken, user } = response.data
+        const { csrf_token, uid } = response.data
 
-        setSession(accessToken)
+        setSession(csrf_token)
 
         dispatch({
             type: 'LOGIN',
             payload: {
-                user,
+                uid,
             },
         })
     }

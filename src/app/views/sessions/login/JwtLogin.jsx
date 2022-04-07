@@ -7,12 +7,24 @@ import {
     FormControlLabel,
 } from '@mui/material'
 import React, { useState } from 'react'
-import useAuth from 'app/hooks/useAuth'
+// import useAuth from 'app/hooks/useAuth'
 import { useNavigate } from 'react-router-dom'
-import { Box, styled, useTheme } from '@mui/system'
-import { TextValidator, ValidatorForm } from 'react-material-ui-form-validator'
-import { Paragraph, Span } from 'app/components/Typography'
+// import { Box, styled, useTheme } from '@mui/system'
+import { Box, styled } from '@mui/system'
 
+import { TextValidator, ValidatorForm } from 'react-material-ui-form-validator'
+// import { Paragraph, Span } from 'app/components/Typography'
+import { Span } from 'app/components/Typography'
+
+// import { Link, Navigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
+
+import { toast, ToastContainer } from "react-toastify";
+
+import { setWithExpiry } from "../../../utils/setExpiry";
+
+
+// styling
 const FlexBox = styled(Box)(() => ({
     display: 'flex',
     alignItems: 'center',
@@ -49,37 +61,49 @@ const StyledProgress = styled(CircularProgress)(() => ({
     left: '25px',
 }))
 
-const JwtLogin = () => {
-    const navigate = useNavigate()
-    const [loading, setLoading] = useState(false)
-    const [userInfo, setUserInfo] = useState({
-        email: 'jason@ui-lib.com',
-        password: 'dummyPass',
-    })
-    const [message, setMessage] = useState('')
-    const { login } = useAuth()
 
-    const handleChange = ({ target: { name, value } }) => {
-        let temp = { ...userInfo }
-        temp[name] = value
-        setUserInfo(temp)
+
+
+
+const JwtLogin = (user, setUser) => {
+//   code
+const navigate = useNavigate();
+const [email, setEmail] = useState("");
+const [password, setPassword] = useState("");
+const [keepLogged, setKeepLogged] = useState(false);
+if (user) return <Navigate to="/" />;
+
+async function handleFormSubmit(e) {
+  e.preventDefault();
+
+  let item = { email, password };
+  let result = await fetch(
+    "https://cp.btfd.cc/api/v2/barong/identity/sessions",
+
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify(item),
     }
+  );
+  result = await result.json();
+  console.log({ result });
+  if (result?.errors)
+    return toast.error("Authentication failed", {
+      position: "top-center",
+    });
+  console.log("result", result);
+  if (keepLogged) setWithExpiry("user-info", result, 86400000);
+  //  localStorage.setItem("user-info", JSON.stringify(result));
 
-    const { palette } = useTheme()
-    const textError = palette.error.main
-    const textPrimary = palette.primary.main
+  setUser(result);
+  // navigate('/product');
+}
 
-    const handleFormSubmit = async (event) => {
-        setLoading(true)
-        try {
-            await login(userInfo.email, userInfo.password)
-            navigate('/')
-        } catch (e) {
-            console.log(e)
-            setMessage(e.message)
-            setLoading(false)
-        }
-    }
+
 
     return (
         <JWTRoot>
@@ -101,10 +125,10 @@ const JwtLogin = () => {
                                     variant="outlined"
                                     size="small"
                                     label="Email"
-                                    onChange={handleChange}
+                                    onChange={(e) => setEmail(e.target.value)}
                                     type="email"
                                     name="email"
-                                    value={userInfo.email}
+                                    value={email}
                                     validators={['required', 'isEmail']}
                                     errorMessages={[
                                         'this field is required',
@@ -116,58 +140,51 @@ const JwtLogin = () => {
                                     label="Password"
                                     variant="outlined"
                                     size="small"
-                                    onChange={handleChange}
+                                    onChange={(e) => setPassword(e.target.value)}
+
                                     name="password"
                                     type="password"
-                                    value={userInfo.password}
+                                    value={password}
                                     validators={['required']}
                                     errorMessages={['this field is required']}
                                 />
                                 <FormControlLabel
                                     sx={{ mb: '12px', maxWidth: 288 }}
                                     name="agreement"
-                                    onChange={handleChange}
+                                    onChange={(e) => setKeepLogged(e.target.checked)}
                                     control={
                                         <Checkbox
                                             size="small"
-                                            onChange={({
-                                                target: { checked },
-                                            }) =>
-                                                handleChange({
-                                                    target: {
-                                                        name: 'agreement',
-                                                        value: checked,
-                                                    },
-                                                })
-                                            }
-                                            checked={userInfo.agreement || true}
+                                            onChange={(e) => setKeepLogged(e.target.checked)}
+                                         
+                                            checked={keepLogged}
                                         />
                                     }
                                     label="Remeber me"
                                 />
 
-                                {message && (
+                                {/* {message && (
                                     <Paragraph sx={{ color: textError }}>
                                         {message}
                                     </Paragraph>
-                                )}
+                                )} */}
 
                                 <FlexBox mb={2} flexWrap="wrap">
                                     <Box position="relative">
                                         <Button
                                             variant="contained"
                                             color="primary"
-                                            disabled={loading}
+                                            // disabled={loading}
                                             type="submit"
                                         >
                                             Sign in
                                         </Button>
-                                        {loading && (
+                                        {/* {loading && (
                                             <StyledProgress
                                                 size={24}
                                                 className="buttonProgress"
                                             />
-                                        )}
+                                        )} */}
                                     </Box>
                                     <Span sx={{ mr: 1, ml: '20px' }}>or</Span>
                                     <Button
@@ -180,7 +197,7 @@ const JwtLogin = () => {
                                     </Button>
                                 </FlexBox>
                                 <Button
-                                    sx={{ color: textPrimary }}
+                                    sx={{ color: 'primary' }}
                                     onClick={() =>
                                         navigate('/session/forgot-password')
                                     }
