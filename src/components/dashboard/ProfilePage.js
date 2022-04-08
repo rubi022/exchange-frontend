@@ -104,7 +104,7 @@ const ProfilePage = ({ user }) => {
             </div>
             <div class="sb-sidenav-footer">
               <div class="small">Logged in as:</div>
-              Start Bootstrap
+              Nishat Reza
             </div>
           </nav>
         </div>
