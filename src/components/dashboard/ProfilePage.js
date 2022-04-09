@@ -1,6 +1,7 @@
 import { Navigate } from "react-router-dom";
 // import './css/customProfile.css';
 import './js/scripts.js';
+import './js/datatables-simple-demo.js';
 import './css/styles.css';
 // import { Helmet } from "react-helmet";
 
@@ -21,14 +22,14 @@ const ProfilePage = ({ user, setUser }) => {
   const { email, state, role, uid } = user;
 
   return (
-    <div className="sb-nav-fixed">
+    <div className="sb-nav-fixed profilediv">
       <nav className="sb-topnav navbar navbar-expand navbar-dark bg-dark" id="main">
         {/* <!-- Navbar Brand--> */}
         <a className="navbar-brand ps-3" href="index.html">Admin Panel</a>
         {/* <!-- Sidebar Toggle--> */}
 
-
-        <button className="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i className="fas fa-bars"></i></button>
+        {/* not working toggle */}
+        {/* <button className="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i className="fas fa-bars"></i></button> */}
         {/* <button className="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" onClick="closeNav()"><i className="fas fa-bars"></i></button> */}
         {/* <a href="javascript:void(0)" className="closebtn" onclick="closeNav()">×</a> */}
 
@@ -62,7 +63,7 @@ const ProfilePage = ({ user, setUser }) => {
                 <div className="sb-sidenav-menu-heading">Core</div>
                 <a className="nav-link" href="index.html">
                   <div className="sb-nav-link-icon"><i className="fas fa-tachometer-alt"></i></div>
-                  Dashboard
+                  Profile
                 </a>
                 <div className="sb-sidenav-menu-heading">Interface</div>
                 <a className="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
@@ -118,64 +119,147 @@ const ProfilePage = ({ user, setUser }) => {
                 </a>
               </div>
             </div>
-            <div className="sb-sidenav-footer">
+            {/* <div className="sb-sidenav-footer">
               <div className="small">Logged in as:</div>
               {email}
-            </div>
+            </div> */}
           </nav>
         </div>
         <div id="layoutSidenav_content">
           <main>
             <div className="container-fluid px-4">
-              <h1 className="mt-4">Dashboard</h1>
-              <ol className="breadcrumb mb-4">
-                <li className="breadcrumb-item active">Dashboard</li>
-              </ol>
-              <div className="row">
-                <div className="col-xl-3 col-md-6">
-                  <div className="card bg-primary text-white mb-4">
-                    <div className="card-body">Primary Card</div>
-                    <div className="card-footer d-flex align-items-center justify-content-between">
-                      <a className="small text-white stretched-link" href="#">View Details</a>
-                      <div className="small text-white"><i className="fas fa-angle-right"></i></div>
-                    </div>
-                  </div>
+
+              {/* profiles details */}
+              <div className="row mt-4 profile-list-row">
+                <div className="col-xl-6 col-md-6 profile-list-div">
+
+
+
+                  <ul className="list-group">
+                    <li className="list-group-item list-group-item-secondary" aria-current="true">User Details</li>
+                    <li className="list-group-item">Email: {email}</li>
+                    <li className="list-group-item">UID: {uid}</li>
+                    <li className="list-group-item">Role: {role}</li>
+                    <li className="list-group-item">State: <span className="badge bg-primary rounded-pill">{state}</span> </li>
+
+                    <li className="list-group-item">Password <button className="btn btn-primary float-end">Change</button></li>
+
+                    <li className="list-group-item">2FA <span className="float-end ">Verified <i class="fa-solid fa-check"></i></span></li>
+
+                  </ul>
+
+
+
+
                 </div>
-                <div className="col-xl-3 col-md-6">
-                  <div className="card bg-warning text-white mb-4">
-                    <div className="card-body">Warning Card</div>
-                    <div className="card-footer d-flex align-items-center justify-content-between">
-                      <a className="small text-white stretched-link" href="#">View Details</a>
-                      <div className="small text-white"><i className="fas fa-angle-right"></i></div>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-xl-3 col-md-6">
-                  <div className="card bg-success text-white mb-4">
-                    <div className="card-body">Success Card</div>
-                    <div className="card-footer d-flex align-items-center justify-content-between">
-                      <a className="small text-white stretched-link" href="#">View Details</a>
-                      <div className="small text-white"><i className="fas fa-angle-right"></i></div>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-xl-3 col-md-6">
-                  <div className="card bg-danger text-white mb-4">
-                    <div className="card-body">Danger Card</div>
-                    <div className="card-footer d-flex align-items-center justify-content-between">
-                      <a className="small text-white stretched-link" href="#">View Details</a>
-                      <div className="small text-white"><i className="fas fa-angle-right"></i></div>
-                    </div>
-                  </div>
+
+                <div className="col-xl-6 col-md-6 profile-list-div">
+
+                  <ul className="list-group">
+                    <li className="list-group-item list-group-item-secondary" aria-current="true">Profile Verification</li>
+                    <li className="list-group-item">Email Address <span className="float-end ">Verified <i class="fa-solid fa-check"></i></span></li>
+                    <li className="list-group-item">Verify Phone number <span className=" float-end">Verified <i class="fa-solid fa-check"></i></span> </li>
+                    <li className="list-group-item">Complete your profile <button className="btn btn-primary float-end">Verify</button></li>
+                    <li className="list-group-item">Verify your identity <button className="btn btn-primary float-end">Verify</button></li>
+                    <li className="list-group-item">Verify proof of residence    <button className="btn btn-primary float-end">Verify</button></li>
+
+                  </ul>
+
+
+
+
                 </div>
               </div>
 
+              {/* api keys */}
+              <div className="row mt-4 profile-list-row">
+                <div className="col-xl-12 col-md-12 profile-list-div">
+
+
+
+                  <ul className="list-group">
+                    <li className="list-group-item list-group-item-secondary" aria-current="true">My API Keys</li>
+                    <li className="list-group-item text-center">Please enable Two-factor authentication</li>
+
+                  </ul>
+
+
+
+
+                </div>
+
+
+              </div>
+
+              {/* account activity */}
+              <div className="row mt-4 profile-list-row">
+                <div className="col-xl-12 col-md-12 profile-list-div">
+
+
+
+                  <ul className="list-group">
+                    <li className="list-group-item list-group-item-secondary" aria-current="true">Account Activity</li>
+                    <table class="table table-bordered">
+                      <thead>
+                        <tr>
+                          <th scope="col">Date</th>
+                          <th scope="col">Action</th>
+                          <th scope="col">Result</th>
+                          <th scope="col">Address IP</th>
+                          <th scope="col">User Agent</th>
+
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>7/3/22</td>
+
+                          <td>Login</td>
+                          <td>Succeed</td>
+                          <td>103.151.2.4</td>
+                          <td>Chrome windows 10</td>
+
+                        </tr>
+                        <tr>
+                          <td>7/3/22</td>
+
+                          <td>Login</td>
+                          <td>Succeed</td>
+                          <td>103.151.2.4</td>
+                          <td>Chrome windows 10</td>
+
+                        </tr>
+                        <tr>
+                          <td>7/3/22</td>
+
+                          <td>Login</td>
+                          <td>Succeed</td>
+                          <td>103.151.2.4</td>
+                          <td>Chrome windows 10</td>
+
+                        </tr>
+                      </tbody>
+                    </table>
+
+
+
+                  </ul>
+
+
+
+
+                </div>
+
+
+              </div>
+
+
             </div>
           </main>
-          <footer className="py-4 bg-light mt-auto">
+          {/* <footer className="py-4 bg-light mt-auto">
             <div className="container-fluid px-4">
               <div className="d-flex align-items-center justify-content-between small">
-                <div className="text-muted">Copyright &copy; Your Website 2022</div>
+
                 <div>
                   <a href="#">Privacy Policy</a>
                   &middot;
@@ -183,7 +267,7 @@ const ProfilePage = ({ user, setUser }) => {
                 </div>
               </div>
             </div>
-          </footer>
+          </footer> */}
         </div>
       </div>
       {/* <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script> */}
