@@ -11,7 +11,7 @@ const Register = ({ user }) => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const navigate = useNavigate();
-  if (user) return <Navigate to="/" />;
+  // if (user) return <Navigate to="/" />;
 
   // const [formErrors, setFormErrors] = useState({})
 
@@ -54,10 +54,13 @@ const Register = ({ user }) => {
 
         toast.warn(`${errorMessage}`, { position: "top-center" });
       } else {
+        toast.success("Registered! Please login", { position: "top-center" });
+
+
         const data = await result.json();
 
         localStorage.setItem("user-info", JSON.stringify(data));
-        navigate("/email-verification");
+        // navigate("/email-verification");
       }
     }
   };

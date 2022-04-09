@@ -76,7 +76,7 @@
   }
 }
 
-body {
+.sb-nav-fixed {
   margin: 0;
   font-family: var(--bs-body-font-family);
   font-size: var(--bs-body-font-size);
@@ -11302,8 +11302,8 @@ textarea.form-control-lg {
     display: none !important;
   }
 }
-html,
-body {
+
+.sb-nav-fixed {
   height: 100%;
 }
 

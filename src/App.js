@@ -25,7 +25,7 @@ function App() {
     <div className="App">
       {/* <Navbar setUser={setUser} user={user} /> */}
       <Routes>
-        <Route exact path="/" element={<ProfilePage user={user} />} />
+        <Route exact path="/" element={<ProfilePage user={user} setUser={setUser} />} />
         <Route path="register" element={<Register user={user} />} />
         <Route path="login" element={<Login user={user} setUser={setUser} />} />
         <Route
