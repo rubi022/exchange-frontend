@@ -12,7 +12,7 @@ import { getWithExpiry } from "./helper/utils";
 function App() {
   const [user, setUser] = useState();
   const value = getWithExpiry("user-info");
-  console.log({ value });
+  // console.log({ value });
   const loadUser = useCallback(() => {
     setUser(value);
   }, []);
