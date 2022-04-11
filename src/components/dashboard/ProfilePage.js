@@ -309,27 +309,36 @@ const ProfilePage = ({ user, setUser }) => {
 
                 <div className="row mt-4  mt-5 ">
                   <div className="col-md-6 offset-md-3 profile-user-form-div">
-                    <h3 className="text-center">Buy/Sell form</h3>
+                    <h3 className="text-center"> One Click Buy/Sell</h3>
 
                     <form>
 
-                      <div class="form-floating">
+                      <div class="form-floating mb-3">
                         <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
-                          <option selected>Buy</option>
-                          <option value="1">One</option>
-                          <option value="2">Two</option>
-                          <option value="3">Three</option>
+                          <option selected>Choose option</option>
+                          <option value="1">BTC</option>
+                          <option value="2">ETH</option>
+                          <option value="3">AAVE</option>
                         </select>
-                        <label for="floatingSelect">Buy/Sell</label>
+                        <label for="floatingSelect">Market</label>
                       </div>
-                      <div class="mb-3 mt-3">
-                        <select class="form-select" aria-label="Default select example">
-                          <option selected>Limit</option>
-                          <option value="1">One</option>
-                          <option value="2">Two</option>
-                          <option value="3">Three</option>
+                      <div class="form-floating mb-3">
+                        <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                          <option selected>Choose option</option>
+                          <option value="1">Buy</option>
+                          <option value="2">Sell</option>
                         </select>
+                        <label for="floatingSelect">Order Side</label>
                       </div>
+                      <div class="form-floating mb-3">
+                        <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                          <option selected>Choose option</option>
+                          <option value="1">Limit</option>
+                          <option value="2">Market</option>
+                        </select>
+                        <label for="floatingSelect">Order Type</label>
+                      </div>
+
                       <div class="input-group mb-3">
                         <input type="text" class="form-control" placeholder="Price" aria-label="Recipient's username" aria-describedby="basic-addon2" />
                         <span class="input-group-text" id="basic-addon2">USDT</span>
