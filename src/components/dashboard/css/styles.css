@@ -11703,3 +11703,9 @@ div.sb-nav-fixed {
 .profile-list-div > ul>li{
   padding: 10px;
 }
+
+#layoutSidenav_content .profile-user-form-div .form-select:focus, .form-control:focus{
+  outline:0px !important;
+  -webkit-appearance:none;
+  box-shadow: none !important;
+}

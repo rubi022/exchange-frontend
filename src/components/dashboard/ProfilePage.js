@@ -11,7 +11,7 @@ import React, { useEffect } from "react";
 const ProfilePage = ({ user, setUser }) => {
 
 
-  // for toggke
+  // for toggle
 
   // useEffect(() => {
   //   const script = document.createElement('script');
@@ -39,8 +39,17 @@ const ProfilePage = ({ user, setUser }) => {
 
 
 
-  // console.log(user)
+
+  console.log(user)
   const { email, state, role, uid } = user;
+  let verfiEmailButton = false;
+
+  // if (state == 'pending') {
+  if (state == 'pending') {
+
+    verfiEmailButton = true;
+  }
+
 
   return (
     <div className="sb-nav-fixed profilediv">
@@ -161,8 +170,20 @@ const ProfilePage = ({ user, setUser }) => {
                     <li className="list-group-item">Email: {email}</li>
                     <li className="list-group-item">UID: {uid}</li>
                     <li className="list-group-item">Role: {role}</li>
-                    <li className="list-group-item">State: <span className="badge bg-primary rounded-pill">{state}</span> </li>
+                    <li className="list-group-item">State:
+                      {/* <span className="badge bg-primary rounded-pill">{state}</span> */}
 
+                      {
+
+                        verfiEmailButton ?
+                          (<button className="btn btn-primary float-end">Verify Email</button>)
+                          : (<span className="badge bg-primary rounded-pill">{state}</span>)
+
+
+
+
+                      }
+                    </li>
                     <li className="list-group-item">Password <button className="btn btn-primary float-end">Change</button></li>
 
                     <li className="list-group-item">2FA <span className="float-end ">Verified <i className="fa-solid fa-check"></i></span></li>
@@ -272,6 +293,65 @@ const ProfilePage = ({ user, setUser }) => {
                 </div>
 
 
+              </div>
+
+              {/* for a user form */}
+
+              <div className="row mt-4  mt-5 ">
+                <div className="col-md-6 offset-md-3 profile-user-form-div">
+                  <h3 className="text-center">Buy/Sell form</h3>
+
+                  <form>
+
+                    <div class="form-floating">
+                      <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                        <option selected>Buy</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                      </select>
+                      <label for="floatingSelect">Buy/Sell</label>
+                    </div>
+                    <div class="mb-3 mt-3">
+                      <select class="form-select" aria-label="Default select example">
+                        <option selected>Limit</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                      </select>
+                    </div>
+                    <div class="input-group mb-3">
+                      <input type="text" class="form-control" placeholder="Price" aria-label="Recipient's username" aria-describedby="basic-addon2" />
+                      <span class="input-group-text" id="basic-addon2">USDT</span>
+                    </div>
+                    <div class="input-group mb-3">
+                      <input type="text" class="form-control" placeholder="Amount" aria-label="Recipient's username" aria-describedby="basic-addon2" />
+                      <span class="input-group-text" id="basic-addon2">AAVE</span>
+                    </div>
+                    <div className="row mb-3">
+                      <div className="col-md-12">
+                        <ul className="list-group">
+                          <li className="list-group-item">Total  <span className=" float-end">0.000000 USDT</span></li>
+                          <li className="list-group-item">Available  <span className=" float-end">9892.98970000 USDT</span></li>
+
+                        </ul>
+                      </div>
+
+                    </div>
+                    <div className="row mb-3">
+                      <div className="col-md-12">
+
+                        <div class="d-grid gap-2">
+                          <button class="btn btn-primary" type="button">Buy</button>
+                        </div>
+                      </div>
+
+                    </div>
+
+
+                  </form>
+
+                </div>
               </div>
 
 
