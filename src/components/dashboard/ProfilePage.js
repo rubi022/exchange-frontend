@@ -1,12 +1,30 @@
 import { Navigate } from "react-router-dom";
 // import './css/customProfile.css';
-import './js/scripts.js';
+// import './js/scripts.js';
 import './js/datatables-simple-demo.js';
 import './css/styles.css';
+// import { useEffect } from 'react';
 // import { Helmet } from "react-helmet";
+import React, { useEffect } from "react";
 
 
 const ProfilePage = ({ user, setUser }) => {
+
+
+  // for toggke
+
+  // useEffect(() => {
+  //   const script = document.createElement('script');
+
+  //   script.src = "./js/scripts.js";
+  //   script.async = true;
+
+  //   document.body.appendChild(script);
+
+  //   return () => {
+  //     document.body.removeChild(script);
+  //   }
+  // }, []);
   //   const userDetails = JSON.parse(localStorage.getItem("user-info"));
   if (!user) return <Navigate to="/login" />;
 
@@ -17,6 +35,9 @@ const ProfilePage = ({ user, setUser }) => {
       setUser("");
     }, 100);
   };
+
+
+
 
   // console.log(user)
   const { email, state, role, uid } = user;
@@ -29,7 +50,7 @@ const ProfilePage = ({ user, setUser }) => {
         {/* <!-- Sidebar Toggle--> */}
 
         {/* not working toggle */}
-        {/* <button className="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i className="fas fa-bars"></i></button> */}
+        <button className="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i className="fas fa-bars"></i></button>
         {/* <button className="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" onClick="closeNav()"><i className="fas fa-bars"></i></button> */}
         {/* <a href="javascript:void(0)" className="closebtn" onclick="closeNav()">×</a> */}
 
@@ -144,7 +165,7 @@ const ProfilePage = ({ user, setUser }) => {
 
                     <li className="list-group-item">Password <button className="btn btn-primary float-end">Change</button></li>
 
-                    <li className="list-group-item">2FA <span className="float-end ">Verified <i class="fa-solid fa-check"></i></span></li>
+                    <li className="list-group-item">2FA <span className="float-end ">Verified <i className="fa-solid fa-check"></i></span></li>
 
                   </ul>
 
@@ -157,8 +178,8 @@ const ProfilePage = ({ user, setUser }) => {
 
                   <ul className="list-group">
                     <li className="list-group-item list-group-item-secondary" aria-current="true">Profile Verification</li>
-                    <li className="list-group-item">Email Address <span className="float-end ">Verified <i class="fa-solid fa-check"></i></span></li>
-                    <li className="list-group-item">Verify Phone number <span className=" float-end">Verified <i class="fa-solid fa-check"></i></span> </li>
+                    <li className="list-group-item">Email Address <span className="float-end ">Verified <i className="fa-solid fa-check"></i></span></li>
+                    <li className="list-group-item">Verify Phone number <span className=" float-end">Verified <i className="fa-solid fa-check"></i></span> </li>
                     <li className="list-group-item">Complete your profile <button className="btn btn-primary float-end">Verify</button></li>
                     <li className="list-group-item">Verify your identity <button className="btn btn-primary float-end">Verify</button></li>
                     <li className="list-group-item">Verify proof of residence    <button className="btn btn-primary float-end">Verify</button></li>
@@ -199,7 +220,7 @@ const ProfilePage = ({ user, setUser }) => {
 
                   <ul className="list-group">
                     <li className="list-group-item list-group-item-secondary" aria-current="true">Account Activity</li>
-                    <table class="table table-bordered">
+                    <table className="table table-bordered">
                       <thead>
                         <tr>
                           <th scope="col">Date</th>
