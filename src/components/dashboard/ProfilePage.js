@@ -6,6 +6,7 @@ import './css/styles.css';
 // import { useEffect } from 'react';
 // import { Helmet } from "react-helmet";
 import React, { useEffect } from "react";
+import axios from 'axios';
 
 
 const ProfilePage = ({ user, setUser }) => {
@@ -313,39 +314,39 @@ const ProfilePage = ({ user, setUser }) => {
 
                     <form>
 
-                      <div class="form-floating mb-3">
-                        <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
-                          <option selected>Choose option</option>
+                      <div className="form-floating mb-3">
+                        <select className="form-select" id="floatingSelect" aria-label="Floating label select example" defaultValue={'DEFAULT'}>
+                          <option value="DEFAULT" disabled>Choose option</option>
                           <option value="1">BTC</option>
                           <option value="2">ETH</option>
                           <option value="3">AAVE</option>
                         </select>
-                        <label for="floatingSelect">Market</label>
+                        <label htmlFor="floatingSelect">Market</label>
                       </div>
-                      <div class="form-floating mb-3">
-                        <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
-                          <option selected>Choose option</option>
+                      <div className="form-floating mb-3">
+                        <select className="form-select" id="floatingSelect" aria-label="Floating label select example" defaultValue={'DEFAULT'}>
+                          <option value="DEFAULT" disabled>Choose option</option>
                           <option value="1">Buy</option>
                           <option value="2">Sell</option>
                         </select>
-                        <label for="floatingSelect">Order Side</label>
+                        <label htmlFor="floatingSelect">Order Side</label>
                       </div>
-                      <div class="form-floating mb-3">
-                        <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
-                          <option selected>Choose option</option>
+                      <div className="form-floating mb-3">
+                        <select className="form-select" id="floatingSelect" aria-label="Floating label select example" defaultValue={'DEFAULT'}>
+                          <option value="DEFAULT" disabled>Choose option</option>
                           <option value="1">Limit</option>
                           <option value="2">Market</option>
                         </select>
-                        <label for="floatingSelect">Order Type</label>
+                        <label htmlFor="floatingSelect">Order Type</label>
                       </div>
 
-                      <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Price" aria-label="Recipient's username" aria-describedby="basic-addon2" />
-                        <span class="input-group-text" id="basic-addon2">USDT</span>
+                      <div className="input-group mb-3">
+                        <input type="text" className="form-control" placeholder="Price" aria-label="Recipient's username" aria-describedby="basic-addon2" />
+                        <span className="input-group-text" id="basic-addon2">USDT</span>
                       </div>
-                      <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Amount" aria-label="Recipient's username" aria-describedby="basic-addon2" />
-                        <span class="input-group-text" id="basic-addon2">AAVE</span>
+                      <div className="input-group mb-3">
+                        <input type="text" className="form-control" placeholder="Amount" aria-label="Recipient's username" aria-describedby="basic-addon2" />
+                        <span className="input-group-text" id="basic-addon2">AAVE</span>
                       </div>
                       <div className="row mb-3">
                         <div className="col-md-12">
@@ -360,8 +361,8 @@ const ProfilePage = ({ user, setUser }) => {
                       <div className="row mb-3">
                         <div className="col-md-12">
 
-                          <div class="d-grid gap-2">
-                            <button class="btn btn-primary" type="button">Buy</button>
+                          <div className="d-grid gap-2">
+                            <button className="btn btn-primary" type="button">Buy</button>
                           </div>
                         </div>
 
@@ -402,19 +403,19 @@ const ProfilePage = ({ user, setUser }) => {
 
       </div>
 
-      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+      <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div className="modal-dialog">
 
 
-          <div class="modal-content">
+          <div className="modal-content">
 
             <form action="" className="register-form" >
 
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">CHANGE PASSWORD</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              <div className="modal-header">
+                <h5 className="modal-title" id="exampleModalLabel">CHANGE PASSWORD</h5>
+                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
-              <div class="modal-body">
+              <div className="modal-body">
                 {/* <form action="" className="register-form" onSubmit={onSubmit}> */}
 
 
@@ -456,9 +457,9 @@ const ProfilePage = ({ user, setUser }) => {
 
 
               </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+              <div className="modal-footer">
+                <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" className="btn btn-primary">Save changes</button>
               </div>
             </form>
 
