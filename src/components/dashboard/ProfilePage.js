@@ -10,6 +10,14 @@ import axios from 'axios';
 
 
 const ProfilePage = ({ user, setUser }) => {
+
+  // const cors = require('cors');
+  // const corsOptions = {
+  //   origin: 'https://cp.btfd.cc/api/v2/peatio/market/orders',
+  //   credentials: true,            //access-control-allow-credentials:true
+  //   optionSuccessStatus: 200
+  // }
+  // app.use(cors(corsOptions));
   const [market, setMarket] = useState("");
   const [side, setSide] = useState("");
   const [ord_type, setOrd_type] = useState("");
@@ -24,20 +32,39 @@ const ProfilePage = ({ user, setUser }) => {
     let item = { market, side, ord_type, price, volume };
 
     console.log(item);
-    let result = await fetch(
-      "https://cp.btfd.cc/api/v2/peatio/market/orders",
 
+    const headers = {
+      'Content-Type': 'text/plain',
+      // "Access-Control-Allow-Origin": "*"
+    };
+
+    await axios.post(
+      'https://cp.btfd.cc/api/v2/peatio/market/orders',
       {
-        mode: 'no-cors',
-        method: "POST",
-        body: JSON.stringify(item),
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
+        item
+      },
+      { headers }
+    ).then(response => {
+      console.log("Success ========>", response);
+    })
+      .catch(error => {
+        console.log("Error ========>", error);
       }
-    );
-    console.log(result);
+      )
+    // let result = await fetch(
+    //   "https://cp.btfd.cc/api/v2/peatio/market/orders",
+
+    //   {
+    //     mode: 'no-cors',
+    //     method: "POST",
+    //     body: JSON.stringify(item),
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //       Accept: "application/json",
+    //     },
+    //   }
+    // );
+    // console.log(result);
 
     // result = await result.json();
     // console.log({ result });
