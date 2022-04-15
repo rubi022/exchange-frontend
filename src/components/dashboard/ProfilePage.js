@@ -33,38 +33,42 @@ const ProfilePage = ({ user, setUser }) => {
 
     console.log(item);
 
-    const headers = {
-      'Content-Type': 'text/plain',
-      // "Access-Control-Allow-Origin": "*"
-    };
+    // const headers = {
+    //   'Content-Type': 'text/plain',
+    //   "Access-Control-Allow-Origin": "*"
+    // };
 
-    await axios.post(
-      'https://cp.btfd.cc/api/v2/peatio/market/orders',
-      {
-        item
-      },
-      { headers }
-    ).then(response => {
-      console.log("Success ========>", response);
-    })
-      .catch(error => {
-        console.log("Error ========>", error);
-      }
-      )
-    // let result = await fetch(
-    //   "https://cp.btfd.cc/api/v2/peatio/market/orders",
-
+    // await axios.post(
+    //   'https://cp.btfd.cc/api/v2/peatio/market/orders',
     //   {
-    //     mode: 'no-cors',
-    //     method: "POST",
-    //     body: JSON.stringify(item),
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //       Accept: "application/json",
-    //     },
+    //     item
+    //   },
+    //   { headers }
+    // ).then(response => {
+    //   console.log("Success ========>", response);
+    // })
+    //   .catch(error => {
+    //     console.log("Error ========>", error);
     //   }
-    // );
-    // console.log(result);
+    //   )
+    let result = await fetch(
+      "https://cp.btfd.cc/api/v2/peatio/market/orders",
+
+      {
+        // credentials: "same-origin",
+        // credentials: 'include',
+        mode: 'no-cors',
+        // mode: 'same-origin',
+        method: "POST",
+        body: JSON.stringify(item),
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json",
+          "Access-Control-Allow-Origin": "*"
+        },
+      }
+    );
+    console.log(result);
 
     // result = await result.json();
     // console.log({ result });
