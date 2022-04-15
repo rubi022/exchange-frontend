@@ -58,10 +58,12 @@ const ProfilePage = ({ user, setUser }) => {
         // credentials: "same-origin",
         // credentials: 'include',
         mode: 'no-cors',
+        withCredentials: 'true',
         // mode: 'same-origin',
         method: "POST",
         body: JSON.stringify(item),
         headers: {
+
           "Content-Type": "application/json",
           "Accept": "application/json",
           "Access-Control-Allow-Origin": "*"
