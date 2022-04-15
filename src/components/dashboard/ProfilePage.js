@@ -524,24 +524,24 @@ const ProfilePage = ({ user, setUser }) => {
 
                 <input
                   type="password"
-                  // value={password}
-                  // onChange={(e) => setPassword(e.target.value)}
+                  // value={changeOldPassword}
+                  // onChange={(e) => setChangeOldPassword(e.target.value)}
                   className="form-control"
                   placeholder="Old Password"
                 />
                 <br />
                 <input
                   type="password"
-                  // value={confirmPassword}
-                  // onChange={(e) => setConfirmPassword(e.target.value)}
+                  // value={newChangePassword}
+                  // onChange={(e) => setNewChangePassword(e.target.value)}
                   className="form-control"
                   placeholder="New Password"
                 />
                 <br />
                 <input
                   type="password"
-                  // value={confirmPassword}
-                  // onChange={(e) => setConfirmPassword(e.target.value)}
+                  // value={confirmChangePassword}
+                  // onChange={(e) => setConfirmChangePassword(e.target.value)}
                   className="form-control"
                   placeholder="Password Confirmation"
                 />
@@ -560,7 +560,7 @@ const ProfilePage = ({ user, setUser }) => {
               </div>
               <div className="modal-footer">
                 <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" className="btn btn-primary">Save changes</button>
+                <button type="submit" className="btn btn-primary">Save changes</button>
               </div>
             </form>
 
