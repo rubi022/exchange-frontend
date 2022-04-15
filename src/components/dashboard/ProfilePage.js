@@ -8,10 +8,12 @@ import './css/styles.css';
 // import React, { useEffect, useState } from "react";
 import React, { useState } from "react";
 // import axios from 'axios';
+// import { getWithExpiry } from "../../helper/utils";
 
 
 const ProfilePage = ({ user, setUser }) => {
-
+  // const value = getWithExpiry("user-info");
+  // console.log(value);
   // const cors = require('cors');
   // const corsOptions = {
   //   origin: 'https://cp.btfd.cc/api/v2/peatio/market/orders',
@@ -65,12 +67,15 @@ const ProfilePage = ({ user, setUser }) => {
           'Accept': 'application/json',
           'Content-Type': 'application/json',
           'Cache': 'no-cache',
-          Authorization: csrf_token || undefined,
+          'X-Csrf-Token': csrf_token || undefined
+          // Authorization: csrf_token || undefined,
         },
         credentials: 'include',
         body: JSON.stringify(item),
 
-      })
+      });
+
+
 
 
     console.log(result);
