@@ -5,8 +5,9 @@ import './js/datatables-simple-demo.js';
 import './css/styles.css';
 // import { useEffect } from 'react';
 // import { Helmet } from "react-helmet";
-import React, { useEffect, useState } from "react";
-import axios from 'axios';
+// import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+// import axios from 'axios';
 
 
 const ProfilePage = ({ user, setUser }) => {
@@ -30,46 +31,48 @@ const ProfilePage = ({ user, setUser }) => {
     e.preventDefault();
 
     let item = { market, side, ord_type, price, volume };
+    const { csrf_token } = user;
+
 
     console.log(item);
 
-    // const headers = {
-    //   'Content-Type': 'text/plain',
-    //   "Access-Control-Allow-Origin": "*"
-    // };
 
-    // await axios.post(
-    //   'https://cp.btfd.cc/api/v2/peatio/market/orders',
+    // let result = await fetch(
+    //   "https://cp.btfd.cc/api/v2/peatio/market/orders",
+
     //   {
-    //     item
-    //   },
-    //   { headers }
-    // ).then(response => {
-    //   console.log("Success ========>", response);
-    // })
-    //   .catch(error => {
-    //     console.log("Error ========>", error);
+
+    //     mode: 'no-cors',
+    //     withCredentials: 'true',
+    //     method: "POST",
+    //     body: JSON.stringify(item),
+    //     headers: {
+
+    //       "Content-Type": "application/json",
+    //       "Accept": "application/json",
+    //       "Access-Control-Allow-Origin": "*"
+    //     },
     //   }
-    //   )
-    let result = await fetch(
-      "https://cp.btfd.cc/api/v2/peatio/market/orders",
+    // );
 
+    // new request
+    let result = await fetch("https://cp.btfd.cc/api/v2/peatio/market/orders",
       {
-        // credentials: "same-origin",
-        // credentials: 'include',
         mode: 'no-cors',
-        withCredentials: 'true',
-        // mode: 'same-origin',
         method: "POST",
-        body: JSON.stringify(item),
+        withCredentials: 'true',
         headers: {
-
-          "Content-Type": "application/json",
-          "Accept": "application/json",
-          "Access-Control-Allow-Origin": "*"
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+          'Cache': 'no-cache',
+          Authorization: csrf_token || undefined,
         },
-      }
-    );
+        credentials: 'include',
+        body: JSON.stringify(item),
+
+      })
+
+
     console.log(result);
 
     // result = await result.json();
@@ -85,21 +88,7 @@ const ProfilePage = ({ user, setUser }) => {
   }
 
 
-  // for toggle
 
-  // useEffect(() => {
-  //   const script = document.createElement('script');
-
-  //   script.src = "./js/scripts.js";
-  //   script.async = true;
-
-  //   document.body.appendChild(script);
-
-  //   return () => {
-  //     document.body.removeChild(script);
-  //   }
-  // }, []);
-  //   const userDetails = JSON.parse(localStorage.getItem("user-info"));
   if (!user) return <Navigate to="/login" />;
 
 
@@ -121,7 +110,7 @@ const ProfilePage = ({ user, setUser }) => {
   let verfiEmailButtonForPending = false;
 
   // if (state == 'pending') {
-  if (state == 'pending') {
+  if (state === 'pending') {
 
     verfiEmailButtonForPending = true;
   }
@@ -143,8 +132,6 @@ const ProfilePage = ({ user, setUser }) => {
 
           {/* not working toggle */}
           <button className="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i className="fas fa-bars"></i></button>
-          {/* <button className="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" onClick="closeNav()"><i className="fas fa-bars"></i></button> */}
-          {/* <a href="javascript:void(0)" className="closebtn" onclick="closeNav()">×</a> */}
 
           {/* <!-- Navbar Search--> */}
           <form className="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
@@ -156,13 +143,13 @@ const ProfilePage = ({ user, setUser }) => {
           {/* <!-- Navbar--> */}
           <ul className="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
             <li className="nav-item dropdown">
-              <a className="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i className="fas fa-user fa-fw"></i></a>
+              <a className="nav-link dropdown-toggle" id="navbarDropdown" href="/" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i className="fas fa-user fa-fw"></i></a>
               <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                 <li><a className="dropdown-item" href="#!">Settings</a></li>
                 <li><a className="dropdown-item" href="#!">Activity Log</a></li>
                 <li><hr className="dropdown-divider" /></li>
                 {/* <li><a className="dropdown-item" href="#!">Logout</a></li> */}
-                <li><a className="dropdown-item" href="#" onClick={handleLogout}>Logout</a></li>
+                <li><a className="dropdown-item" href="/" onClick={handleLogout}>Logout</a></li>
 
               </ul>
             </li>
@@ -179,7 +166,7 @@ const ProfilePage = ({ user, setUser }) => {
                     Profile
                   </a>
                   <div className="sb-sidenav-menu-heading">Interface</div>
-                  <a className="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                  <a className="nav-link collapsed" href="/" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                     <div className="sb-nav-link-icon"><i className="fas fa-columns"></i></div>
                     Layouts
                     <div className="sb-sidenav-collapse-arrow"><i className="fas fa-angle-down"></i></div>
@@ -190,14 +177,14 @@ const ProfilePage = ({ user, setUser }) => {
                       <a className="nav-link" href="layout-sidenav-light.html">Light Sidenav</a>
                     </nav>
                   </div>
-                  <a className="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+                  <a className="nav-link collapsed" href="/" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
                     <div className="sb-nav-link-icon"><i className="fas fa-book-open"></i></div>
                     Pages
                     <div className="sb-sidenav-collapse-arrow"><i className="fas fa-angle-down"></i></div>
                   </a>
                   <div className="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
                     <nav className="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                      <a className="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
+                      <a className="nav-link collapsed" href="/" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
                         Authentication
                         <div className="sb-sidenav-collapse-arrow"><i className="fas fa-angle-down"></i></div>
                       </a>
@@ -208,7 +195,7 @@ const ProfilePage = ({ user, setUser }) => {
                           <a className="nav-link" href="password.html">Forgot Password</a>
                         </nav>
                       </div>
-                      <a className="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
+                      <a className="nav-link collapsed" href="/" data-bs-toggle="collapse" data-bs-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
                         Error
                         <div className="sb-sidenav-collapse-arrow"><i className="fas fa-angle-down"></i></div>
                       </a>
@@ -478,29 +465,9 @@ const ProfilePage = ({ user, setUser }) => {
 
               </div>
             </main>
-            {/* <footer className="py-4 bg-light mt-auto">
-            <div className="container-fluid px-4">
-              <div className="d-flex align-items-center justify-content-between small">
 
-                <div>
-                  <a href="#">Privacy Policy</a>
-                  &middot;
-                  <a href="#">Terms &amp; Conditions</a>
-                </div>
-              </div>
-            </div>
-          </footer> */}
           </div>
         </div>
-        {/* <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script> */}
-        {/* <script src="js/scripts.js"></script> */}
-        {/* <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script> */}
-        {/* <script src="assets/demo/chart-area-demo.js"></script>
-      <script src="assets/demo/chart-bar-demo.js"></script> */}
-        {/* <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script> */}
-        {/* <script src="js/datatables-simple-demo.js"></script> */}
-
-        {/* <!-- Modal --> */}
 
       </div>
 
