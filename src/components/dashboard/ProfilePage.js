@@ -66,7 +66,7 @@ const ProfilePage = ({ user, setUser }) => {
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json',
-          'Cache': 'no-cache',
+          // 'Cache': 'no-cache',
           'X-Csrf-Token': csrf_token || undefined
           // Authorization: csrf_token || undefined,
         },
