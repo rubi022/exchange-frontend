@@ -102,30 +102,6 @@ const Trade = ({ user, setUser }) => {
     if (!user) return <Navigate to="/login" />;
 
 
-    const handleLogout = async () => {
-        localStorage.removeItem("user-info");
-        setTimeout(() => {
-            setUser("");
-        }, 100);
-    };
-
-
-
-
-
-    // console.log(user);
-    // for the coming user
-    const { email, state, role, uid } = user;
-    // state for verify email
-    let verfiEmailButtonForPending = false;
-
-    // if (state == 'pending') {
-    if (state === 'pending') {
-
-        verfiEmailButtonForPending = true;
-    }
-
-
 
 
     return (
