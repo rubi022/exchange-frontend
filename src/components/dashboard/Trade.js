@@ -27,8 +27,8 @@ const Trade = ({ user, setUser }) => {
     // }
     // app.use(cors(corsOptions));
     const [market, setMarket] = useState("");
-    const [side, setSide] = useState("");
-    const [ord_type, setOrd_type] = useState("");
+    const [side, setSide] = useState("buy");
+    const [ord_type, setOrd_type] = useState("limit");
     const [price, setPrice] = useState("");
     const [volume, setVolume] = useState("");
 
@@ -151,10 +151,11 @@ const Trade = ({ user, setUser }) => {
                                             <div className="form-floating mb-3">
                                                 <select className="form-select" id="floatingSelect" aria-label="Floating label select example"
 
+
                                                     value={side}
                                                     onChange={(e) => setSide(e.target.value)}
                                                     name="side">
-                                                    <option value="buy">Buy</option>
+                                                    <option value="buy" selected>Buy</option>
                                                     <option value="sell">Sell</option>
                                                 </select>
                                                 <label htmlFor="floatingSelect">Order Side</label>
@@ -166,7 +167,7 @@ const Trade = ({ user, setUser }) => {
                                                     value={ord_type}
                                                     onChange={(e) => setOrd_type(e.target.value)}
                                                     name="ord_type">
-                                                    <option value="limit">Limit</option>
+                                                    <option value="limit" selected>Limit</option>
                                                     <option value="market">Market</option>
                                                 </select>
                                                 <label htmlFor="floatingSelect">Order Type</label>
