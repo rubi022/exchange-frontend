@@ -19,30 +19,32 @@ const ProfilePage = ({ user, setUser }) => {
   // for change password
 
   const [changeOldPassword, setChangeOldPassword] = useState("");
-  const [newChangePassword, setNewChangePassword] = useState("");
-  const [confirmNewChangePassword, setConfirmNewChangePassword] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirm_password, setConfirm_password] = useState("");
 
   // submit chnage password modal form
   const onPasswordChangeModalSubmit = async (e) => {
+
+    const { csrf_token } = user;
+    let reset_password_token = csrf_token;
+    // console.log(csrf_token);
+
     e.preventDefault();
 
-    let item = { changeOldPassword, newChangePassword, confirmNewChangePassword };
+    let item = { reset_password_token, password, confirm_password };
 
 
     console.log(item);
 
 
     // new request
-    let result = await fetch("https://cp.btfd.cc/api/v2/peatio/market/orders",
+    let result = await fetch("https://cp.btfd.cc/api/v2/barong/identity/users/password/confirm_code",
       {
-        mode: 'no-cors',
         method: "POST",
-        withCredentials: 'true',
         headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
+          Accept: "application/json",
         },
-        credentials: 'include',
         body: JSON.stringify(item),
 
       });
@@ -67,7 +69,10 @@ const ProfilePage = ({ user, setUser }) => {
 
   // console.log(user);
   // for the coming user
-  const { email, state, role, uid } = user;
+  const { email, state, role, uid, csrf_token } = user;
+  let reset_password_token = csrf_token;
+
+
   // state for verify email
   let verifyEmailButtonForPending = false;
 
@@ -264,6 +269,13 @@ const ProfilePage = ({ user, setUser }) => {
                 <br />
 
                 <input
+                  type="hidden"
+                  value={reset_password_token}
+                  className="form-control"
+                />
+                <br />
+
+                <input
                   type="password"
                   value={changeOldPassword}
                   onChange={(e) => setChangeOldPassword(e.target.value)}
@@ -273,16 +285,16 @@ const ProfilePage = ({ user, setUser }) => {
                 <br />
                 <input
                   type="password"
-                  value={newChangePassword}
-                  onChange={(e) => setNewChangePassword(e.target.value)}
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                   className="form-control"
                   placeholder="New Password"
                 />
                 <br />
                 <input
                   type="password"
-                  value={confirmNewChangePassword}
-                  onChange={(e) => setConfirmNewChangePassword(e.target.value)}
+                  value={confirm_password}
+                  onChange={(e) => setConfirm_password(e.target.value)}
                   className="form-control"
                   placeholder="Password Confirmation"
                 />
