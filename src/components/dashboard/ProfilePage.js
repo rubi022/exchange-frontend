@@ -16,6 +16,46 @@ import DashboardLayoutSideNav from "./base/DashboardLayoutSideNav.js";
 
 const ProfilePage = ({ user, setUser }) => {
 
+  // for change password
+
+  const [changeOldPassword, setChangeOldPassword] = useState("");
+  const [newChangePassword, setNewChangePassword] = useState("");
+  const [confirmNewChangePassword, setConfirmNewChangePassword] = useState("");
+
+  // submit chnage password modal form
+  const onPasswordChangeModalSubmit = async (e) => {
+    e.preventDefault();
+
+    let item = { changeOldPassword, newChangePassword, confirmNewChangePassword };
+
+
+    console.log(item);
+
+
+    // new request
+    let result = await fetch("https://cp.btfd.cc/api/v2/peatio/market/orders",
+      {
+        mode: 'no-cors',
+        method: "POST",
+        withCredentials: 'true',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
+        credentials: 'include',
+        body: JSON.stringify(item),
+
+      });
+
+
+
+
+    console.log(result);
+
+
+  }
+
+
 
   if (!user) return <Navigate to="/login" />;
 
@@ -211,7 +251,7 @@ const ProfilePage = ({ user, setUser }) => {
 
           <div className="modal-content">
 
-            <form action="" className="register-form" >
+            <form action="" className="register-form" onSubmit={onPasswordChangeModalSubmit}>
 
               <div className="modal-header">
                 <h5 className="modal-title" id="exampleModalLabel">CHANGE PASSWORD</h5>
@@ -225,24 +265,24 @@ const ProfilePage = ({ user, setUser }) => {
 
                 <input
                   type="password"
-                  // value={changeOldPassword}
-                  // onChange={(e) => setChangeOldPassword(e.target.value)}
+                  value={changeOldPassword}
+                  onChange={(e) => setChangeOldPassword(e.target.value)}
                   className="form-control"
                   placeholder="Old Password"
                 />
                 <br />
                 <input
                   type="password"
-                  // value={newChangePassword}
-                  // onChange={(e) => setNewChangePassword(e.target.value)}
+                  value={newChangePassword}
+                  onChange={(e) => setNewChangePassword(e.target.value)}
                   className="form-control"
                   placeholder="New Password"
                 />
                 <br />
                 <input
                   type="password"
-                  // value={confirmChangePassword}
-                  // onChange={(e) => setConfirmChangePassword(e.target.value)}
+                  value={confirmNewChangePassword}
+                  onChange={(e) => setConfirmNewChangePassword(e.target.value)}
                   className="form-control"
                   placeholder="Password Confirmation"
                 />
@@ -261,7 +301,9 @@ const ProfilePage = ({ user, setUser }) => {
               </div>
               <div className="modal-footer">
                 <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="submit" className="btn btn-primary">Save changes</button>
+                <input type="submit" value="Save changes" className="btn btn-primary" />
+
+                {/* <button type="submit" className="btn btn-primary">Save changes</button> */}
               </div>
             </form>
 
