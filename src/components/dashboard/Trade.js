@@ -75,7 +75,8 @@ const Trade = ({ user, setUser }) => {
                     'X-Csrf-Token': csrf_token || undefined
                     // Authorization: csrf_token || undefined,
                 },
-                credentials: 'include',
+                credentials: 'same-origin',
+                // credentials: 'include',
                 body: JSON.stringify(item),
 
             });
@@ -155,7 +156,7 @@ const Trade = ({ user, setUser }) => {
                                                     value={side}
                                                     onChange={(e) => setSide(e.target.value)}
                                                     name="side">
-                                                    <option value="buy" selected>Buy</option>
+                                                    <option value="buy">Buy</option>
                                                     <option value="sell">Sell</option>
                                                 </select>
                                                 <label htmlFor="floatingSelect">Order Side</label>
@@ -167,7 +168,7 @@ const Trade = ({ user, setUser }) => {
                                                     value={ord_type}
                                                     onChange={(e) => setOrd_type(e.target.value)}
                                                     name="ord_type">
-                                                    <option value="limit" selected>Limit</option>
+                                                    <option value="limit">Limit</option>
                                                     <option value="market">Market</option>
                                                 </select>
                                                 <label htmlFor="floatingSelect">Order Type</label>
