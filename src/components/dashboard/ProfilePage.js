@@ -18,28 +18,26 @@ const ProfilePage = ({ user, setUser }) => {
 
   // for change password
 
-  const [changeOldPassword, setChangeOldPassword] = useState("");
-  const [password, setPassword] = useState("");
+  const [old_password, setOld_password] = useState("");
+  const [new_password, setNew_password] = useState("");
   const [confirm_password, setConfirm_password] = useState("");
 
   // submit chnage password modal form
   const onPasswordChangeModalSubmit = async (e) => {
 
-    const { csrf_token } = user;
-    let reset_password_token = csrf_token;
-    // console.log(csrf_token);
 
     e.preventDefault();
 
-    let item = { reset_password_token, password, confirm_password };
+    let item = { old_password, new_password, confirm_password };
 
 
     console.log(item);
 
 
     // new request
-    let result = await fetch("https://cp.btfd.cc/api/v2/barong/identity/users/password/confirm_code",
+    let result = await fetch("https://cp.btfd.cc/api/v2/barong/resource/users/password",
       {
+        mode: 'no-cors',
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -49,6 +47,11 @@ const ProfilePage = ({ user, setUser }) => {
 
       });
 
+    if (!result.ok) {
+      console.log(`An error has occured: ${result.status} - ${result.statusText}`);
+    }
+    // const data = await result.json();
+    // console.log(data);
 
 
 
@@ -69,8 +72,8 @@ const ProfilePage = ({ user, setUser }) => {
 
   // console.log(user);
   // for the coming user
-  const { email, state, role, uid, csrf_token } = user;
-  let reset_password_token = csrf_token;
+  const { email, state, role, uid } = user;
+  // let reset_password_token = csrf_token;
 
 
   // state for verify email
@@ -256,37 +259,29 @@ const ProfilePage = ({ user, setUser }) => {
 
           <div className="modal-content">
 
-            <form action="" className="register-form" onSubmit={onPasswordChangeModalSubmit}>
+            <form onSubmit={onPasswordChangeModalSubmit}>
 
               <div className="modal-header">
                 <h5 className="modal-title" id="exampleModalLabel">CHANGE PASSWORD</h5>
                 <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div className="modal-body">
-                {/* <form action="" className="register-form" onSubmit={onSubmit}> */}
 
 
-                <br />
-
-                <input
-                  type="hidden"
-                  value={reset_password_token}
-                  className="form-control"
-                />
                 <br />
 
                 <input
                   type="password"
-                  value={changeOldPassword}
-                  onChange={(e) => setChangeOldPassword(e.target.value)}
+                  value={old_password}
+                  onChange={(e) => setOld_password(e.target.value)}
                   className="form-control"
                   placeholder="Old Password"
                 />
                 <br />
                 <input
                   type="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
+                  value={new_password}
+                  onChange={(e) => setNew_password(e.target.value)}
                   className="form-control"
                   placeholder="New Password"
                 />

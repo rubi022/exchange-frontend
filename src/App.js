@@ -6,6 +6,7 @@ import Register from "./components/Register";
 import Login from "./components/Login";
 import ProfilePage from "./components/dashboard/ProfilePage";
 import Trade from "./components/dashboard/Trade";
+import Balance from "./components/dashboard/Balance";
 import VerifyEmail from "./components/VerifyEmail";
 import { useCallback, useEffect, useState } from "react";
 import { getWithExpiry } from "./helper/utils";
@@ -28,6 +29,7 @@ function App() {
       <Routes>
         <Route exact path="/" element={<ProfilePage user={user} setUser={setUser} />} />
         <Route path="trade" element={<Trade user={user} setUser={setUser} />} />
+        <Route path="balance" element={<Balance user={user} setUser={setUser} />} />
         <Route path="register" element={<Register user={user} />} />
         <Route path="login" element={<Login user={user} setUser={setUser} />} />
         <Route

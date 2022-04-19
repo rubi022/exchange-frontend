@@ -42,7 +42,9 @@ function DashboardNavbar({ user, setUser }) {
                         <li><Link className="dropdown-item" to="/trade">
                             Trade
                         </Link></li>
-
+                        <li><Link className="dropdown-item" to="/balance">
+                            Balance
+                        </Link></li>
 
 
                         {/* <li><a className="dropdown-item" href="#!">Activity Log</a></li> */}

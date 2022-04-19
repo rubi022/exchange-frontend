@@ -71,8 +71,9 @@ const Trade = ({ user, setUser }) => {
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${csrf_token}`,
                     // 'Cache': 'no-cache',
-                    'X-Csrf-Token': csrf_token || undefined
+                    // 'X-Csrf-Token': csrf_token || undefined
                     // Authorization: csrf_token || undefined,
                 },
                 credentials: 'same-origin',
