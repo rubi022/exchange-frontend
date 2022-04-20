@@ -17,6 +17,10 @@ function DashboardLayoutSideNav() {
                             <div className="sb-nav-link-icon"><i className="fas fa-tachometer-alt"></i></div>
                             Trade
                         </Link>
+                        <Link className="nav-link" to="/balance">
+                            <div className="sb-nav-link-icon"><i className="fas fa-tachometer-alt"></i></div>
+                            Balance
+                        </Link>
 
                         <div className="sb-sidenav-menu-heading">Others</div>
 

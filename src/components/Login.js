@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import { setWithExpiry } from "../helper/utils";
 import loginImg from '../usingImages/loginImg.svg';
-
+import Cookies from 'js-cookie'
 
 // import React, { useState, useEffect } from "react";
 
@@ -31,7 +31,7 @@ const Login = ({ user, setUser }) => {
       }
     );
     result = await result.json();
-    console.log({ result });
+    // console.log({ result });
     if (result?.errors)
       return toast.error("Authentication failed", {
         position: "top-center",
@@ -39,7 +39,7 @@ const Login = ({ user, setUser }) => {
     console.log("result", result);
     if (keepLogged) setWithExpiry("user-info", result, 86400000);
     //  localStorage.setItem("user-info", JSON.stringify(result));
-
+    Cookies.set('_barong_session', '4af227c8260cca0fc50de31800798b88', { expires: 7 })
     setUser(result);
     // navigate('/product');
   }
