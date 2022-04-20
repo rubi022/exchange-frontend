@@ -32,6 +32,7 @@ const ProfilePage = ({ user, setUser }) => {
 
 
     console.log(item);
+    // console.log(user);
 
 
     // new request

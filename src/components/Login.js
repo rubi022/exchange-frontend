@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import { setWithExpiry } from "../helper/utils";
 import loginImg from '../usingImages/loginImg.svg';
-import Cookies from 'js-cookie'
+import Cookies from 'js-cookie';
 
 // import React, { useState, useEffect } from "react";
 
@@ -23,6 +23,7 @@ const Login = ({ user, setUser }) => {
 
       {
         method: "POST",
+        withCredentials: 'true',
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",

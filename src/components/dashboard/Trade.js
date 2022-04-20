@@ -7,11 +7,12 @@ import './css/styles.css';
 // import { Helmet } from "react-helmet";
 // import React, { useEffect, useState } from "react";
 import React, { useState } from "react";
-// import axios from 'axios';
+import axios from 'axios';
 // import { getWithExpiry } from "../../helper/utils";
 import { Link } from "react-router-dom";
 import DashboardNavbar from "./base/DashboardNavbar";
 import DashboardLayoutSideNav from "./base/DashboardLayoutSideNav.js";
+import Cookies from 'js-cookie';
 
 
 
@@ -33,13 +34,21 @@ const Trade = ({ user, setUser }) => {
     const [volume, setVolume] = useState("");
 
 
+    // console.log(user);
+
+
     // submit buy sell form
     const onSubmitBuySell = async (e) => {
         e.preventDefault();
+        const cookieFromLogin = Cookies.get('_barong_session');
 
+        // let item = { market, side, ord_type, price, volume, cookieFromLogin };
         let item = { market, side, ord_type, price, volume };
-        const { csrf_token } = user;
 
+        const { csrf_token } = user;
+        // console.log(user);
+        // const cookieFromLogin = Cookies.get('_barong_session');
+        // console.log(cookieFromLogin);
 
         console.log(item);
 
@@ -72,6 +81,7 @@ const Trade = ({ user, setUser }) => {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${csrf_token}`,
+                    'Cookie': cookieFromLogin || undefined
                     // 'Cache': 'no-cache',
                     // 'X-Csrf-Token': csrf_token || undefined
                     // Authorization: csrf_token || undefined,
@@ -82,7 +92,9 @@ const Trade = ({ user, setUser }) => {
 
             });
 
+        // another req
 
+        // let result = await axios.post('https://cp.btfd.cc/api/v2/peatio/market/orders', item, { withCredentials: true });
 
 
         console.log(result);
