@@ -13,77 +13,47 @@ import { Link } from 'react-router-dom'
 import DashboardNavbar from './base/DashboardNavbar'
 import DashboardLayoutSideNav from './base/DashboardLayoutSideNav.js'
 import Cookies from 'js-cookie'
+import MarketList from './MarketList.js'
 
 const Market = ({ user, setUser }) => {
     const url = 'https://cp.btfd.cc/api/v2/peatio/public/markets'
 
-    const [marketDetails, setMarketDetails] = useState(null)
-
-    // useEffect(() => {
-    //     async function getBalanceData() {
-    //         let response = await fetch(url, {
-    //             mode: 'no-cors',
-    //             method: 'GET',
-    //             headers: {
-    //                 'Content-Type': 'application/json',
-    //                 Accept: 'application/json',
-    //             },
-    //         })
-
-    //         if (!response.ok) {
-    //             console.log(
-    //                 `An error has occured: ${response.status} - ${response.statusText}`
-    //             )
-    //         } else {
-    //             console.log(
-    //                 `it worked: ${response.status} - ${response.statusText}`
-    //             )
-    //         }
-    //         // const data = await response.json();
-    //         // console.log(data);
-    //         // setBalance(data);
-    //         // setBalance(response.json());
-
-    //         console.log(response)
-    //     }
-
-    //     getBalanceData()
-    // }, [url])
-
-    // useLayoutEffect(
-    //     function () {
-    //         fetch(url)
-    //             .then((res) => res.json())
-    //             .then((data) => setMarketDetails(data));
-
-
-    //     },
-    //     [url]
-    // )
+    const [marketDetails, setMarketDetails] = useState([])
 
     useEffect(() => {
+        let isMounted = true;
+
         async function getMarketData() {
-            const res = await fetch(url)
-            const data = await res.json()
-            setMarketDetails(data)
+            const res = await fetch(url);
+            const data = await res.json();
+            if (isMounted) setMarketDetails(data);
+
         }
-        getMarketData()
+        getMarketData();
+
+        return () => { isMounted = false };
     }, [])
 
-    console.log(marketDetails);
-
-    // marketDetails.map((market) => {
-    //     return console.log(market);
-    // })
+    // console.log(marketDetails);
 
 
-    // useEffect(() => {
-    //     let isMounted = true;               // note mutable flag
-    //     someAsyncOperation().then(data => {
-    //       if (isMounted) setState(data);    // add conditional check
-    //     })
-    //     return () => { isMounted = false }; // cleanup toggles value, if unmounted
-    //   }, []);     
+    const markets = marketDetails.map(market => {
+        return (
+            <MarketList
+                key={market.id}
+                name={market.name}
+                max_price={market.max_price}
+                min_amount={market.min_amount}
+                min_price={market.min_price}
+
+
+            />
+        )
+    })
+
+
+
+
 
     if (!user) return <Navigate to="/login" />
 
@@ -133,42 +103,7 @@ const Market = ({ user, setUser }) => {
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    {/* <tr>
-                                                        <td>market</td>
-
-                                                        <td>name</td>
-                                                        <td>Succeed</td>
-                                                        <td>103.151.2.4</td>
-                                                        <td>
-                                                            Chrome windows 10
-                                                        </td>
-                                                        <td>
-                                                            Chrome windows 10
-                                                        </td>
-                                                    </tr> */}
-
-                                                    {
-                                                        marketDetails.map(market => {
-
-                                                            return (
-
-                                                                <tr>
-                                                                    <td>{market.name}</td>
-
-                                                                    <td>{market.max_price}</td>
-                                                                    <td>{market.min_amount}</td>
-                                                                    <td>{market.min_price}</td>
-                                                                    <td>
-                                                                        {market.min_price}
-                                                                    </td>
-                                                                    <td>
-                                                                        {market.min_price}
-                                                                    </td>
-                                                                </tr>
-
-                                                            )
-                                                        })
-                                                    }
+                                                    {markets}
 
 
                                                 </tbody>
