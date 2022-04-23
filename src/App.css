@@ -1,33 +1,37 @@
-.card {
-  padding: 20px;
-  background-color: #28334e !important;
-}
-
-.resgister-div {
-  margin-top: 30px;
-}
 .navbar {
-  background-color: #28334e !important;
+  /* background-color: #28334e !important; */
+  background-color: white !important;
+  box-shadow: 1px 3px 11px -2px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 1px 3px 11px -2px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 1px 3px 11px -2px rgba(0, 0, 0, 0.75);
+
+  margin-bottom: 200px;
 }
 .right-nav-item .nav-link {
-  color: white !important;
+  /* color: white !important; */
+  color: black !important;
 }
 .right-nav-item .btn-register-nav {
-  background-color: #386dc9 !important;
+  /* background-color: #386dc9 !important; */
+  background-color: #f35b04 !important;
 }
 .navbar-nav .nav-link {
-  color: white;
+  color: black;
 }
-.navbar-nav .bg-secondary {
-  background-color: #737f92 !important;
-  color: #28334e !important;
+.navbar-brand .bg-secondary {
+  background-color: #f35b04 !important;
+
+  color: black !important;
 }
-.card .btn-login-focus:focus {
-  outline: 0 !important;
-  box-shadow: none !important;
-}
+
 .App {
-  background: url(../public/images/background.svg);
+  /* background: url(../public/images/background.svg); */
+  /* background: url(../public/images/44-442931_svg-transparent-euclidean-bending-background-transprent-vector-lines.png); */
+  /* background: url(../public/images/Background-SVG-by-Andrew-McClintock-on-Dribbble.gif); */
+
+  /* background: url(../public/images/scg-canvas-background-animation-24.jpg); */
+  background: url(../public/images/an.jpg);
+
   background-size: cover;
   height: 900px;
   /* height: calc(100vh - calc(0.5em * 9.84));
@@ -37,50 +41,99 @@
   color: var(--secondary-contrast-cta-color);
   background-color: #171c29;
 }
-.card .btn-sign {
-  background-color: #007bff;
-  color: white;
-}
-.card .btn-sign:hover {
-  background-color: #007bff;
-  color: white;
+
+.card-sign {
+  /* padding: 20px; */
+  background-color: transparent !important;
+  max-height: 600px !important;
+  border: 2px solid black !important;
 }
 
-.card .btn-group-top-reg {
-  background-color: #28334e;
-  color: white;
+.resgister-div {
+  margin-top: 200px;
+}
+
+.card-sign .btn-login-focus:focus {
   outline: 0 !important;
   box-shadow: none !important;
 }
-.card .btn-group-top-reg:hover {
-  background-color: #28334e;
+.card-sign .btn-sign {
+  background-color: #f35b04;
+
   color: white;
+}
+.card-sign .btn-sign:hover {
+  background-color: #f35b04;
+
+  color: white;
+}
+/* .btn-full-width-top-register-div {
+  width: 100%;
+  margin: 0 !important;
+padding: 0 !important;
+} */
+
+.card-sign .btn-group-top-reg {
+  /* background-color: #28334e; */
+  background-color: #929dac;
+
+  color: black;
   outline: 0 !important;
   box-shadow: none !important;
 }
-.card .btn-group-top-log {
-  background-color: #28334e;
-  color: white;
+.card-sign .btn-group-top-reg:hover {
+  /* background-color: #28334e; */
+  background-color: #929dac;
+
+  color: black;
+
   outline: 0 !important;
   box-shadow: none !important;
 }
-.card .btn-group-top-log:hover {
-  background-color: #28334e;
-  color: white;
+.card-top-link {
+  text-align: center;
+}
+
+.card-top-link .card-header-sign-link {
+  text-decoration: none;
+  text-align: center !important;
+  color: black;
+}
+.card-sign .btn-group-top-log {
+  background-color: #929dac;
+
+  color: black;
   outline: 0 !important;
   box-shadow: none !important;
+}
+.card-sign .btn-group-top-log:hover {
+  background-color: #929dac;
+
+  color: black;
+  outline: 0 !important;
+  box-shadow: none !important;
+}
+.login-form,
+.register-form {
+  margin: 20px;
 }
 
 .landing-div {
-  color: white;
+  color: black;
 }
 .card-sign .form-control {
-  background-color: #1e2841;
+  background-color: #cbd0db;
   color: white;
 }
 .card-sign .form-control:focus {
-  background-color: #1e2841;
-  color: white;
+  /* background-color: #cbd0db;
+  color: white; */
+  /* border-color: #f35b04; */
+  /* border: 2px solid #f35b04;
+  outline: 0 none !important; */
+
+  border-color: #f35b04;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px white;
 }
 .verify-email-div {
   margin-top: 30px;

@@ -61,19 +61,30 @@ const Register = ({ user }) => {
   };
 
   return (
-    <div className="col-sm-4 offset-sm-4 resgister-div">
+    <div className="col-sm-6 offset-sm-3 resgister-div">
       <div className="card card-sign">
-        <div className="btn-group">
-          <Link
-            to="/register"
-            className="btn btn-group-top-reg active"
-            aria-current="page"
-          >
-            SIGN UP{" "}
-          </Link>
-          <Link to="/login" className="btn btn-group-top-log">
-            SIGN IN
-          </Link>
+
+        <div class="card-header">
+
+          <div className="row">
+            <div className="col-md-6 card-top-link">
+              <Link
+                to="/register"
+                className="card-header-sign-link"
+                aria-current="page"
+              >
+                SIGN UP{" "}
+              </Link>
+            </div>
+
+            <div className="col-md-6 card-top-link">
+              <Link to="/login" className="card-header-sign-link ">
+                SIGN IN
+              </Link>
+            </div>
+          </div>
+
+
         </div>
         <br />
 
@@ -82,7 +93,7 @@ const Register = ({ user }) => {
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="form-control"
+            className="form-control form-control-lg"
             placeholder="Email"
           />
           <br />
@@ -91,7 +102,7 @@ const Register = ({ user }) => {
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="form-control"
+            className="form-control form-control-lg"
             placeholder="Password"
           />
           <br />
@@ -99,7 +110,7 @@ const Register = ({ user }) => {
             type="password"
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
-            className="form-control"
+            className="form-control form-control-lg"
             placeholder="Confirm Password"
           />
           <br />

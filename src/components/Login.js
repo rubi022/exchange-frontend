@@ -41,21 +41,36 @@ const Login = ({ user, setUser }) => {
     // navigate('/product');
   }
   return (
-    <div className="col-sm-4 offset-sm-4 resgister-div">
+    <div className="col-sm-6 offset-sm-3 resgister-div">
       <ToastContainer />
       <div className="card card-sign">
-        <div className="btn-group">
-          <Link
-            to="/register"
-            className="btn btn-group-top-reg active"
-            aria-current="page"
-          >
-            SIGN UP
-          </Link>
-          <Link to="/login" className="btn btn-group-top-log ">
-            SIGN IN
-          </Link>
+
+        <div class="card-header">
+
+          <div className="row">
+            <div className="col-md-6 card-top-link">
+              <Link
+                to="/register"
+                className="card-header-sign-link"
+                aria-current="page"
+              >
+                SIGN UP
+              </Link>
+            </div>
+
+            <div className="col-md-6 card-top-link">
+              <Link to="/login" className="card-header-sign-link ">
+                SIGN IN
+              </Link>
+            </div>
+          </div>
+
+          {/* <div className="btn-group btn-full-width-top-register-div">
+        
+        
+          </div> */}
         </div>
+
         <br />
 
         <form action="" className="login-form" onSubmit={onSubmit}>
@@ -63,7 +78,7 @@ const Login = ({ user, setUser }) => {
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="form-control"
+            className="form-control form-control-lg"
             placeholder="Email"
             required
           />
@@ -72,7 +87,7 @@ const Login = ({ user, setUser }) => {
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="form-control"
+            className="form-control form-control-lg"
             placeholder="Password"
             required
           />
@@ -82,7 +97,7 @@ const Login = ({ user, setUser }) => {
             onChange={(e) => setKeepLogged(e.target.checked)}
             type="checkbox"
           />{" "}
-          <span style={{ marginLeft: "10px", color: "#FFF" }}>
+          <span style={{ marginLeft: "10px", color: "black", fontWeight: "bold" }}>
             Keep me logged in
           </span>
           <br />
