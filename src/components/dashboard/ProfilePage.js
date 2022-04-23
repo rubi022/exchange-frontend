@@ -1,8 +1,8 @@
 import { Navigate } from "react-router-dom";
 // import './css/customProfile.css';
 // import './js/scripts.js';
-import './js/datatables-simple-demo.js';
-import './css/styles.css';
+import "./js/datatables-simple-demo.js";
+import "./css/styles.css";
 // import { useEffect } from 'react';
 // import { Helmet } from "react-helmet";
 // import React, { useEffect, useState } from "react";
@@ -12,10 +12,10 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import DashboardNavbar from "./base/DashboardNavbar";
 import DashboardLayoutSideNav from "./base/DashboardLayoutSideNav.js";
-
+import axios from "axios";
 
 const ProfilePage = ({ user, setUser }) => {
-
+  const getIteminfo = JSON.parse(localStorage.getItem("user-info"));
   // for change password
 
   const [old_password, setOld_password] = useState("");
@@ -24,77 +24,51 @@ const ProfilePage = ({ user, setUser }) => {
 
   // submit chnage password modal form
   const onPasswordChangeModalSubmit = async (e) => {
-
-
     e.preventDefault();
 
     let item = { old_password, new_password, confirm_password };
 
-
     console.log(item);
     // console.log(user);
 
-
-    // new request
-    let result = await fetch("https://cp.btfd.cc/api/v2/barong/resource/users/password",
+    let result = await axios.put(
+      "https://cp.btfd.cc/api/v2/barong/resource/users/password",
+      JSON.stringify(item),
       {
-        mode: 'no-cors',
-        method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Accept: "application/json",
+          "X-CSRF-TOKEN": getIteminfo.value.csrf_token,
+          "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
         },
-        body: JSON.stringify(item),
-
-      });
+      }
+    );
 
     if (!result.ok) {
-      console.log(`An error has occured: ${result.status} - ${result.statusText}`);
+      console.log(
+        `An error has occured: ${result.status} - ${result.statusText}`
+      );
     }
     // const data = await result.json();
     // console.log(data);
-
-
-
-    console.log(result);
-
-
-  }
-
-
+  };
 
   if (!user) return <Navigate to="/login" />;
-
-
-
-
-
-
 
   // console.log(user);
   // for the coming user
   const { email, state, role, uid } = user;
   // let reset_password_token = csrf_token;
 
-
   // state for verify email
   let verifyEmailButtonForPending = false;
 
   // if (state == 'pending') {
-  if (state === 'pending') {
-
+  if (state === "pending") {
     verifyEmailButtonForPending = true;
   }
 
-
-
-
   return (
-
     <div>
-
-
-
       <div className="sb-nav-fixed profilediv">
         <DashboardNavbar user={user} setUser={setUser} />
         <div id="layoutSidenav">
@@ -102,94 +76,123 @@ const ProfilePage = ({ user, setUser }) => {
           <div id="layoutSidenav_content">
             <main>
               <div className="container-fluid px-4">
-
                 {/* profiles details */}
                 <div className="row mt-4 profile-list-row">
                   <div className="col-xl-6 col-md-6 profile-list-div">
-
-
-
                     <ul className="list-group">
-                      <li className="list-group-item list-group-item-secondary" aria-current="true">User Details</li>
+                      <li
+                        className="list-group-item list-group-item-secondary"
+                        aria-current="true"
+                      >
+                        User Details
+                      </li>
                       <li className="list-group-item">Email: {email}</li>
                       <li className="list-group-item">UID: {uid}</li>
                       <li className="list-group-item">Role: {role}</li>
-                      <li className="list-group-item">State:
+                      <li className="list-group-item">
+                        State:
                         {/* <span className="badge bg-primary rounded-pill">{state}</span> */}
-
-                        {
-
-                          verifyEmailButtonForPending ?
-                            (<button className="btn btn-danger float-end">Verify Email</button>)
-                            : (<span className="badge bg-primary rounded-pill">{state}</span>)
-
-
-
-
-                        }
+                        {verifyEmailButtonForPending ? (
+                          <button className="btn btn-danger float-end">
+                            Verify Email
+                          </button>
+                        ) : (
+                          <span className="badge bg-primary rounded-pill">
+                            {state}
+                          </span>
+                        )}
                       </li>
-                      <li className="list-group-item">Password
+                      <li className="list-group-item">
+                        Password
                         {/* <button className="btn btn-primary float-end">Change</button> */}
-                        <button type="button" className="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <button
+                          type="button"
+                          className="btn btn-primary float-end"
+                          data-bs-toggle="modal"
+                          data-bs-target="#exampleModal"
+                        >
                           Change
                         </button>
                       </li>
 
-                      <li className="list-group-item">2FA <button className="btn btn-primary float-end">Enable 2FA</button></li>
-
+                      <li className="list-group-item">
+                        2FA{" "}
+                        <button className="btn btn-primary float-end">
+                          Enable 2FA
+                        </button>
+                      </li>
                     </ul>
-
-
-
-
                   </div>
 
                   <div className="col-xl-6 col-md-6 profile-list-div">
-
                     <ul className="list-group">
-                      <li className="list-group-item list-group-item-secondary" aria-current="true">Profile Verification</li>
-                      <li className="list-group-item">Email Address <span className="float-end ">Verified <i className="fa-solid fa-check"></i></span></li>
-                      <li className="list-group-item">Verify Phone number <span className=" float-end">Verified <i className="fa-solid fa-check"></i></span> </li>
-                      <li className="list-group-item">Complete your profile <button className="btn btn-primary float-end">Verify</button></li>
-                      <li className="list-group-item">Verify your identity <button className="btn btn-primary float-end">Verify</button></li>
-                      <li className="list-group-item">Verify proof of residence    <button className="btn btn-primary float-end">Verify</button></li>
-
+                      <li
+                        className="list-group-item list-group-item-secondary"
+                        aria-current="true"
+                      >
+                        Profile Verification
+                      </li>
+                      <li className="list-group-item">
+                        Email Address{" "}
+                        <span className="float-end ">
+                          Verified <i className="fa-solid fa-check"></i>
+                        </span>
+                      </li>
+                      <li className="list-group-item">
+                        Verify Phone number{" "}
+                        <span className=" float-end">
+                          Verified <i className="fa-solid fa-check"></i>
+                        </span>{" "}
+                      </li>
+                      <li className="list-group-item">
+                        Complete your profile{" "}
+                        <button className="btn btn-primary float-end">
+                          Verify
+                        </button>
+                      </li>
+                      <li className="list-group-item">
+                        Verify your identity{" "}
+                        <button className="btn btn-primary float-end">
+                          Verify
+                        </button>
+                      </li>
+                      <li className="list-group-item">
+                        Verify proof of residence{" "}
+                        <button className="btn btn-primary float-end">
+                          Verify
+                        </button>
+                      </li>
                     </ul>
-
-
-
-
                   </div>
                 </div>
 
                 {/* api keys */}
                 <div className="row mt-4 profile-list-row">
                   <div className="col-xl-12 col-md-12 profile-list-div">
-
-
-
                     <ul className="list-group">
-                      <li className="list-group-item list-group-item-secondary" aria-current="true">My API Keys</li>
-                      <li className="list-group-item text-center">Please enable Two-factor authentication</li>
-
+                      <li
+                        className="list-group-item list-group-item-secondary"
+                        aria-current="true"
+                      >
+                        My API Keys
+                      </li>
+                      <li className="list-group-item text-center">
+                        Please enable Two-factor authentication
+                      </li>
                     </ul>
-
-
-
-
                   </div>
-
-
                 </div>
 
                 {/* account activity */}
                 <div className="row mt-4 profile-list-row">
                   <div className="col-xl-12 col-md-12 profile-list-div">
-
-
-
                     <ul className="list-group">
-                      <li className="list-group-item list-group-item-secondary" aria-current="true">Account Activity</li>
+                      <li
+                        className="list-group-item list-group-item-secondary"
+                        aria-current="true"
+                      >
+                        Account Activity
+                      </li>
                       <table className="table table-bordered">
                         <thead>
                           <tr>
@@ -198,7 +201,6 @@ const ProfilePage = ({ user, setUser }) => {
                             <th scope="col">Result</th>
                             <th scope="col">Address IP</th>
                             <th scope="col">User Agent</th>
-
                           </tr>
                         </thead>
                         <tbody>
@@ -209,7 +211,6 @@ const ProfilePage = ({ user, setUser }) => {
                             <td>Succeed</td>
                             <td>103.151.2.4</td>
                             <td>Chrome windows 10</td>
-
                           </tr>
                           <tr>
                             <td>7/3/22</td>
@@ -218,7 +219,6 @@ const ProfilePage = ({ user, setUser }) => {
                             <td>Succeed</td>
                             <td>103.151.2.4</td>
                             <td>Chrome windows 10</td>
-
                           </tr>
                           <tr>
                             <td>7/3/22</td>
@@ -227,48 +227,40 @@ const ProfilePage = ({ user, setUser }) => {
                             <td>Succeed</td>
                             <td>103.151.2.4</td>
                             <td>Chrome windows 10</td>
-
                           </tr>
                         </tbody>
                       </table>
-
-
-
                     </ul>
-
-
-
-
                   </div>
-
-
                 </div>
-
-
-
               </div>
             </main>
-
           </div>
         </div>
-
       </div>
 
-      <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div
+        className="modal fade"
+        id="exampleModal"
+        tabIndex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
         <div className="modal-dialog">
-
-
           <div className="modal-content">
-
             <form onSubmit={onPasswordChangeModalSubmit}>
-
               <div className="modal-header">
-                <h5 className="modal-title" id="exampleModalLabel">CHANGE PASSWORD</h5>
-                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <h5 className="modal-title" id="exampleModalLabel">
+                  CHANGE PASSWORD
+                </h5>
+                <button
+                  type="button"
+                  className="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
               </div>
               <div className="modal-body">
-
-
                 <br />
 
                 <input
@@ -302,26 +294,28 @@ const ProfilePage = ({ user, setUser }) => {
                   <input type="submit" value="Sign Up" className="btn btn-sign" />
 
                 </div> */}
-
-
-
-
               </div>
               <div className="modal-footer">
-                <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <input type="submit" value="Save changes" className="btn btn-primary" />
+                <button
+                  type="button"
+                  className="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Close
+                </button>
+                <input
+                  type="submit"
+                  value="Save changes"
+                  className="btn btn-primary"
+                />
 
                 {/* <button type="submit" className="btn btn-primary">Save changes</button> */}
               </div>
             </form>
-
           </div>
         </div>
       </div>
-
-
     </div>
-
   );
 };
 
