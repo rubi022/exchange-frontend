@@ -1,7 +1,7 @@
 export const defaultAPI = {
     api: {
-        authUrl: 'http://localhost:9002/api/v2/barong',
-        tradeUrl: 'http://localhost:9002/api/v2/peatio',
+        authUrl: 'https://cp.btfd.cc/api/v2/barong',
+        tradeUrl: 'https://cp.btfd.cc/api/v2/peatio',
         applogicUrl: 'http://localhost:9002/api/v2/applogic',
         rangerUrl: 'ws://localhost:9011/api/v2/ranger',
     },
