@@ -74,7 +74,7 @@ const Trade = ({ user, setUser }) => {
         // new request
         let result = await fetch("https://cp.btfd.cc/api/v2/peatio/market/orders",
             {
-                mode: 'no-cors',
+                // mode: 'no-cors',
                 method: "POST",
                 withCredentials: 'true',
                 headers: {
