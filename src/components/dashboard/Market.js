@@ -24,7 +24,7 @@ const Market = ({ user, setUser }) => {
         let isMounted = true;
 
         async function getMarketData() {
-            const res = await fetch(defaultAPI.api.marketUrl);
+            const res = await fetch(`${defaultAPI.api.tradeUrl}/market/orders`);
             const data = await res.json();
             if (isMounted) setMarketDetails(data);
 

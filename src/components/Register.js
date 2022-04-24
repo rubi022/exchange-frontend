@@ -31,7 +31,7 @@ const Register = ({ user }) => {
       toast.warn("Password didn't match!", { position: "top-center" });
     } else {
       let result = await fetch(
-        defaultAPI.api.registerUrl,
+        `${defaultAPI.api.authUrl}/identity/users`,
 
         {
           method: "POST",

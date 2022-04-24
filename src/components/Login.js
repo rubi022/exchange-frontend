@@ -20,7 +20,7 @@ const Login = ({ user, setUser }) => {
 
     let item = { email, password };
     let result = await fetch(
-      defaultAPI.api.loginUrl,
+      `${defaultAPI.api.authUrl}/identity/sessions`,
 
       {
         method: "POST",

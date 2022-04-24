@@ -33,7 +33,7 @@ const ProfilePage = ({ user, setUser }) => {
     // console.log(user);
 
     let result = await axios.put(
-      defaultAPI.api.changePassUrl,
+      `${defaultAPI.api.authUrl}/resource/users/password`,
       JSON.stringify(item),
       {
         headers: {

@@ -59,7 +59,7 @@ const Balance = ({ user, setUser }) => {
     // )
 
     useEffect(() => {
-        fetch(defaultAPI.api.balanceUrl, {
+        fetch(`${defaultAPI.api.tradeUrl}/account/balances`, {
             method: 'GET',
             mode: 'no-cors',
             headers: {

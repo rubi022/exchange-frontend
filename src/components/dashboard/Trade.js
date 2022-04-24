@@ -78,7 +78,7 @@ const Trade = ({ user, setUser }) => {
         // );
 
         // new request
-        let result = await fetch(defaultAPI.api.tradeUrl,
+        let result = await fetch(`${defaultAPI.api.tradeUrl}/market/orders`,
             {
                 // mode: 'no-cors',
                 method: "POST",
