@@ -18,6 +18,11 @@ import Cookies from 'js-cookie';
 
 
 const Trade = ({ user, setUser }) => {
+
+    const getIteminfo = JSON.parse(localStorage.getItem("user-info"));
+    const cookieFromLogin = Cookies.get('_barong_session');
+
+
     // const value = getWithExpiry("user-info");
     // console.log(value);
     // const cors = require('cors');
@@ -40,7 +45,7 @@ const Trade = ({ user, setUser }) => {
     // submit buy sell form
     const onSubmitBuySell = async (e) => {
         e.preventDefault();
-        const cookieFromLogin = Cookies.get('_barong_session');
+        // const cookieFromLogin = Cookies.get('_barong_session');
 
         // let item = { market, side, ord_type, price, volume, cookieFromLogin };
         let item = { market, side, ord_type, price, volume };
@@ -78,10 +83,13 @@ const Trade = ({ user, setUser }) => {
                 method: "POST",
                 withCredentials: 'true',
                 headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${csrf_token}`,
-                    'Cookie': cookieFromLogin || undefined
+                    "Content-Type": "application/json",
+                    "X-CSRF-TOKEN": getIteminfo.value.csrf_token,
+                    "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
+                    // 'Accept': 'application/json',
+                    // 'Content-Type': 'application/json',
+                    // 'Authorization': `Bearer ${csrf_token}`,
+                    "Cookie": cookieFromLogin || undefined
                     // 'Cache': 'no-cache',
                     // 'X-Csrf-Token': csrf_token || undefined
                     // Authorization: csrf_token || undefined,

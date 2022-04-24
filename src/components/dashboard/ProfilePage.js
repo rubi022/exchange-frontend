@@ -47,9 +47,11 @@ const ProfilePage = ({ user, setUser }) => {
       console.log(
         `An error has occured: ${result.status} - ${result.statusText}`
       );
+    } else {
+      const data = await result.json();
+      console.log(data);
     }
-    // const data = await result.json();
-    // console.log(data);
+
   };
 
   if (!user) return <Navigate to="/login" />;
