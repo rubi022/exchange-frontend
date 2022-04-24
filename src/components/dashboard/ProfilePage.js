@@ -13,6 +13,7 @@ import { Link } from "react-router-dom";
 import DashboardNavbar from "./base/DashboardNavbar";
 import DashboardLayoutSideNav from "./base/DashboardLayoutSideNav.js";
 import axios from "axios";
+import { defaultAPI } from "../../api/api.js";
 
 const ProfilePage = ({ user, setUser }) => {
   const getIteminfo = JSON.parse(localStorage.getItem("user-info"));
@@ -32,7 +33,7 @@ const ProfilePage = ({ user, setUser }) => {
     // console.log(user);
 
     let result = await axios.put(
-      "https://cp.btfd.cc/api/v2/barong/resource/users/password",
+      defaultAPI.api.changePassUrl,
       JSON.stringify(item),
       {
         headers: {

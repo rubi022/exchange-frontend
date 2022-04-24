@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import registerImg from '../usingImages/registerImg.svg';
-
+import { defaultAPI } from '../api/api';
 
 const Register = ({ user }) => {
   const [email, setEmail] = useState("");
@@ -31,7 +31,7 @@ const Register = ({ user }) => {
       toast.warn("Password didn't match!", { position: "top-center" });
     } else {
       let result = await fetch(
-        "https://cp.btfd.cc/api/v2/barong/identity/users",
+        defaultAPI.api.registerUrl,
 
         {
           method: "POST",

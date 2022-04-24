@@ -12,9 +12,9 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 import DashboardNavbar from './base/DashboardNavbar'
 import DashboardLayoutSideNav from './base/DashboardLayoutSideNav.js'
+import { defaultAPI } from '../../api/api.js'
 
 const Balance = ({ user, setUser }) => {
-    const url = 'https://cp.btfd.cc/api/v2/peatio/account/balances'
 
     const [balance, setBalance] = useState(null)
 
@@ -59,7 +59,7 @@ const Balance = ({ user, setUser }) => {
     // )
 
     useEffect(() => {
-        fetch(url, {
+        fetch(defaultAPI.api.balanceUrl, {
             method: 'GET',
             mode: 'no-cors',
             headers: {

@@ -14,9 +14,9 @@ import DashboardNavbar from './base/DashboardNavbar'
 import DashboardLayoutSideNav from './base/DashboardLayoutSideNav.js'
 import Cookies from 'js-cookie'
 import MarketList from './MarketList.js'
+import { defaultAPI } from '../../api/api.js'
 
 const Market = ({ user, setUser }) => {
-    const url = 'https://cp.btfd.cc/api/v2/peatio/public/markets'
 
     const [marketDetails, setMarketDetails] = useState([])
 
@@ -24,7 +24,7 @@ const Market = ({ user, setUser }) => {
         let isMounted = true;
 
         async function getMarketData() {
-            const res = await fetch(url);
+            const res = await fetch(defaultAPI.api.marketUrl);
             const data = await res.json();
             if (isMounted) setMarketDetails(data);
 

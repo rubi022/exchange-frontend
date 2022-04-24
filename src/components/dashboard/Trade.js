@@ -13,6 +13,7 @@ import { Link } from "react-router-dom";
 import DashboardNavbar from "./base/DashboardNavbar";
 import DashboardLayoutSideNav from "./base/DashboardLayoutSideNav.js";
 import Cookies from 'js-cookie';
+import { defaultAPI } from "../../api/api.js";
 
 
 
@@ -77,7 +78,7 @@ const Trade = ({ user, setUser }) => {
         // );
 
         // new request
-        let result = await fetch("https://cp.btfd.cc/api/v2/peatio/market/orders",
+        let result = await fetch(defaultAPI.api.tradeUrl,
             {
                 // mode: 'no-cors',
                 method: "POST",

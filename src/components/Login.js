@@ -4,6 +4,7 @@ import { toast, ToastContainer } from "react-toastify";
 import { setWithExpiry } from "../helper/utils";
 import loginImg from '../usingImages/loginImg.svg';
 import Cookies from 'js-cookie';
+import { defaultAPI } from "../api/api";
 
 // import React, { useState, useEffect } from "react";
 
@@ -19,7 +20,7 @@ const Login = ({ user, setUser }) => {
 
     let item = { email, password };
     let result = await fetch(
-      "https://cp.btfd.cc/api/v2/barong/identity/sessions",
+      defaultAPI.api.loginUrl,
 
       {
         method: "POST",
