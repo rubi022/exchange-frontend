@@ -65,7 +65,7 @@ const Balance = ({ user, setUser }) => {
                 currencyAvailable={balance.price}
                 locked={balance.deposit_fee}
                 icon_url={balance.icon_url}
-                // min_price={balance.min_price}
+            // min_price={balance.min_price}
             />
         )
     })
@@ -82,7 +82,38 @@ const Balance = ({ user, setUser }) => {
                     <div id="layoutSidenav_content">
                         {/* <h1>{JSON.stringify(marketDetails)}</h1> */}
                         <main>
-                            <div className="container-fluid px-4">
+
+                            <div className="container-fluid px-4 balance-container">
+
+                                <div className="row balance-switch-search">
+                                    <div className="col-md-6">   <div class="form-check form-switch ">
+                                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" />
+                                        <label class="form-check-label" for="flexSwitchCheckDefault">Hide empty wallets</label>
+                                    </div></div>
+                                    <div className="col-md-6">
+                                        <form className="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+                                            <div className="input-group">
+                                                <input
+                                                    className="form-control"
+                                                    type="text"
+                                                    placeholder="Search for..."
+                                                    aria-label="Search for..."
+                                                    aria-describedby="btnNavbarSearch"
+                                                />
+                                                <button
+                                                    className="btn btn-primary"
+                                                    id="btnNavbarSearch"
+                                                    type="button"
+                                                >
+                                                    <i className="fas fa-search"></i>
+                                                </button>
+                                            </div>
+                                        </form></div>
+
+                                </div>
+
+
+
                                 {/* All market details*/}
 
                                 <div className="row mt-4 profile-list-row">

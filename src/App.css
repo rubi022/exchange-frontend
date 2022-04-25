@@ -126,3 +126,7 @@ width: 100%;
   width: 30px;
   height: 30px;
 }
+
+.balance-container .balance-switch-search{
+  margin-top: 10px;
+}
