@@ -18,7 +18,7 @@ import { defaultAPI } from '../../api/api.js'
 
 const Market = ({ user, setUser }) => {
 
-    const [marketDetails, setMarketDetails] = useState([])
+    const [marketDetails, setMarketDetails] = useState([]);
 
     useEffect(() => {
         let isMounted = true;
@@ -32,7 +32,7 @@ const Market = ({ user, setUser }) => {
         getMarketData();
 
         return () => { isMounted = false };
-    }, [])
+    }, []);
 
     // console.log(marketDetails);
 
@@ -49,7 +49,7 @@ const Market = ({ user, setUser }) => {
 
             />
         )
-    })
+    });
 
 
 
