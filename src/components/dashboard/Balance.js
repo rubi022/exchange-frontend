@@ -62,7 +62,8 @@ const Balance = ({ user, setUser }) => {
                 // locked={balance.locked}
                 currencyId={balance.id}
                 currencyName={balance.name}
-                deposit_fee={balance.deposit_fee}
+                currencyAvailable={balance.price}
+                locked={balance.deposit_fee}
                 icon_url={balance.icon_url}
                 // min_price={balance.min_price}
             />
@@ -102,6 +103,10 @@ const Balance = ({ user, setUser }) => {
                                                         {/* <th scope="col">
                                                             NAME
                                                         </th> */}
+
+                                                        <th scope="col">
+                                                            NAME
+                                                        </th>
                                                         <th scope="col">
                                                             AVAILABLE
                                                         </th>

@@ -1,6 +1,6 @@
 import React from 'react'
 
-function BalanceList({ currencyId, currencyName, deposit_fee, icon_url }) {
+function BalanceList({ currencyId, currencyName, currencyAvailable, locked, icon_url }) {
     return (
         <tr>
             <td>
@@ -9,7 +9,9 @@ function BalanceList({ currencyId, currencyName, deposit_fee, icon_url }) {
             </td>
 
             <td>{currencyName}</td>
-            <td>{deposit_fee}</td>
+            <td>{currencyAvailable}</td>
+            <td>{locked}</td>
+
             <td>
                 {' '}
                 <button className="btn btn-primary">Deposit</button>
