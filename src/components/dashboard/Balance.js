@@ -18,39 +18,40 @@ import BalanceList from './BalanceList.js'
 const Balance = ({ user, setUser }) => {
     const [balanceDetails, setBalanceDetails] = useState([])
 
-    // useEffect(() => {
-    //     fetch(`${defaultAPI.api.tradeUrl}/account/balances`, {
-    //         method: 'GET',
-    //         mode: 'no-cors',
-    //         headers: {
-    //             'Content-Type': 'application/json',
-    //         },
-    //     })
-    //         .then((response) => response.json())
-    //         .then((data) => {
-    //             // console.log('Success:', data)
-    //         })
-    //         .catch((error) => {
-    //             // console.error('Error:', error)
-    //         })
-    // }, []);
-
     useEffect(() => {
-        let isMounted = true
-
-        async function getBalanceData() {
-            const res = await fetch(
-                `${defaultAPI.api.tradeUrl}/account/balances`
-            )
-            const data = await res.json()
-            if (isMounted) setBalanceDetails(data)
-        }
-        getBalanceData()
-
-        return () => {
-            isMounted = false
-        }
+        fetch(`${defaultAPI.api.tradeUrl}/account/balances`, {
+            method: 'GET',
+            mode: 'no-cors',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                // console.log('Success:', data)
+                setBalanceDetails(data)
+            })
+            .catch((error) => {
+                console.error('Error:', error)
+            })
     }, [])
+
+    // useEffect(() => {
+    //     let isMounted = true
+
+    //     async function getBalanceData() {
+    //         const res = await fetch(
+    //             `${defaultAPI.api.tradeUrl}/account/balances`
+    //         )
+    //         const data = await res.json()
+    //         if (isMounted) setBalanceDetails(data)
+    //     }
+    //     getBalanceData()
+
+    //     return () => {
+    //         isMounted = false
+    //     }
+    // }, [])
 
     const balances = balanceDetails.map((balance) => {
         return (
