@@ -4,7 +4,8 @@ function BalanceList({ currencyId, currencyName, deposit_fee, icon_url }) {
     return (
         <tr>
             <td>
-                {icon_url} &nbsp; &nbsp; {currencyId}
+                <img src={icon_url} className="icon-img-currency" /> &nbsp;
+                &nbsp; {currencyId}
             </td>
 
             <td>{currencyName}</td>
