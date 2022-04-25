@@ -129,7 +129,7 @@ const Trade = ({ user, setUser }) => {
 
     const marketItemsList = marketItem.map((market) => {
         return (
-            <option key={market.id} value={market.name}>
+            <option key={market.id} value={market.id}>
                 {market.name}
             </option>
         )
