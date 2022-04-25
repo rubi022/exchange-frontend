@@ -13,67 +13,56 @@ import { Link } from 'react-router-dom'
 import DashboardNavbar from './base/DashboardNavbar'
 import DashboardLayoutSideNav from './base/DashboardLayoutSideNav.js'
 import { defaultAPI } from '../../api/api.js'
+import BalanceList from './BalanceList.js'
 
 const Balance = ({ user, setUser }) => {
-
-    const [balance, setBalance] = useState(null)
+    const [balanceDetails, setBalanceDetails] = useState([])
 
     // useEffect(() => {
-    //     async function getBalanceData() {
-    //         let response = await fetch(url, {
-    //             mode: 'no-cors',
-    //             method: 'GET',
-    //             headers: {
-    //                 'Content-Type': 'application/json',
-    //                 Accept: 'application/json',
-    //             },
+    //     fetch(`${defaultAPI.api.tradeUrl}/account/balances`, {
+    //         method: 'GET',
+    //         mode: 'no-cors',
+    //         headers: {
+    //             'Content-Type': 'application/json',
+    //         },
+    //     })
+    //         .then((response) => response.json())
+    //         .then((data) => {
+    //             // console.log('Success:', data)
     //         })
-
-    //         if (!response.ok) {
-    //             // console.log(
-    //             //     `An error has occured: ${response.status} - ${response.statusText}`
-    //             // )
-    //         } else {
-    //             // console.log(
-    //             //     `it worked: ${response.status} - ${response.statusText}`
-    //             // )
-    //         }
-    //         // const data = await response.json();
-    //         // console.log(data);
-    //         // setBalance(data);
-    //         // setBalance(response.json());
-    //         // cmntd
-    //         // console.log(response)
-    //     }
-
-    //     getBalanceData()
-    // }, [url])
-
-    // useEffect(
-    //     function () {
-    //         fetch(url)
-    //             .then((res) => res.json())
-    //             .then((data) => setBalance(data))
-    //     },
-    //     [url]
-    // )
+    //         .catch((error) => {
+    //             // console.error('Error:', error)
+    //         })
+    // }, []);
 
     useEffect(() => {
-        fetch(`${defaultAPI.api.tradeUrl}/account/balances`, {
-            method: 'GET',
-            mode: 'no-cors',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        })
-            .then((response) => response.json())
-            .then((data) => {
-                // console.log('Success:', data)
-            })
-            .catch((error) => {
-                // console.error('Error:', error)
-            })
+        let isMounted = true
+
+        async function getBalanceData() {
+            const res = await fetch(
+                `${defaultAPI.api.tradeUrl}/account/balances`
+            )
+            const data = await res.json()
+            if (isMounted) setBalanceDetails(data)
+        }
+        getBalanceData()
+
+        return () => {
+            isMounted = false
+        }
     }, [])
+
+    const balances = balanceDetails.map((balance) => {
+        return (
+            <BalanceList
+                // key={balance.id}
+                currency={balance.currency}
+                balance={balance.balance}
+                locked={balance.locked}
+                // min_price={balance.min_price}
+            />
+        )
+    })
 
     if (!user) return <Navigate to="/login" />
 
@@ -81,28 +70,65 @@ const Balance = ({ user, setUser }) => {
         <div>
             <div className="sb-nav-fixed profilediv">
                 <DashboardNavbar user={user} setUser={setUser} />
+
                 <div id="layoutSidenav">
                     <DashboardLayoutSideNav />
                     <div id="layoutSidenav_content">
+                        {/* <h1>{JSON.stringify(marketDetails)}</h1> */}
                         <main>
                             <div className="container-fluid px-4">
-                                {/* api keys */}
+                                {/* All market details*/}
+
                                 <div className="row mt-4 profile-list-row">
                                     <div className="col-xl-12 col-md-12 profile-list-div">
-                                        <pre>
-                                            {JSON.stringify(balance, null, 2)}
-                                        </pre>
-
                                         <ul className="list-group">
                                             <li
                                                 className="list-group-item list-group-item-secondary"
                                                 aria-current="true"
                                             >
-                                                My Balance
+                                                All Balance Items
                                             </li>
-                                            <li className="list-group-item text-center">
-                                                show:{' '}
-                                            </li>
+                                            <table className="table table-bordered">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">
+                                                            CURRENCY
+                                                        </th>
+                                                        {/* <th scope="col">
+                                                            NAME
+                                                        </th> */}
+                                                        <th scope="col">
+                                                            AVAILABLE
+                                                        </th>
+                                                        <th scope="col">
+                                                            LOCKED
+                                                        </th>
+                                                        <th scope="col">
+                                                            ACTION
+                                                        </th>
+                                                        {/* <th scope="col">
+                                                            24 Volume
+                                                        </th> */}
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    {balances}
+                                                    {/* <tr>
+                                                        <td>currency</td>
+
+                                                        <td>balance</td>
+                                                        <td>locked</td>
+                                                        <td>
+                                                            <button className="btn btn-primary ">
+                                                                Deposit
+                                                            </button>
+                                                            <button className="btn btn-primary btn-withdrw">
+                                                                Withdraw
+                                                            </button>
+                                                        </td>
+                                                    </tr> */}
+                                                </tbody>
+                                            </table>
                                         </ul>
                                     </div>
                                 </div>

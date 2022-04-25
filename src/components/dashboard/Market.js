@@ -17,27 +17,26 @@ import MarketList from './MarketList.js'
 import { defaultAPI } from '../../api/api.js'
 
 const Market = ({ user, setUser }) => {
-
-    const [marketDetails, setMarketDetails] = useState([]);
+    const [marketDetails, setMarketDetails] = useState([])
 
     useEffect(() => {
-        let isMounted = true;
+        let isMounted = true
 
         async function getMarketData() {
-            const res = await fetch(`${defaultAPI.api.tradeUrl}/public/markets`);
-            const data = await res.json();
-            if (isMounted) setMarketDetails(data);
-
+            const res = await fetch(`${defaultAPI.api.tradeUrl}/public/markets`)
+            const data = await res.json()
+            if (isMounted) setMarketDetails(data)
         }
-        getMarketData();
+        getMarketData()
 
-        return () => { isMounted = false };
-    }, []);
+        return () => {
+            isMounted = false
+        }
+    }, [])
 
     // console.log(marketDetails);
 
-
-    const markets = marketDetails.map(market => {
+    const markets = marketDetails.map((market) => {
         return (
             <MarketList
                 key={market.id}
@@ -45,15 +44,9 @@ const Market = ({ user, setUser }) => {
                 max_price={market.max_price}
                 min_amount={market.min_amount}
                 min_price={market.min_price}
-
-
             />
         )
-    });
-
-
-
-
+    })
 
     if (!user) return <Navigate to="/login" />
 
@@ -77,7 +70,7 @@ const Market = ({ user, setUser }) => {
                                                 className="list-group-item list-group-item-secondary"
                                                 aria-current="true"
                                             >
-                                                All
+                                                All Market Items
                                             </li>
                                             <table className="table table-bordered">
                                                 <thead>
@@ -102,11 +95,7 @@ const Market = ({ user, setUser }) => {
                                                         </th>
                                                     </tr>
                                                 </thead>
-                                                <tbody>
-                                                    {markets}
-
-
-                                                </tbody>
+                                                <tbody>{markets}</tbody>
                                             </table>
                                         </ul>
                                     </div>
