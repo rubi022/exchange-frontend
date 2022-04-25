@@ -5,7 +5,7 @@ export const defaultAPI = {
         applogicUrl: 'https://cp.btfd.cc/api/v2/applogic',
         rangerUrl: 'wss://cp.btfd.cc/api/v2/ranger',
     },
-    minutesUntilAutoLogout: '5',
+    minutesUntilAutoLogout: '30',
     withCredentials: false,
     captcha: {
         captchaType: 'none',
