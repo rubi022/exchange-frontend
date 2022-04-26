@@ -5,7 +5,7 @@ function BalanceList({ currencyId, currencyName, currencyAvailable, locked, icon
         <tr>
             <td>
                 <img src={icon_url} className="icon-img-currency" /> &nbsp;
-                &nbsp; {currencyId}
+                &nbsp; {currencyId.toUpperCase()}
             </td>
 
             <td>{currencyName}</td>
