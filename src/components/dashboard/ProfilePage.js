@@ -84,7 +84,7 @@ const ProfilePage = ({ user, setUser }) => {
                   <div className="col-xl-6 col-md-6 profile-list-div ">
                     <ul className="list-group card">
                       <li
-                        className="list-group-item list-group-item-secondary"
+                        className="list-group-item list-group-item-dark"
                         aria-current="true"
                       >
                         User Details
@@ -130,7 +130,7 @@ const ProfilePage = ({ user, setUser }) => {
                   <div className="col-xl-6 col-md-6 profile-list-div">
                     <ul className="list-group card">
                       <li
-                        className="list-group-item list-group-item-secondary"
+                        className="list-group-item list-group-item-dark"
                         aria-current="true"
                       >
                         Profile Verification
@@ -174,7 +174,7 @@ const ProfilePage = ({ user, setUser }) => {
                   <div className="col-xl-12 col-md-12 profile-list-div">
                     <ul className="list-group card">
                       <li
-                        className="list-group-item list-group-item-secondary"
+                        className="list-group-item list-group-item-dark"
                         aria-current="true"
                       >
                         My API Keys
@@ -191,7 +191,7 @@ const ProfilePage = ({ user, setUser }) => {
                   <div className="col-xl-12 col-md-12 profile-list-div">
                     <ul className="list-group card">
                       <li
-                        className="list-group-item list-group-item-secondary"
+                        className="list-group-item list-group-item-dark"
                         aria-current="true"
                       >
                         Account Activity

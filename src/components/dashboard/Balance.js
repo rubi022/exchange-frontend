@@ -130,7 +130,7 @@ const Balance = ({ user, setUser }) => {
                                     <div className="col-xl-12 col-md-12 profile-list-div card">
                                         <ul className="list-group card-body">
                                             <li
-                                                className="list-group-item list-group-item-secondary"
+                                                className="list-group-item list-group-item-dark"
                                                 aria-current="true"
                                             >
                                                 All Balance Items
