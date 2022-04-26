@@ -130,3 +130,6 @@ width: 100%;
 .balance-container .balance-switch-search{
   margin-top: 10px;
 }
+.balance-container .balance-switch-search .form-switch{
+  margin-top: 8px;
+}

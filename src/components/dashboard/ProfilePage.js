@@ -80,9 +80,9 @@ const ProfilePage = ({ user, setUser }) => {
             <main>
               <div className="container-fluid px-4">
                 {/* profiles details */}
-                <div className="row mt-4 profile-list-row">
-                  <div className="col-xl-6 col-md-6 profile-list-div">
-                    <ul className="list-group">
+                <div className="row  mt-4 profile-list-row">
+                  <div className="col-xl-6 col-md-6 profile-list-div ">
+                    <ul className="list-group card">
                       <li
                         className="list-group-item list-group-item-secondary"
                         aria-current="true"
@@ -128,7 +128,7 @@ const ProfilePage = ({ user, setUser }) => {
                   </div>
 
                   <div className="col-xl-6 col-md-6 profile-list-div">
-                    <ul className="list-group">
+                    <ul className="list-group card">
                       <li
                         className="list-group-item list-group-item-secondary"
                         aria-current="true"
@@ -172,7 +172,7 @@ const ProfilePage = ({ user, setUser }) => {
                 {/* api keys */}
                 <div className="row mt-4 profile-list-row">
                   <div className="col-xl-12 col-md-12 profile-list-div">
-                    <ul className="list-group">
+                    <ul className="list-group card">
                       <li
                         className="list-group-item list-group-item-secondary"
                         aria-current="true"
@@ -189,7 +189,7 @@ const ProfilePage = ({ user, setUser }) => {
                 {/* account activity */}
                 <div className="row mt-4 profile-list-row">
                   <div className="col-xl-12 col-md-12 profile-list-div">
-                    <ul className="list-group">
+                    <ul className="list-group card">
                       <li
                         className="list-group-item list-group-item-secondary"
                         aria-current="true"
@@ -250,7 +250,7 @@ const ProfilePage = ({ user, setUser }) => {
         aria-hidden="true"
       >
         <div className="modal-dialog">
-          <div className="modal-content">
+          <div className="modal-content card">
             <form onSubmit={onPasswordChangeModalSubmit}>
               <div className="modal-header">
                 <h5 className="modal-title" id="exampleModalLabel">

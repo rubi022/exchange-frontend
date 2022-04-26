@@ -150,7 +150,7 @@ const Trade = ({ user, setUser }) => {
                                 {/* for a user form */}
 
                                 <div className="row mt-4  mt-5 ">
-                                    <div className="col-md-6 offset-md-3 profile-user-form-div">
+                                    <div className="col-md-6 offset-md-3 profile-user-form-div card">
                                         <h3 className="text-center">
                                             {' '}
                                             One Click Buy/Sell

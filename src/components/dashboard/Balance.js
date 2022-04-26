@@ -85,12 +85,18 @@ const Balance = ({ user, setUser }) => {
 
                             <div className="container-fluid px-4 balance-container">
 
-                                <div className="row balance-switch-search">
-                                    <div className="col-md-6">   <div class="form-check form-switch ">
-                                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" />
-                                        <label class="form-check-label" for="flexSwitchCheckDefault">Hide empty wallets</label>
-                                    </div></div>
-                                    <div className="col-md-6">
+                                <div className="row balance-switch-search ">
+
+                                    <div class="col">
+
+                                    </div>
+                                    <div class="col-md-auto">
+                                        <div class="form-check form-switch ">
+                                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" />
+                                            <label class="form-check-label" for="flexSwitchCheckDefault">Hide empty wallets</label>
+                                        </div>
+                                    </div>
+                                    <div class="col col-lg-2">
                                         <form className="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
                                             <div className="input-group">
                                                 <input
@@ -108,7 +114,11 @@ const Balance = ({ user, setUser }) => {
                                                     <i className="fas fa-search"></i>
                                                 </button>
                                             </div>
-                                        </form></div>
+                                        </form>
+                                    </div>
+                                    {/* <div className="col-md-6">   </div> */}
+                                    {/* <div className="col-md-6">
+                                       </div> */}
 
                                 </div>
 
@@ -117,8 +127,8 @@ const Balance = ({ user, setUser }) => {
                                 {/* All market details*/}
 
                                 <div className="row mt-4 profile-list-row">
-                                    <div className="col-xl-12 col-md-12 profile-list-div">
-                                        <ul className="list-group">
+                                    <div className="col-xl-12 col-md-12 profile-list-div card">
+                                        <ul className="list-group card-body">
                                             <li
                                                 className="list-group-item list-group-item-secondary"
                                                 aria-current="true"
