@@ -86,29 +86,26 @@ const Trade = ({ user, setUser }) => {
     // );
 
     // new request
-    let result = await fetch(
-      `${defaultAPI.api.tradeUrl}/public/markets/tickers`,
-      {
-        // mode: 'no-cors',
-        method: "POST",
-        withCredentials: "true",
-        headers: {
-          "Content-Type": "application/json",
-          "X-CSRF-TOKEN": getIteminfo.value.csrf_token,
-          "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
-          // 'Accept': 'application/json',
-          // 'Content-Type': 'application/json',
-          // 'Authorization': `Bearer ${csrf_token}`,
-          Cookie: cookieFromLogin || undefined,
-          // 'Cache': 'no-cache',
-          // 'X-Csrf-Token': csrf_token || undefined
-          // Authorization: csrf_token || undefined,
-        },
-        credentials: "same-origin",
-        // credentials: 'include',
-        body: JSON.stringify(item),
-      }
-    );
+    let result = await fetch(`${defaultAPI.api.tradeUrl}/market/orders`, {
+      // mode: 'no-cors',
+      method: "POST",
+      withCredentials: "true",
+      headers: {
+        "Content-Type": "application/json",
+        "X-CSRF-TOKEN": getIteminfo.value.csrf_token,
+        "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
+        // 'Accept': 'application/json',
+        // 'Content-Type': 'application/json',
+        // 'Authorization': `Bearer ${csrf_token}`,
+        Cookie: cookieFromLogin || undefined,
+        // 'Cache': 'no-cache',
+        // 'X-Csrf-Token': csrf_token || undefined
+        // Authorization: csrf_token || undefined,
+      },
+      credentials: "same-origin",
+      // credentials: 'include',
+      body: JSON.stringify(item),
+    });
 
     // another req
 
