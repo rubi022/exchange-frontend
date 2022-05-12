@@ -54,7 +54,8 @@ function App() {
           path="email-verification"
           element={<VerifyEmail user={user} />}
         />
-        <Route path="portfolio" element={<Portfolio user={user} />} />
+        <Route path="/portfolio/" element={<Portfolio />} />
+        <Route path="/overview/" element={<Overview />} />
       </Routes>
     </div>
   );
