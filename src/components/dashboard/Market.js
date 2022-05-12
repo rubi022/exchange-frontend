@@ -17,15 +17,13 @@ import MarketList from "./MarketList.js";
 import { defaultAPI } from "../../api/api.js";
 
 const Market = ({ user, setUser }) => {
-  const [marketDetails, setMarketDetails] = useState({});
+  const [marketDetails, setMarketDetails] = useState([]);
 
   useEffect(() => {
     let isMounted = true;
 
     async function getMarketData() {
-      const res = await fetch(
-        `${defaultAPI.api.tradeUrl}/public/markets/tickers`
-      );
+      const res = await fetch(`${defaultAPI.api.tradeUrl}/public/markets`);
       const data = await res.json();
       if (isMounted) setMarketDetails(data);
     }
@@ -41,11 +39,11 @@ const Market = ({ user, setUser }) => {
   const markets = marketDetails.map((market) => {
     return (
       <MarketList
-        key={market}
-        name={market}
-        max_price={market.ticker.high}
-        min_amount={market.ticker.low}
-        min_price={market.ticker.low}
+        key={market.id}
+        name={market.name}
+        max_price={market.max_price}
+        min_amount={market.min_amount}
+        min_price={market.min_price}
       />
     );
   });
