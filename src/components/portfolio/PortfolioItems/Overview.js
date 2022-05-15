@@ -1,6 +1,7 @@
 import { Button, Grid } from "@mui/material";
 import { Box } from "@mui/system";
 import React from "react";
+import SearchIcon from "@mui/icons-material/Search";
 
 import "./custom.css";
 import OverviewDataTable from "./Table/OverviewDataTable";
@@ -110,6 +111,40 @@ const Overview = () => {
             }
           </Grid>
         </Grid>
+        <div>
+          <div className="markets">
+            <div>
+              <h3>Market</h3>
+              <span>Discover new assets available to trade on dYdX</span>
+            </div>
+
+            <div>
+              <span>All</span>
+              <span>Layer</span>
+              <span>DeFi</span>
+              <span>
+                <SearchIcon />
+              </span>
+            </div>
+          </div>
+          <div>
+            <div>
+              <span>Trading Volume</span>
+              <h2>$615,645,786</h2>
+              <span>exchanged in the last 24h</span>
+            </div>
+            <div>
+              <span>Open Interest</span>
+              <h2>$618,055,421</h2>
+              <span>in open positions on dYdX</span>
+            </div>
+            <div>
+              <span>Trades</span>
+              <h2>171,537</h2>
+              <span>executed in the last 24h</span>
+            </div>
+          </div>
+        </div>
       </div>
       <OverviewDataTable />
     </>

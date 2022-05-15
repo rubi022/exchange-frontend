@@ -12,3 +12,9 @@
         text-align: center;
     
 }
+
+.markets{
+        display: "flex";
+        flex-direction: row;
+        justify-content: space-between;
+}
