@@ -3,7 +3,7 @@ import React from "react";
 const Position = () => {
   return (
     <div>
-      <h3 style={{ color: "white", padding: "30px" }}>Portfolio position</h3>
+      <h3 style={{ color: "white", padding: "30px" }}> Position</h3>
       <div
         style={{
           borderTop: "1px solid gray",
@@ -12,15 +12,15 @@ const Position = () => {
         }}
       >
         <span>Market</span>
+        <span>Status</span>
         <span>Side</span>
-        <span>Size</span>
-        <span>Leverage</span>
-        <span>Liq. price / oracle</span>
-        <span>Unrealized P&L</span>
-        <span>Realized P&L</span>
+        <span>Amound/Filled</span>
+        <span>Price</span>
+        <span>Trigger</span>
+        <span>Good Till </span>
       </div>
       <div>
-        <span>You have no open position</span>
+        <span>You have no orders</span>
       </div>
     </div>
   );
