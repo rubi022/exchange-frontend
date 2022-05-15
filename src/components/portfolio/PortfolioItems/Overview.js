@@ -84,33 +84,34 @@ const Overview = () => {
             xs={4}
             style={{ alignItems: "center", justifyContent: "center" }}
           >
-            <Box
-              className="item"
-              /*  style={{
-              width: "300px",
-              background: "white",
-              borderRadius: "5px",
-          ,
-            }} */
-            >
-              <span>
-                Connect your Ethereum wallet to deposit funds & start trading.
-              </span>
-              <Button
-                style={{
-                  borderRadius: "10px",
-                  backgroundColor: "skyblue",
-                  textAlign: "center",
-                  alignItems: "center",
-                }}
+            {
+              <Box
+                className="item"
+                /*  style={{
+                  width: "300px",
+                  background: "white",
+                  borderRadius: "5px", 
+                }}*/
               >
-                Connect Wallet
-              </Button>
-            </Box>
+                <span>
+                  Connect your Ethereum wallet to deposit funds & start trading.
+                </span>
+                <Button
+                  style={{
+                    borderRadius: "10px",
+                    backgroundColor: "skyblue",
+                    textAlign: "center",
+                    alignItems: "center",
+                  }}
+                >
+                  Connect Wallet
+                </Button>
+              </Box>
+            }
           </Grid>
         </Grid>
-        <OverviewDataTable />
       </div>
+      <OverviewDataTable />
     </>
   );
 };
