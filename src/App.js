@@ -13,6 +13,7 @@ import { getWithExpiry } from "./helper/utils";
 import Market from "./components/dashboard/Market";
 import Portfolio from "./components/portfolio/Portfolio";
 import Overview from "./components/portfolio/PortfolioItems/Overview";
+import Position from "./components/portfolio/PortfolioItems/Position";
 
 function App() {
   const [user, setUser] = useState();
@@ -56,6 +57,7 @@ function App() {
         />
         <Route path="/portfolio/" element={<Portfolio />} />
         <Route path="/overview/" element={<Overview />} />
+        <Route path="/position/" element={<Position />} />
       </Routes>
     </div>
   );
