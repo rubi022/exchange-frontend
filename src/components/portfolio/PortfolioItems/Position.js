@@ -1,26 +1,34 @@
 import React from "react";
-
+import "./custom.css";
 const Position = () => {
   return (
-    <div>
-      <h3 style={{ color: "white", padding: "30px" }}> Position</h3>
+    <div className="position">
+      <div className="title">
+        <h3
+          className="positionTitle"
+          style={{ color: "white", padding: "30px" }}
+        >
+          Open Position
+        </h3>
+      </div>
       <div
+        className="openItem"
         style={{
           borderTop: "1px solid gray",
           borderBottom: "1px solid gray",
           padding: "10px",
         }}
       >
-        <span>Market</span>
-        <span>Status</span>
-        <span>Side</span>
-        <span>Amound/Filled</span>
-        <span>Price</span>
-        <span>Trigger</span>
-        <span>Good Till </span>
+        <span className="singleLink">Market</span>
+        <span className="singleLink">Status</span>
+        <span className="singleLink">Side</span>
+        <span className="singleLink">Amound/Filled</span>
+        <span className="singleLink">Price</span>
+        <span className="singleLink">Trigger</span>
+        <span className="singleLink">Good Till </span>
       </div>
-      <div>
-        <span>You have no orders</span>
+      <div className="positionButtom">
+        <span className="positionText">You have no orders</span>
       </div>
     </div>
   );

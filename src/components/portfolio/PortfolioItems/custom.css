@@ -86,10 +86,11 @@ body {
     padding-right: 10px;
     margin-right: 10px;
 }
-button{
+/* button{
+        color: aliceblue;
         border-radius: 15px;
         background-color: #6f6e84;
-}
+} */
 .all {
         font-family: "Relative Pro";
         font-weight: 500;
@@ -255,6 +256,9 @@ h2 {
         background-color: var(--button-background-color,var(--color-layer-lighter));
         color: var(--button-text-color,var(--color-text-base));
         cursor: pointer;
+        color: white !important;
+        background-color: #6f6e84 !important;
+        border-radius: 15px !important;
         border: none;
         user-select: none;
         white-space: nowrap;
@@ -266,4 +270,34 @@ h2 {
         border-radius: 24px;
         padding: 0px 10px;
         --button-active-background-color: var(--color-layer-dark);
+}
+
+.openItem{
+        font-size: 13px;
+    line-height: 16px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #171722;
+    padding: 0 16px;
+    height: 40px;
+    min-height: 40px;
+    color: #6f6e84;
+    border-bottom: 1px solid #2d2d3d;
+    letter-spacing: 0;
+}
+.singleLink{
+        margin-left: 20px;
+}
+.positionButtom{
+        width: max-content;
+    min-width: 100%;
+}
+.positionText{
+        font-size: 14px;
+    line-height: 18px;
+    align-items: center;
+    color: #6f6e84;
+    padding: 0 16px;
 }
