@@ -80,7 +80,7 @@ const Overview = () => {
               </Box>
             </div>
           </Grid>
-          <div className="itemBtn">
+          {/* <div className="itemBtn">
             <Grid
               className="btn"
               item
@@ -88,14 +88,7 @@ const Overview = () => {
               style={{ alignItems: "center", justifyContent: "center" }}
             >
               {
-                <Box
-                  className="item"
-                  /*  style={{
-                  width: "300px",
-                  background: "white",
-                  borderRadius: "5px", 
-                }}*/
-                >
+                <Box className="">
                   <span>
                     Connect your Ethereum wallet to deposit funds & start
                     trading.
@@ -113,39 +106,43 @@ const Overview = () => {
                 </Box>
               }
             </Grid>
-          </div>
+          </div> */}
         </Grid>
         <div>
           <div className="markets">
             <div>
-              <h3>Market</h3>
-              <span>Discover new assets available to trade on dYdX</span>
+              <h2 className="market">Market</h2>
+              <h3 className="marketmtot">
+                Discover new assets available to trade on dYdX
+              </h3>
             </div>
 
             <div className="allBtn">
-              <Button className="eEAla">All</Button>
-              <Button className="eEAla">Layer</Button>
-              <Button className="eEAla">DeFi</Button>
+              <div className="singleThree">
+                <Button className=" all eEAla button">All</Button>
+                <Button className="eEAla button">Layer</Button>
+                <Button className="eEAla button">DeFi</Button>
+              </div>
               <span>
                 <SearchIcon />
               </span>
             </div>
           </div>
-          <div>
-            <div>
-              <span>Trading Volume</span>
+          <div className="trade">
+            <div className="tradeValume trValue">
+              <span className="tradeText">Trading Volume</span>
               <h2>$615,645,786</h2>
-              <span>exchanged in the last 24h</span>
+              <span className="trtext">exchanged in the last 24h</span>
             </div>
-            <div>
-              <span>Open Interest</span>
+            <div className=" trValue">
+              <span className="tradeText">Open Interest</span>
               <h2>$618,055,421</h2>
-              <span>in open positions on dYdX</span>
+              <span className="trtext">in open positions on dYdX</span>
             </div>
-            <div>
-              <span>Trades</span>
+            <div className=" trValue">
+              <span className="tradeText">Trades</span>
               <h2>171,537</h2>
-              <span>executed in the last 24h</span>
+              <span className="trtext">executed in the last 24h</span>
             </div>
           </div>
         </div>
