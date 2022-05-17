@@ -80,36 +80,40 @@ const Overview = () => {
               </Box>
             </div>
           </Grid>
-          <Grid
-            item
-            xs={4}
-            style={{ alignItems: "center", justifyContent: "center" }}
-          >
-            {
-              <Box
-                className="item"
-                /*  style={{
+          <div className="itemBtn">
+            <Grid
+              className="btn"
+              item
+              xs={4}
+              style={{ alignItems: "center", justifyContent: "center" }}
+            >
+              {
+                <Box
+                  className="item"
+                  /*  style={{
                   width: "300px",
                   background: "white",
                   borderRadius: "5px", 
                 }}*/
-              >
-                <span>
-                  Connect your Ethereum wallet to deposit funds & start trading.
-                </span>
-                <Button
-                  style={{
-                    borderRadius: "10px",
-                    backgroundColor: "skyblue",
-                    textAlign: "center",
-                    alignItems: "center",
-                  }}
                 >
-                  Connect Wallet
-                </Button>
-              </Box>
-            }
-          </Grid>
+                  <span>
+                    Connect your Ethereum wallet to deposit funds & start
+                    trading.
+                  </span>
+                  <Button
+                    style={{
+                      borderRadius: "10px",
+                      backgroundColor: "skyblue",
+                      textAlign: "center",
+                      alignItems: "center",
+                    }}
+                  >
+                    Connect Wallet
+                  </Button>
+                </Box>
+              }
+            </Grid>
+          </div>
         </Grid>
         <div>
           <div className="markets">
@@ -118,10 +122,10 @@ const Overview = () => {
               <span>Discover new assets available to trade on dYdX</span>
             </div>
 
-            <div>
-              <span>All</span>
-              <span>Layer</span>
-              <span>DeFi</span>
+            <div className="allBtn">
+              <Button className="eEAla">All</Button>
+              <Button className="eEAla">Layer</Button>
+              <Button className="eEAla">DeFi</Button>
               <span>
                 <SearchIcon />
               </span>

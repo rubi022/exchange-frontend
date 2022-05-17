@@ -14,6 +14,7 @@ import Market from "./components/dashboard/Market";
 import Portfolio from "./components/portfolio/Portfolio";
 import Overview from "./components/portfolio/PortfolioItems/Overview";
 import Position from "./components/portfolio/PortfolioItems/Position";
+import Fees from "./components/portfolio/PortfolioItems/Fees";
 
 function App() {
   const [user, setUser] = useState();
@@ -58,6 +59,7 @@ function App() {
         <Route path="/portfolio/" element={<Portfolio />} />
         <Route path="/overview/" element={<Overview />} />
         <Route path="/position/" element={<Position />} />
+        <Route path="/fees/" element={<Fees />} />
       </Routes>
     </div>
   );
