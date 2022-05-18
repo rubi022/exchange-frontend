@@ -13,11 +13,6 @@ import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon from "@mui/icons-material/Mail";
 import { BrowserRouter, Routes, Route, Link, Outlet } from "react-router-dom";
 
 const drawerWidth = 240;
@@ -124,23 +119,13 @@ const Portfolio = () => {
           <Link to="overview">Overview</Link>
           <Link to="orders">Orders</Link>
           <Link to="fees">Fees</Link>
-          <Outlet />
-
-          {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-            <ListItem key={text} disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItemButton>
-            </ListItem>
-          ))}
         </List>
       </Drawer>
       <Main open={open}>
         <DrawerHeader />
-        <Typography>Content</Typography>
+        <Typography>
+          <Outlet />
+        </Typography>
       </Main>
     </Box>
   );
