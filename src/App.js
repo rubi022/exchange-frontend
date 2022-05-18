@@ -15,6 +15,7 @@ import Portfolio from "./components/portfolio/Portfolio";
 import Overview from "./components/portfolio/PortfolioItems/Overview";
 import Position from "./components/portfolio/PortfolioItems/Position";
 import Fees from "./components/portfolio/PortfolioItems/Fees";
+import History from "./components/portfolio/PortfolioItems/History";
 
 function App() {
   const [user, setUser] = useState();
@@ -56,10 +57,12 @@ function App() {
           path="email-verification"
           element={<VerifyEmail user={user} />}
         />
-        <Route path="/portfolio/" element={<Portfolio />} />
-        <Route path="/overview/" element={<Overview />} />
-        <Route path="/position/" element={<Position />} />
-        <Route path="/fees/" element={<Fees />} />
+        <Route path="portfolio" element={<Portfolio />}>
+          <Route path="overview" element={<Overview />} />
+          <Route path="position" element={<Position />} />
+          <Route path="fees" element={<Fees />} />
+          <Route path="history" element={<History />} />
+        </Route>
       </Routes>
     </div>
   );
