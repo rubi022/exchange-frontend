@@ -1,4 +1,4 @@
-import { Button, Grid } from "@mui/material";
+import { Button, Divider, Grid } from "@mui/material";
 import { Box } from "@mui/system";
 import React from "react";
 import SearchIcon from "@mui/icons-material/Search";
@@ -19,25 +19,59 @@ const Overview = () => {
             <Box
               style={{
                 margin: "15px",
-                textAlign: "center",
+                textAlign: "left",
                 border: "0.5px solid gray",
                 padding: "15px",
+                marginBottom: "0rem",
+                width: "300px",
               }}
             >
-              <p>Portfolio value</p>
-              <h4>$ 0.00</h4>
-              <p>Past Weak</p>
+              <p style={{ color: "#6f6e84", marginBottom: "14px" }}>
+                Portfolio value
+              </p>
+              <h4
+                style={{
+                  color: "white",
+                  fontSize: "26px",
+                  lineHeight: "32px",
+                  color: " #f7f7f7",
+                }}
+              >
+                $0.00
+              </h4>
+              <p style={{ color: "#6f6e84" }}>
+                <span style={{ color: "#3fb68b", marginTop: "4px" }}>
+                  $0.00 (0.00%)
+                </span>{" "}
+                Past Weak
+              </p>
             </Box>
+
             <div>
-              <Box style={{ justifyContent: "center", alignItems: "center" }}>
-                <div style={{ display: "flex", height: "100%" }}>
+              <Box
+                style={{
+                  justifyContent: "center",
+                  alignItems: "center",
+                  marginBottom: "0px",
+                  /*   width: "100%", */
+                }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    height: "100%",
+                    marginBottom: "0px",
+                    marginLeft: "15px",
+                  }}
+                >
                   <p
                     style={{
-                      marginLeft: "15px",
                       textAlign: "center",
                       border: "0.5px solid gray",
                       padding: "15px",
+                      color: "#6f6e84",
                       width: "150px",
+                      marginBottom: "0rem",
                     }}
                   >
                     Margin usages
@@ -47,19 +81,29 @@ const Overview = () => {
                       textAlign: "center",
                       border: "0.5px solid gray",
                       padding: "15px",
+                      color: "#6f6e84",
                       width: "150px",
+                      marginBottom: "0rem",
                     }}
                   >
                     Free Collateral
                   </p>
                 </div>
+                {/*    <Divider style={{ color: "white" }} />  */}
                 <div
-                  style={{ display: "flex", height: "100%", margin: "15px" }}
+                  style={{
+                    display: "flex",
+                    height: "100%",
+                    color: "#6f6e84",
+                    margin: "15px",
+                    marginTop: "0px",
+                  }}
                 >
                   <p
                     style={{
                       textAlign: "center",
                       border: "1px solid gray",
+                      color: "#6f6e84",
                       padding: "15px",
                       width: "150px",
                     }}
@@ -70,6 +114,8 @@ const Overview = () => {
                     style={{
                       textAlign: "center",
                       border: "1px solid gray",
+                      color: "#6f6e84",
+
                       padding: "15px",
                       width: "150px",
                     }}
@@ -111,8 +157,13 @@ const Overview = () => {
         <div>
           <div className="markets">
             <div>
-              <h2 className="market">Market</h2>
-              <h3 className="marketmtot">
+              <h2
+                style={{ fontSize: "20px", color: "white" }}
+                className="market"
+              >
+                Market
+              </h2>
+              <h3 style={{ color: "#6f6e84" }} className="marketmtot">
                 Discover new assets available to trade on dYdX
               </h3>
             </div>
@@ -130,24 +181,36 @@ const Overview = () => {
           </div>
           <div className="trade">
             <div className="tradeValume trValue">
-              <span className="tradeText">Trading Volume</span>
+              <span style={{ color: "#6f6e84" }} className="tradeText">
+                Trading Volume
+              </span>
               <h2>$615,645,786</h2>
-              <span className="trtext">exchanged in the last 24h</span>
+              <span style={{ color: "#6f6e84" }} className="trtext">
+                exchanged in the last 24h
+              </span>
             </div>
             <div className=" trValue">
-              <span className="tradeText">Open Interest</span>
+              <span style={{ color: "#6f6e84" }} className="tradeText">
+                Open Interest
+              </span>
               <h2>$618,055,421</h2>
-              <span className="trtext">in open positions on dYdX</span>
+              <span style={{ color: "#6f6e84" }} className="trtext">
+                in open positions on dYdX
+              </span>
             </div>
             <div className=" trValue">
-              <span className="tradeText">Trades</span>
+              <span style={{ color: "#6f6e84" }} className="tradeText">
+                Trades
+              </span>
               <h2>171,537</h2>
-              <span className="trtext">executed in the last 24h</span>
+              <span style={{ color: "#6f6e84" }} className="trtext">
+                executed in the last 24h
+              </span>
             </div>
           </div>
         </div>
+        <OverviewDataTable />
       </div>
-      <OverviewDataTable />
     </>
   );
 };

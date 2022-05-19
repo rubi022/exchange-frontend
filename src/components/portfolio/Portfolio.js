@@ -10,6 +10,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import { Link, Outlet } from "react-router-dom";
+import { Divider } from "@mui/material";
 
 const drawerWidth = 300;
 
@@ -32,10 +33,25 @@ function Portfolio(props) {
             marginTop: "10px",
           }}
         >
-          <Link to="overview">Overview</Link>
+          <Divider />
           <Link
             style={{
               paddingTop: "10px",
+              fontWeight: "700",
+              fontSize: "17px",
+              paddingBottom: "10px",
+              color: "black",
+            }}
+            to="overview"
+          >
+            Overview
+          </Link>
+          <Divider />
+          <Link
+            style={{
+              paddingTop: "10px",
+              fontWeight: "700",
+              fontSize: "17px",
               paddingBottom: "10px",
               color: "black",
             }}
@@ -43,10 +59,25 @@ function Portfolio(props) {
           >
             Orders
           </Link>
-          <Link to="fees">Fees</Link>
+          <Divider />
           <Link
             style={{
               paddingTop: "10px",
+              fontWeight: "700",
+              fontSize: "17px",
+              paddingBottom: "10px",
+              color: "black",
+            }}
+            to="history"
+          >
+            History
+          </Link>
+          <Divider />
+          <Link
+            style={{
+              paddingTop: "10px",
+              fontWeight: "700",
+              fontSize: "17px",
               paddingBottom: "10px",
               color: "black",
             }}
@@ -54,7 +85,7 @@ function Portfolio(props) {
           >
             Position
           </Link>
-          <Link to="history">History</Link>
+          <Divider />
         </Box>
       </List>
     </div>
