@@ -27,7 +27,7 @@ const Position = () => {
         <span className="singleLink">Trigger</span>
         <span className="singleLink">Good Till </span>
       </div>
-      <div className="positionButtom">
+      <div className="positionText">
         <span className="positionText">You have no orders</span>
       </div>
     </div>

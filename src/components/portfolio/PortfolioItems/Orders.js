@@ -5,6 +5,7 @@ const Order = () => {
     <div>
       <h3 style={{ color: "white", padding: "30px" }}>Order</h3>
       <div
+        className="openItem"
         style={{
           borderTop: "1px solid gray",
           borderBottom: "1px solid gray",
@@ -19,7 +20,7 @@ const Order = () => {
         <span>Unrealized P&L</span>
         <span>Realized P&L</span>
       </div>
-      <div>
+      <div className="positionText">
         <span>You have no open position</span>
       </div>
     </div>

@@ -15,6 +15,7 @@ const History = () => {
         <h3 style={{ color: "white", padding: "30px" }}> Funding</h3>
       </div>
       <div
+        className="openItem"
         style={{
           borderTop: "1px solid gray",
           borderBottom: "1px solid gray",
@@ -32,7 +33,7 @@ const History = () => {
         <span>Type</span>
         <span>Liquidity</span>
       </div>
-      <div>
+      <div className="positionText">
         <span>You have no trade history</span>
       </div>
     </div>

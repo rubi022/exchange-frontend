@@ -296,6 +296,7 @@ h2 {
 }
 .positionText{
         font-size: 14px;
+        margin-top: 1rem;
     line-height: 18px;
     align-items: center;
     color: #6f6e84;
