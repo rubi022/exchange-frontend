@@ -4,8 +4,8 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import registerImg from '../usingImages/registerImg.svg';
-import { defaultAPI } from '../api/api';
+import registerImg from "../usingImages/registerImg.svg";
+import { defaultAPI } from "../api/api";
 
 const Register = ({ user }) => {
   const [email, setEmail] = useState("");
@@ -57,7 +57,6 @@ const Register = ({ user }) => {
       } else {
         toast.success("Registered! Please login", { position: "top-center" });
 
-
         const data = await result.json();
 
         localStorage.setItem("user-info", JSON.stringify(data));
@@ -67,28 +66,17 @@ const Register = ({ user }) => {
   };
 
   return (
-
-
     <div className="container">
-
-
-
       <div className="row resgister-div">
-
         <div className="col-sm-6 offset-sm-3">
           <div className="card card-sign">
-
             <div className="row">
               <div className="col-md-6">
-
                 <img src={registerImg} alt="" className="loginImg" />
-
               </div>
 
               <div className="col-md-6">
-
                 <br />
-
 
                 <br />
 
@@ -121,7 +109,7 @@ const Register = ({ user }) => {
 
                   {/* <button  onClick={signUp} className="btn btn-sign">Sign Up</button> */}
 
-                  <div className="btn-group">
+                  <div style={{ display: "flex" }} className="btn-group">
                     {/* <Link
                     to="/register"
                     className="btn btn-group-top-reg active"
@@ -129,21 +117,23 @@ const Register = ({ user }) => {
                   >
                     SIGN UP{" "}
                   </Link> */}
-
-                    <input type="submit" value="Sign Up" className="btn btn-sign" />
-                    &nbsp;&nbsp;&nbsp; <span>or</span>  &nbsp;&nbsp;&nbsp;
-                    <Link to="/login" className="btn btn-light">
+                    <input
+                      /*  style={{ paddingLeft: "0px", paddingRight: "0px" }} */
+                      type="submit"
+                      value="Sign Up"
+                      className="btn btn-sign"
+                    />
+                    &nbsp;&nbsp;&nbsp; <span>or</span> &nbsp;&nbsp;&nbsp;
+                    <Link
+                      /* style={{ paddingLeft: "0px", paddingRight: "0px" }} */
+                      to="/login"
+                      className="btn btn-light"
+                    >
                       SIGN IN
                     </Link>
                   </div>
-
-
-
-
                 </form>
-
               </div>
-
             </div>
           </div>
           <ToastContainer />
