@@ -44,6 +44,17 @@ function Portfolio(props) {
             Orders
           </Link>
           <Link to="fees">Fees</Link>
+          <Link
+            style={{
+              paddingTop: "10px",
+              paddingBottom: "10px",
+              color: "black",
+            }}
+            to="position"
+          >
+            Position
+          </Link>
+          <Link to="history">History</Link>
         </Box>
       </List>
     </div>
@@ -62,7 +73,22 @@ function Portfolio(props) {
           ml: { sm: `${drawerWidth}px` },
         }}
       >
-        <Toolbar></Toolbar>
+        {
+          <Toolbar>
+            <IconButton
+              color="inherit"
+              aria-label="open drawer"
+              edge="start"
+              onClick={handleDrawerToggle}
+              sx={{ mr: 2, display: { sm: "none" } }}
+            >
+              <MenuIcon />
+            </IconButton>
+            <Typography variant="h6" noWrap component="div">
+              Portfolio
+            </Typography>
+          </Toolbar>
+        }
       </AppBar>
       <Box
         component="nav"
