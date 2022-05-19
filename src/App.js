@@ -16,6 +16,7 @@ import Overview from "./components/portfolio/PortfolioItems/Overview";
 import Position from "./components/portfolio/PortfolioItems/Position";
 import Fees from "./components/portfolio/PortfolioItems/Fees";
 import History from "./components/portfolio/PortfolioItems/History";
+import Order from "./components/portfolio/PortfolioItems/Orders";
 
 function App() {
   const [user, setUser] = useState();
@@ -58,8 +59,10 @@ function App() {
           element={<VerifyEmail user={user} />}
         />
         <Route path="portfolio" element={<Portfolio />}>
+          <Route path="" element={<Overview />} />
           <Route path="overview" element={<Overview />} />
           <Route path="position" element={<Position />} />
+          <Route path="orders" element={<Order />} />
           <Route path="fees" element={<Fees />} />
           <Route path="history" element={<History />} />
         </Route>
