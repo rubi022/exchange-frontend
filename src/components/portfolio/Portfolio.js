@@ -9,7 +9,7 @@ import List from "@mui/material/List";
 import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Navigate, Outlet } from "react-router-dom";
 import { Divider } from "@mui/material";
 
 const drawerWidth = 300;
@@ -93,6 +93,8 @@ function Portfolio(props) {
 
   const container =
     window !== undefined ? () => window().document.body : undefined;
+
+  /* if (!user) return <Navigate to="/login" />; */
 
   return (
     <Box sx={{ display: "flex" }}>

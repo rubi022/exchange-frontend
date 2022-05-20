@@ -58,14 +58,20 @@ function App() {
           path="email-verification"
           element={<VerifyEmail user={user} />}
         />
-        <Route path="portfolio" element={<Portfolio />}>
-          <Route path="" element={<Overview />} />
-          <Route path="overview" element={<Overview />} />
-          <Route path="position" element={<Position />} />
-          <Route path="orders" element={<Order />} />
-          <Route path="fees" element={<Fees />} />
-          <Route path="history" element={<History />} />
-        </Route>
+
+        {user && (
+          <Route
+            path="portfolio"
+            element={<Portfolio user={user} setUser={setUser} />}
+          >
+            <Route path="" element={<Overview />} />
+            <Route path="overview" element={<Overview />} />
+            <Route path="position" element={<Position />} />
+            <Route path="orders" element={<Order />} />
+            <Route path="fees" element={<Fees />} />
+            <Route path="history" element={<History />} />
+          </Route>
+        )}
       </Routes>
     </div>
   );
