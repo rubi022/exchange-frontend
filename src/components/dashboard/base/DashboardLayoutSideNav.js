@@ -61,6 +61,10 @@ function DashboardLayoutSideNav() {
               <i className="bx bx-grid-alt nav_icon"></i>
               <span className="nav_name">Dashboard</span>
             </NavLink>
+            <NavLink to="/trade" className="nav_link">
+              <i className="bx bx-bar-chart-alt-2 nav_icon"></i>
+              <span className="nav_name">Trade</span>
+            </NavLink>
             <NavLink to="/balance" className="nav_link">
               <i className="bx bx-dollar nav_icon"></i>
               <span className="nav_name">Users</span>
