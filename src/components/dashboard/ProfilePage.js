@@ -3,6 +3,10 @@ import { Navigate } from "react-router-dom";
 // import './js/scripts.js';
 import "./js/datatables-simple-demo.js";
 import "./css/styles.css";
+
+// Outer css for the whole page
+import "./css/main.css";
+import "./js/main.js";
 // import { useEffect } from 'react';
 // import { Helmet } from "react-helmet";
 // import React, { useEffect, useState } from "react";
@@ -71,13 +75,14 @@ const ProfilePage = ({ user, setUser }) => {
   }
 
   return (
-    <div>
+    <div id="body">
       <div className="sb-nav-fixed profilediv">
         <DashboardNavbar user={user} setUser={setUser} />
         <div id="layoutSidenav">
           <DashboardLayoutSideNav />
           <div id="layoutSidenav_content">
             <main>
+            <div class="height-100 bg-light" >
               <div className="container-fluid px-4">
                 {/* profiles details */}
                 <div className="row  mt-4 profile-list-row">
@@ -236,6 +241,7 @@ const ProfilePage = ({ user, setUser }) => {
                     </ul>
                   </div>
                 </div>
+              </div>
               </div>
             </main>
           </div>
