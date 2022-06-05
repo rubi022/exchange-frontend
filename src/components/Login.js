@@ -104,9 +104,10 @@ const Login = ({ user, setUser }) => {
                   </span>
                   <br />
                   <br />
-
+                  <Link to='/forgot'>Forgot Password?</Link>
+                  
                   <div className="btn-group">
-
+                  <br/>
                     <input type="submit" value="Login" className="btn btn-sign" />
                     &nbsp;&nbsp;&nbsp;  <span>or</span> &nbsp;&nbsp;&nbsp;
 
@@ -130,6 +131,7 @@ const Login = ({ user, setUser }) => {
             Login
           </button> */}
                 </form>
+               
               </div>
 
 
