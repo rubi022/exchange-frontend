@@ -55,7 +55,7 @@ function ChangePassword({ user }) {
                       <button type="button" className="btn btn-sign" onClick={() => {
                           const reset_token = urlParam.get('reset_token');
                             try{
-                         fetch(`${defaultAPI.api.authUrl}/identity/users/password/confirm_code?reset_password_token=${reset_token}&password=${passwordRef}&confirm_password=${confirm_passwordRef}`, {
+                         fetch(`${defaultAPI.api.authUrl}/identity/users/password/confirm_code?reset_password_token=${reset_token}&password=${passwordRef.current.value}&confirm_password=${confirm_passwordRef.current.value}`, {
                             method: "POST",
                             headers:{
                                 "Content-Type": "application/json",
