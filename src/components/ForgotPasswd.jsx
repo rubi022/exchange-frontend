@@ -45,19 +45,19 @@ function ForgotPasswd({ user }) {
                       <button type="button" className="btn btn-sign" onClick={() => {
                           const email =emailRef.current.value;
                           if(emailRef.current.value !="")
-                          fetch(`${defaultAPI.api.authUrl}/identity/users/password/generate_code`, {
+                          fetch(`${defaultAPI.api.authUrl}/identity/users/password/generate_code?email=${email}`, {
                               method: "POST",
                               headers:{
                                   "Content-Type": "application/json",
                                   Accept: "application/json"
-                              },
-                              body: JSON.stringify(email)
+                              }
+                              
                           }).then(
                               toast.success("Done!", {
                                   position: "top-center"
                               })
                           ).catch((err)=>{
-                            toast.error("Done!", {
+                            toast.error("Error!", {
                                 position: "top-center"
                             })
                           })
