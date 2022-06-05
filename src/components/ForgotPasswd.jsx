@@ -53,7 +53,7 @@ function ForgotPasswd({ user }) {
                               }
                               
                           }).then(
-                              toast.success("Done!", {
+                              toast.success("Please kindly check your email!!", {
                                   position: "top-center"
                               })
                           ).catch((err)=>{

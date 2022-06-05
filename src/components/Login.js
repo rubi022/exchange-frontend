@@ -32,6 +32,7 @@ const Login = ({ user, setUser }) => {
         body: JSON.stringify(item),
       }
     );
+    console.log(result);
     result = await result.json();
     // console.log({ result });
     if (result?.errors)

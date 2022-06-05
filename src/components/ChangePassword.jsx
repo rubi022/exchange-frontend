@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect, useState} from "react";
 import { Navigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import loginImg from "../usingImages/loginImg.svg";
@@ -9,9 +9,17 @@ function ChangePassword({ user }) {
   if (user) return <Navigate to="/" />;
 
     const passwordRef = useRef();
+    const [passChanged, setPass] = useState(false);
     const confirm_passwordRef = useRef();
     const queryString = window.location.search
     const urlParam = new URLSearchParams(queryString)
+    if(passChanged){
+    useEffect(()=>{
+      const timer = setTimeout(()=>{
+        return <Navigate to='/login'/>
+      }, 5000)
+      return () => clearTimeout(timer);
+    }, []);}
 
   return (
     <div>
@@ -63,9 +71,11 @@ function ChangePassword({ user }) {
                             }
                             
                         }).then(
-                            toast.success("Please kindly check your email!", {
+                            toast.success("Password changed successfully! \n You may login with your new password.", {
                                 position: "top-center"
-                            })
+                            },
+                            setPass(true)
+                            )
                         ).catch((err)=>{
                           toast.error("Error!", {
                               position: "top-center"
