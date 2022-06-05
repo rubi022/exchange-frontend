@@ -36,7 +36,7 @@ function App() {
                     element={<ProfilePage user={user} setUser={setUser} />}
                 />
                 <Route exact path='/forgot_password' element={<ForgotPasswd user={user}/>}/>
-                <Route exact path='/forgot_password' element={<ChangePassword user={user}/>}/>
+                <Route exact path='/accounts/password_reset' element={<ChangePassword user={user}/>}/>
                 <Route
                     path="trade"
                     element={<Trade user={user} setUser={setUser} />}
