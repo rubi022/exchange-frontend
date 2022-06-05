@@ -104,7 +104,7 @@ const Login = ({ user, setUser }) => {
                   </span>
                   <br />
                   <br />
-                  <Link to='/forgot'>Forgot Password?</Link>
+                  <Link to='/forgot_password'>Forgot Password?</Link>
                   
                   <div className="btn-group">
                   <br/>

@@ -34,7 +34,7 @@ function App() {
                     path="/"
                     element={<ProfilePage user={user} setUser={setUser} />}
                 />
-                <Route exact path='/forgot' element={<ForgotPasswd user={user}/>}/>
+                <Route exact path='/forgot_password' element={<ForgotPasswd user={user}/>}/>
                 <Route
                     path="trade"
                     element={<Trade user={user} setUser={setUser} />}
