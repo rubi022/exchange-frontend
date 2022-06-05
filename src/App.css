@@ -1,0 +1,135 @@
+
+
+.navbar {
+  background-color: #28334e !important;
+}
+.right-nav-item .nav-link {
+  color: white !important;
+}
+.right-nav-item .btn-register-nav {
+  background-color: #386dc9 !important;
+}
+.navbar-nav .nav-link {
+  color: white;
+}
+.navbar-nav .bg-secondary {
+  background-color: #737f92 !important;
+  color: #28334e !important;
+}
+
+
+
+
+/* main app */
+.App {
+  /* background: url(../public/images/background.svg); */
+  background-size: cover;
+  height: 100vh;
+  /* height: calc(100vh - calc(0.5em * 9.84));
+  height: calc(100vh - calc(var(--gap) * 9.84)); */
+  justify-content: center;
+  margin: 0 auto;
+  color: var(--secondary-contrast-cta-color);
+  background-color: #171c29;
+}
+
+/* card */
+.card .card-sign {
+  padding: 20px !important;
+  background-color: white !important;
+width: 100%;
+
+}
+
+
+
+.resgister-div {
+  position: relative !important;
+  top: 150px  !important;
+}
+
+.card-sign .row{
+  padding: 30px;
+}
+.card-sign .btn-login-focus:focus {
+  outline: 0 !important;
+  box-shadow: none !important;
+}
+.card-sign .btn-sign {
+  background-color: #007bff;
+  color: white;
+}
+.card-sign .btn-sign:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+.card-sign .btn-group-top-reg {
+  background-color: #28334e;
+  color: white;
+  outline: 0 !important;
+  box-shadow: none !important;
+}
+.card-sign .btn-group-top-reg:hover {
+  background-color: #28334e;
+  color: white;
+  outline: 0 !important;
+  box-shadow: none !important;
+}
+.card-sign .btn-group-top-log {
+  background-color: #28334e;
+  color: white;
+  outline: 0 !important;
+  box-shadow: none !important;
+}
+.card-sign .btn-group-top-log:hover {
+  background-color: #28334e;
+  color: white;
+  outline: 0 !important;
+  box-shadow: none !important;
+}
+
+.landing-div {
+  color: white;
+}
+.card-sign .form-control {
+  /* background-color: #1e2841; */
+  background-color: white;
+
+  color: black;
+}
+.card-sign .form-control:focus {
+  background-color: white;
+  color: black;
+  outline: 0 none !important;
+  border: 0 !important;
+}
+.verify-email-div {
+  margin-top: 30px;
+  color: white;
+}
+
+
+/* img card */
+
+.card-sign .loginImg{
+  width: 100%;
+  height: auto;
+}
+
+.btn-withdrw{
+
+  margin-left: 5px;
+}
+
+.icon-img-currency{
+  width: 30px;
+  height: 30px;
+}
+
+.balance-container .balance-switch-search{
+  margin-top: 10px;
+}
+.balance-container .balance-switch-search .form-switch{
+  margin-top: 8px;
+}

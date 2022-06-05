@@ -1,0 +1,14 @@
+.side-bar{
+    background-color: aliceblue;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+.side-bar> ul>li{
+    padding: 20px;
+}
+.rightnavbar{
+    margin: 0;
+    padding: 0;
+
+}
