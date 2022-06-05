@@ -53,8 +53,8 @@ function ChangePassword({ user }) {
                     <div className="btn-group">
                       
                       <button type="button" className="btn btn-sign" onClick={() => {
-                          const reset_token = urlParam().get('reset_token');
-
+                          const reset_token = urlParam.get('reset_token');
+                            try{
                          fetch(`${defaultAPI.api.authUrl}/identity/users/password/confirm_code?reset_password_token=${reset_token}&password=${passwordRef}&confirm_password=${confirm_passwordRef}`, {
                             method: "POST",
                             headers:{
@@ -71,6 +71,9 @@ function ChangePassword({ user }) {
                               position: "top-center"
                           })
                         })
+                    }catch{(err)=>{
+                        console.log(err.message)
+                    }}
                       }}>
                         Forgot Password
                       </button>
