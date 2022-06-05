@@ -12,6 +12,7 @@ import { useCallback, useEffect, useState } from 'react'
 import { getWithExpiry } from './helper/utils'
 import Market from './components/dashboard/Market'
 import ForgotPasswd from './components/ForgotPasswd'
+import ChangePassword from './components/ChangePassword'
 
 function App() {
     const [user, setUser] = useState()
@@ -35,6 +36,7 @@ function App() {
                     element={<ProfilePage user={user} setUser={setUser} />}
                 />
                 <Route exact path='/forgot_password' element={<ForgotPasswd user={user}/>}/>
+                <Route exact path='/forgot_password' element={<ChangePassword user={user}/>}/>
                 <Route
                     path="trade"
                     element={<Trade user={user} setUser={setUser} />}
