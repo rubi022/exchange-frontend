@@ -1,7 +1,7 @@
 
 
 .navbar {
-  background-color: #28334e !important;
+  background-color: #eee !important;
 }
 .right-nav-item .nav-link {
   color: white !important;
@@ -21,7 +21,7 @@
 
 
 /* main app */
-.App {
+.Appi {
   /* background: url(../public/images/background.svg); */
   background-size: cover;
   height: 100vh;
@@ -37,7 +37,7 @@
 .card .card-sign {
   padding: 20px !important;
   background-color: white !important;
-width: 100%;
+  width: 100%;
 
 }
 
