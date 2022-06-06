@@ -74,10 +74,11 @@ const Login = ({ user, setUser }) => {
         }
       });
       result=result.json()
-      if (result?.errors)
-      return toast.error("Authentication failed", {
+      if (result.errors=="identity.session.invalid_otp" || result.errors=="totp.error" ){
+       toast.error("Authentication failed", {
         position: "top-center"
       });
+    }
       console.log("result", result);
 
 
@@ -146,6 +147,7 @@ const Login = ({ user, setUser }) => {
 
                   {isOtp?
                   <div>
+                    <br/>
                   <input
                   type="number"
                   className="form-control"
@@ -153,6 +155,7 @@ const Login = ({ user, setUser }) => {
                   ref={otp}
                   required
                 />
+                <br />
                 <button type="button" className="btn btn-sign" onClick={()=>{
                   authUsingOtp(email, password, otp.current.value);
                 }}>Login</button>
