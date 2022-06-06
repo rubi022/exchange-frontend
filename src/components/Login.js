@@ -1,5 +1,5 @@
 import { Link, Navigate } from "react-router-dom";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import { setWithExpiry } from "../helper/utils";
 import loginImg from '../usingImages/loginImg.svg';
@@ -10,6 +10,8 @@ import { defaultAPI } from "../api/api";
 
 const Login = ({ user, setUser }) => {
   const [email, setEmail] = useState("");
+  const [isOtp, setIsOtp] = useState(false);
+  const otp = useRef();
   const [password, setPassword] = useState("");
   const [keepLogged, setKeepLogged] = useState(false);
   if (user) return <Navigate to="/" />;
@@ -32,13 +34,27 @@ const Login = ({ user, setUser }) => {
         body: JSON.stringify(item),
       }
     );
-    console.log(result);
+    
     result = await result.json();
+    console.log(result.errors)
     // console.log({ result });
-    if (result?.errors)
-      return toast.error("Authentication failed", {
-        position: "top-center",
-      });
+    if (result?.errors){
+        if(result.errors=="identity.session.missing_otp"){
+          setIsOtp(true);
+          return toast.warning("Enter 2FA code", {
+            position: "top-center"
+          })
+        }
+        else{
+          return toast.error("Authentication failed", {
+            position: "top-center"
+          });
+        }
+      
+    }
+
+    
+    
     console.log("result", result);
     if (keepLogged) setWithExpiry("user-info", result, 86400000);
     //  localStorage.setItem("user-info", JSON.stringify(result));
@@ -47,6 +63,29 @@ const Login = ({ user, setUser }) => {
 
     setUser(result);
     // navigate('/product');
+  }
+  const authUsingOtp = (emaill, passwordd, otpp)=>{
+      let result = fetch(`${defaultAPI.api.authUrl}/identity/sessions?email=${emaill}&password=${passwordd}&otp_code=${otpp}`, {
+        method: "POST",
+        withCredentials: 'true',
+        headers:{
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        }
+      });
+      result=result.json()
+      if (result?.errors)
+      return toast.error("Authentication failed", {
+        position: "top-center"
+      });
+      console.log("result", result);
+
+
+    if (keepLogged) setWithExpiry("user-info", result, 86400000);
+    
+    Cookies.set('_barong_session', '4af227c8260cca0fc50de31800798b88', { expires: 7 });
+
+    setUser(result);
   }
   return (
 
@@ -104,10 +143,23 @@ const Login = ({ user, setUser }) => {
                     Keep me logged in
                   </span>
                   <br />
-                  <br />
-                  <Link to='/forgot_password'>Forgot Password?</Link>
-                  
-                  <div className="btn-group">
+
+                  {isOtp?
+                  <div>
+                  <input
+                  type="number"
+                  className="form-control"
+                  placeholder="2FA code"
+                  ref={otp}
+                  required
+                />
+                <button type="button" className="btn btn-sign" onClick={()=>{
+                  authUsingOtp(email, password, otp.current.value);
+                }}>Login</button>
+                </div>:
+                <div>
+                   <Link to='/forgot_password'>Forgot Password?</Link>
+                   <div className="btn-group">
                   <br/>
                     <input type="submit" value="Login" className="btn btn-sign" />
                     &nbsp;&nbsp;&nbsp;  <span>or</span> &nbsp;&nbsp;&nbsp;
@@ -119,15 +171,10 @@ const Login = ({ user, setUser }) => {
                     >
                       SIGN UP
                     </Link>
-                    {/* <Link to="/login" className="btn btn-group-top-log "> */}
-                    {/* <Link to="/login" className="btn btn-primary">
-
-                  SIGN IN
-                </Link> */}
-
-
-
                   </div>
+                </div>  
+                }
+                  
                   {/* <button onClick={(e) => onSubmit(e)} className="btn btn-sign">
             Login
           </button> */}
