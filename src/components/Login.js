@@ -77,7 +77,10 @@ const Login = ({ user, setUser }) => {
       if (result.errors=="identity.session.invalid_otp" || result.errors=="totp.error" ){
        toast.error("Authentication failed", {
         position: "top-center"
-      });
+      }
+      
+      );
+      return
     }
       console.log("result", result);
 
@@ -87,6 +90,7 @@ const Login = ({ user, setUser }) => {
     Cookies.set('_barong_session', '4af227c8260cca0fc50de31800798b88', { expires: 7 });
 
     setUser(result);
+    return <Navigate to='/'/>
   }
   return (
 
