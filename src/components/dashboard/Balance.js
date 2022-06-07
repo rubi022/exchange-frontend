@@ -41,7 +41,7 @@ const Balance = ({ user, setUser }) => {
         async function getBalanceData() {
             const res = await fetch(
                 // `${defaultAPI.api.tradeUrl}/account/balances`
-                `${defaultAPI.api.tradeUrl}/public/currencies`
+                `${defaultAPI.api.tradeUrl}/account/balances`
             )
             const data = await res.json()
             if (isMounted) setBalanceDetails(data)
@@ -52,6 +52,8 @@ const Balance = ({ user, setUser }) => {
             isMounted = false
         }
     }, [])
+
+    console.log(balanceDetails)
 
     const balances = balanceDetails.map((balance) => {
         return (
@@ -65,7 +67,7 @@ const Balance = ({ user, setUser }) => {
                 currencyAvailable={balance.price}
                 locked={balance.deposit_fee}
                 icon_url={balance.icon_url}
-            // min_price={balance.min_price}
+                // min_price={balance.min_price}
             />
         )
     })
