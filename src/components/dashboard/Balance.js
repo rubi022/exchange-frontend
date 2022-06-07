@@ -36,20 +36,37 @@ const Balance = ({ user, setUser }) => {
     // }, []);
 
     useEffect(() => {
-        let isMounted = true
+        // let isMounted = true
 
-        async function getBalanceData() {
-            const res = await fetch(
-                // `${defaultAPI.api.tradeUrl}/account/balances`
-                `${defaultAPI.api.tradeUrl}/account/balances`
-            )
-            const data = await res.json()
-            if (isMounted) setBalanceDetails(data)
-        }
-        getBalanceData()
+        // async function getBalanceData() {
+        //     const res = await fetch(
+        //         // `${defaultAPI.api.tradeUrl}/account/balances`
+        //         `${defaultAPI.api.tradeUrl}/account/balances`
+        //     )
+        //     const data = await res.json()
+        //     if (isMounted) setBalanceDetails(data)
+        // }
+        // getBalanceData()
 
-        return () => {
-            isMounted = false
+        // return () => {
+        //     isMounted = false
+        // }
+
+        async function getBalanceData(){
+            let result = await fetch(
+                `${defaultAPI.api.tradeUrl}/account/balances`,
+                {
+                    method: "GET",
+                    withCredentials: "true",
+                    headers:{
+                        "Content-Type": "application/json",
+                        Accept: "application/json"
+                    }
+                }
+            );
+            getBalanceData();
+            result = await result.json();
+            console.log(result)
         }
     }, [])
 
