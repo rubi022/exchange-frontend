@@ -6,7 +6,7 @@ import "./css/styles.css";
 // import { useEffect } from 'react';
 // import { Helmet } from "react-helmet";
 // import React, { useEffect, useState } from "react";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 // import axios from 'axios';
 // import { getWithExpiry } from "../../helper/utils";
 import { Link } from "react-router-dom";
@@ -22,6 +22,24 @@ const ProfilePage = ({ user, setUser }) => {
   const [old_password, setOld_password] = useState("");
   const [new_password, setNew_password] = useState("");
   const [confirm_password, setConfirm_password] = useState("");
+
+  async function getTwoFaData(){
+    let result = await fetch(
+      `${defaultAPI.api.authUrl}/resource/otp/generate_qrcode`,
+      {
+        method: "POST",
+        "no-cors": "false",
+        headers: {
+          
+          "Content-Type": "application/json",
+          Accept: "application/json",
+          "Session": "_barong_session"
+        }
+      }
+    );
+    result = await result.json();
+    console.log(result)
+  }
 
   // submit chnage password modal form
   const onPasswordChangeModalSubmit = async (e) => {
@@ -54,6 +72,10 @@ const ProfilePage = ({ user, setUser }) => {
     }
 
   };
+
+  useEffect(()=>{
+    getTwoFaData();
+  }, [])
 
   if (!user) return <Navigate to="/login" />;
 

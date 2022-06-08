@@ -35,7 +35,7 @@ const Market = ({ user, setUser }) => {
     }, [])
 
 
-
+    
     const marketDetailsArr = Object.keys(marketDetails);
    
 
@@ -44,9 +44,9 @@ const Market = ({ user, setUser }) => {
             <MarketList
                 key={marketDetails[market]["at"]}
                 name={[market.toUpperCase()]}
-                max_price={marketDetails[market]["ticker"]["last"]}
-                min_amount={marketDetails[market]["ticker"]["amount"]}
-                min_price={marketDetails[market]["ticker"]["low"]}
+                max_price={marketDetails[market]["ticker"]["high"]}
+                min_amount={marketDetails[market]["ticker"]["low"]}
+                min_price={marketDetails[market]["ticker"]["volume"]}
             />
         )
     })
