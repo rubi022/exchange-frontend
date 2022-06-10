@@ -51,14 +51,14 @@ const Login = ({ user, setUser }) => {
       }
     }
 
-    console.log("result", result);
+    // console.log("result", result);
     if (keepLogged) setWithExpiry("user-info", result, 86400000);
     //  localStorage.setItem("user-info", JSON.stringify(result));
     // Cookies.set('_barong_session', '4af227c8260cca0fc50de31800798b88', { expires: 7, httpOnly: true });
-    Cookies.set("_barong_session", "4af227c8260cca0fc50de31800798b88", {
+    Cookies.set("_barong_session", result["csrf_token"], {
       expires: 7,
     });
-
+    console.log(result["csrf_token"])
     setUser(result);
     // navigate('/product');
   }
@@ -85,14 +85,14 @@ const Login = ({ user, setUser }) => {
       });
       return;
     }
-    console.log("result", result);
 
     if (keepLogged) setWithExpiry("user-info", result, 86400000);
 
-    Cookies.set("_barong_session", "4af227c8260cca0fc50de31800798b88", {
+    Cookies.set("_barong_session", result["csrf_token"], {
       expires: 7,
     });
-    console.log(result);
+
+    
     setUser(result);
     return <Navigate to="/" />;
   };
