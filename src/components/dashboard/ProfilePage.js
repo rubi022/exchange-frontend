@@ -16,30 +16,14 @@ import axios from "axios";
 import { defaultAPI } from "../../api/api.js";
 
 const ProfilePage = ({ user, setUser }) => {
-  const getIteminfo = JSON.parse(localStorage.getItem("user-info"));
+  // const getIteminfo = JSON.parse(localStorage.getItem("user-info"));
   // for change password
-
+  const [userC, setUserC] = useState(JSON.parse(localStorage.getItem("user-info")))
+  const [Is2FA, set2FA] = useState(false);
   const [old_password, setOld_password] = useState("");
   const [new_password, setNew_password] = useState("");
   const [confirm_password, setConfirm_password] = useState("");
 
-  async function getTwoFaData(){
-    let result = await fetch(
-      `${defaultAPI.api.authUrl}/resource/otp/generate_qrcode`,
-      {
-        method: "POST",
-        "no-cors": "false",
-        headers: {
-          
-          "Content-Type": "application/json",
-          Accept: "application/json",
-          "Session": "_barong_session"
-        }
-      }
-    );
-    result = await result.json();
-    console.log(result)
-  }
 
   // submit chnage password modal form
   const onPasswordChangeModalSubmit = async (e) => {
@@ -73,9 +57,28 @@ const ProfilePage = ({ user, setUser }) => {
 
   };
 
+  console.log(userC["value"]["otp"])
+
   useEffect(()=>{
-    getTwoFaData();
-  }, [])
+    setUserC(JSON.parse(localStorage.getItem("user-info")));
+    if(!userC["value"]["otp"]){
+      set2FA(false)
+      console.log("false")
+    }
+  },[])
+
+  async function addOtp(){
+    let result = await fetch(
+      `${defaultAPI.api.authUrl}/resource/otp/generate_qrcode`,
+      {
+        method: "POST",
+        headers:{
+          "Content-type": "application/json",
+          Accept: "application"
+        }
+      }
+    )
+  }
 
   if (!user) return <Navigate to="/login" />;
 
@@ -118,7 +121,7 @@ const ProfilePage = ({ user, setUser }) => {
                         State:
                         {/* <span className="badge bg-primary rounded-pill">{state}</span> */}
                         {verifyEmailButtonForPending ? (
-                          <button className="btn btn-danger float-end">
+                          <button className="btn btn-danger float-end" >
                             Verify Email
                           </button>
                         ) : (
@@ -142,9 +145,16 @@ const ProfilePage = ({ user, setUser }) => {
 
                       <li className="list-group-item">
                         2FA{" "}
-                        <button className="btn btn-primary float-end">
-                          Enable 2FA
+                        {Is2FA?
+                        <button className="btn btn-primary float-end" >
+                          Disable 2FA
                         </button>
+                        :
+                        <button className="btn btn-primary float-end" onClick={addOtp}>
+                        Enable 2FA
+                      </button>
+                        }
+                        
                       </li>
                     </ul>
                   </div>

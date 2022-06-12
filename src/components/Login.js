@@ -58,6 +58,9 @@ const Login = ({ user, setUser }) => {
     Cookies.set("_barong_session", result["csrf_token"], {
       expires: 7,
     });
+    // Cookies.set("_barong_session", "4af227c8260cca0fc50de31800798b88", {
+    //   expires: 7,
+    // });
     console.log(result["csrf_token"])
     setUser(result);
     // navigate('/product');
