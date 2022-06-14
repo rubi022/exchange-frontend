@@ -78,6 +78,7 @@ const ProfilePage = ({ user, setUser }) => {
         }
       }
     )
+    console.log(JSON.parse(result))
   }
 
   if (!user) return <Navigate to="/login" />;
