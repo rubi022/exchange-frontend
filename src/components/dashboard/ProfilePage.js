@@ -57,13 +57,17 @@ const ProfilePage = ({ user, setUser }) => {
 
   };
 
-  console.log(userC["value"]["otp"])
+  // console.log(userC["value"]["otp"])                                                           
 
   useEffect(()=>{
+    try{
     setUserC(JSON.parse(localStorage.getItem("user-info")));
     if(!userC["value"]["otp"]){
       set2FA(false)
       console.log("false")
+    }
+    }catch(e){
+      console.log(e)
     }
   },[])
 
