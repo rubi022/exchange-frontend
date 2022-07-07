@@ -118,6 +118,7 @@ const ProfilePage = ({ user, setUser }) => {
      
      {popup? <div className="popup">
         <div>
+          <h3>Scan this to enable 2FA</h3>
           <img src={`data:image/jpeg;base64, ${qrcode}`} alt="" />
           <button className="btn btn-primary" onClick={()=>setPopup(false)}>close</button>
         </div>
