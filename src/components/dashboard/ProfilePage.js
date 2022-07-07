@@ -1,4 +1,6 @@
 import { Navigate } from "react-router-dom";
+import Popup from "reactjs-popup";
+import "reactjs-popup/dist/index.css";
 // import './css/customProfile.css';
 // import './js/scripts.js';
 import "./js/datatables-simple-demo.js";
@@ -18,13 +20,20 @@ import { defaultAPI } from "../../api/api.js";
 const ProfilePage = ({ user, setUser }) => {
   // const getIteminfo = JSON.parse(localStorage.getItem("user-info"));
   // for change password
-  const [userC, setUserC] = useState(JSON.parse(localStorage.getItem("user-info")))
+  const [userC, setUserC] = useState(
+    JSON.parse(localStorage.getItem("user-info"))
+  );
   const [Is2FA, set2FA] = useState(false);
   const [old_password, setOld_password] = useState("");
   const [new_password, setNew_password] = useState("");
   const [confirm_password, setConfirm_password] = useState("");
+  const [qrcode, setQrcode] = useState();
+  const [popup, setPopup] = useState(false);
 
-
+  const togglePopup = () => {
+    if (!popup) setPopup(true);
+    else setPopup(false);
+  };
   // submit chnage password modal form
   const onPasswordChangeModalSubmit = async (e) => {
     e.preventDefault();
@@ -54,35 +63,39 @@ const ProfilePage = ({ user, setUser }) => {
       const data = await result.json();
       console.log(data);
     }
-
   };
 
-  // console.log(userC["value"]["otp"])                                                           
-
-  useEffect(()=>{
-    try{
-    setUserC(JSON.parse(localStorage.getItem("user-info")));
-    if(!userC["value"]["otp"]){
-      set2FA(false)
-      console.log("false")
+  // console.log(userC["value"]["otp"])
+  useEffect(() => {
+    try {
+      
+      if (!userC["value"]["otp"]) {
+        set2FA(false);
+        console.log("false");
+      }
+      else{
+        set2FA(true);
+      }
+    } catch (e) {
+      console.log(e);
     }
-    }catch(e){
-      console.log(e)
-    }
-  },[])
+  }, [userC]);
 
-  async function addOtp(){
+  async function addOtp() {
     let result = await fetch(
       `${defaultAPI.api.authUrl}/resource/otp/generate_qrcode`,
       {
         method: "POST",
-        headers:{
+        headers: {
           "Content-type": "application/json",
-          Accept: "application"
-        }
+          Accept: "application",
+        },
       }
-    )
-    console.log(JSON.parse(result))
+    );
+    result = await result.json();
+    setQrcode(result["data"]["barcode"]);
+    setPopup(true);
+    console.log("working");
   }
 
   if (!user) return <Navigate to="/login" />;
@@ -102,6 +115,16 @@ const ProfilePage = ({ user, setUser }) => {
 
   return (
     <div>
+     
+     {popup? <div className="popup">
+        <div>
+          <img src={`data:image/jpeg;base64, ${qrcode}`} alt="" />
+          <button className="btn btn-primary" onClick={()=>setPopup(false)}>close</button>
+        </div>
+      </div>
+      :
+     <div></div>   
+    }
       <div className="sb-nav-fixed profilediv">
         <DashboardNavbar user={user} setUser={setUser} />
         <div id="layoutSidenav">
@@ -126,7 +149,7 @@ const ProfilePage = ({ user, setUser }) => {
                         State:
                         {/* <span className="badge bg-primary rounded-pill">{state}</span> */}
                         {verifyEmailButtonForPending ? (
-                          <button className="btn btn-danger float-end" >
+                          <button className="btn btn-danger float-end">
                             Verify Email
                           </button>
                         ) : (
@@ -150,16 +173,18 @@ const ProfilePage = ({ user, setUser }) => {
 
                       <li className="list-group-item">
                         2FA{" "}
-                        {Is2FA?
-                        <button className="btn btn-primary float-end" >
-                          Disable 2FA
-                        </button>
-                        :
-                        <button className="btn btn-primary float-end" onClick={addOtp}>
-                        Enable 2FA
-                      </button>
-                        }
-                        
+                        {Is2FA ? (
+                          <button className="btn btn-primary float-end">
+                            Disable 2FA
+                          </button>
+                        ) : (
+                          <button
+                            className="btn btn-primary float-end"
+                            onClick={addOtp}
+                          >
+                            Enable 2FA
+                          </button>
+                        )}
                       </li>
                     </ul>
                   </div>
