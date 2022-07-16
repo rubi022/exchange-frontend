@@ -1,5 +1,5 @@
 import { Navigate } from "react-router-dom";
-import Popup from "reactjs-popup";
+import Popup from "./Popup.jsx";
 import "reactjs-popup/dist/index.css";
 // import './css/customProfile.css';
 // import './js/scripts.js';
@@ -29,6 +29,7 @@ const ProfilePage = ({ user, setUser }) => {
   const [confirm_password, setConfirm_password] = useState("");
   const [qrcode, setQrcode] = useState();
   const [popup, setPopup] = useState(false);
+  const [tbOtp, setTbOtp] = useState("");
 
   const togglePopup = () => {
     if (!popup) setPopup(true);
@@ -68,12 +69,10 @@ const ProfilePage = ({ user, setUser }) => {
   // console.log(userC["value"]["otp"])
   useEffect(() => {
     try {
-      
       if (!userC["value"]["otp"]) {
         set2FA(false);
         console.log("false");
-      }
-      else{
+      } else {
         set2FA(true);
       }
     } catch (e) {
@@ -82,6 +81,7 @@ const ProfilePage = ({ user, setUser }) => {
   }, [userC]);
 
   async function addOtp() {
+    
     let result = await fetch(
       `${defaultAPI.api.authUrl}/resource/otp/generate_qrcode`,
       {
@@ -112,20 +112,70 @@ const ProfilePage = ({ user, setUser }) => {
   if (state === "pending") {
     verifyEmailButtonForPending = true;
   }
+  const EnableOtp = async () => {
+    console.log("clicked")
+    let result = await fetch(
+      `${defaultAPI.api.authUrl}/resource/otp/enable?code=${tbOtp}`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+      }
+    );
+    result = await result.json();
+    console.log(JSON.parse(result));
+    localStorage.removeItem("user-info");
+    setTimeout(() => {
+      setUser("");
+    }, 100);
+  };
+ 
+  
 
   return (
     <div>
-     
-     {popup? <div className="popup">
-        <div>
-          <h3>Scan this to enable 2FA</h3>
-          <img src={`data:image/jpeg;base64, ${qrcode}`} alt="" />
-          <button className="btn btn-primary" onClick={()=>setPopup(false)}>close</button>
-        </div>
+      {popup ? (
+        <div className="popup">
+        
+          <div>
+            <h4>Google Authenticator test</h4>
+            <p>
+              Download and install Google Authenticator application from
+              AppStore or Google play
+              <br />
+              <br />
+              Scan QR code or use secret code: * Save this secret in a secure
+              location. This code can used to gain 2FA access from a different
+              device.
+            </p>
+            <img src={`data:image/jpeg;base64, ${qrcode}`} alt="" />
+            <br />
+            <input
+              type="number"
+              className="form-control"
+              placeholder="Enter 2FA code from app"
+              onChange={(e) => {
+                setTbOtp(e.target.value);
+              }}
+            />
+            <br />
+            <button
+              className="enable"
+              onClick={EnableOtp}
+            >
+              Enable
+            </button>
+            <button className="ne-close" onClick={() => setPopup(false)}>
+              close
+            </button>
+          </div>
+        
       </div>
-      :
-     <div></div>   
-    }
+      ) : (
+        <div></div>
+      )}
       <div className="sb-nav-fixed profilediv">
         <DashboardNavbar user={user} setUser={setUser} />
         <div id="layoutSidenav">
@@ -175,7 +225,12 @@ const ProfilePage = ({ user, setUser }) => {
                       <li className="list-group-item">
                         2FA{" "}
                         {Is2FA ? (
-                          <button className="btn btn-primary float-end">
+                          <button
+                            className="btn btn-primary float-end"
+                            onClick={() => {
+                              setPopup(true);
+                            }}
+                          >
                             Disable 2FA
                           </button>
                         ) : (

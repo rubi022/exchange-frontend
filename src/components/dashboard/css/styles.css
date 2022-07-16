@@ -11730,12 +11730,54 @@ div.sb-nav-fixed {
 
 }
 .popup div{
+  padding: 2% 1%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   flex-direction: column;
   background-color: white;
   border: 1px solid #000;
   width: 400px;
   height: 650px;
+}
+.popup h4{
+  text-align: left;
+  width: 100%;
+  padding: 2%;
+}
+.popup p{
+  padding: 1% 2%;
+  font-size: 15px;
+}
+.popup img{
+  width: 100px;
+  height: 100px;
+}
+.popup .enable{
+  width: 90%;
+  color: white;
+  background-color: #198754;
+  padding: 5px 10px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+.popup .enable:hover{
+  background-color:#0c4128;
+}
+.popup .ne-close{
+  border: none;
+  border-radius: 8px;
+  background-color: #a52834;
+  text-decoration: none;
+  padding: 2px 7px;
+  font-size: 20px;
+  color: #FFF;
+  font-weight: 300;
+  letter-spacing: 1px;
+  margin-top: 20px;
+  margin-left: 190px;
 }
