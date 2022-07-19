@@ -13,9 +13,10 @@ function DashboardNavbar({ user, setUser }) {
         <nav
             className="sb-topnav navbar navbar-expand navbar-dark bg-dark"
             id="main"
-        >
+        > 
             {/* <!-- Navbar Brand--> */}
-            <a className="navbar-brand ps-3" href="index.html">
+            {/* <a className="navbar-brand ps-3" href="index.html"> */}
+            <a className="navbar-brand ps-3" href="/">
                 Admin Panel
             </a>
             {/* <!-- Sidebar Toggle--> */}

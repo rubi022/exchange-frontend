@@ -18,8 +18,10 @@ const Register = ({ user }) => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
+    const lang="EN";
+    var username="";
 
-    let item = { email, password, confirmPassword };
+    let item = {username, email, password, confirmPassword,lang };
     // console.log(item)
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
 
