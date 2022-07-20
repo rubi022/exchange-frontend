@@ -13,9 +13,10 @@ function DashboardNavbar({ user, setUser }) {
         <nav
             className="sb-topnav navbar navbar-expand navbar-dark bg-dark"
             id="main"
-        >
+        > 
             {/* <!-- Navbar Brand--> */}
-            <a className="navbar-brand ps-3" href="index.html">
+            {/* <a className="navbar-brand ps-3" href="index.html"> */}
+            <a className="navbar-brand ps-3" href="/" >
                 Admin Panel
             </a>
             {/* <!-- Sidebar Toggle--> */}
@@ -28,6 +29,12 @@ function DashboardNavbar({ user, setUser }) {
             >
                 <i className="fas fa-bars"></i>
             </button>
+
+            {/* menu of navbar */}
+            <Link to="/trading/btcusdt" className='navbar-menu'>TRADE</Link>
+            <Link to="/wallets" className='navbar-menu'>WALLETS</Link>
+            <Link to="/orders" className='navbar-menu'>ORDERS</Link>
+            <Link to="/history" className='navbar-menu'>HISTORY</Link>
 
             {/* <!-- Navbar Search--> */}
             <form className="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">

@@ -13,6 +13,7 @@ import { getWithExpiry } from './helper/utils'
 import Market from './components/dashboard/Market'
 import ForgotPasswd from './components/ForgotPasswd'
 import ChangePassword from './components/ChangePassword'
+import Order from './components/dashboard/Order'
 
 function App() {
     const [user, setUser] = useState()
@@ -48,6 +49,14 @@ function App() {
                 <Route
                     path="balance"
                     element={<Balance user={user} setUser={setUser} />}
+                />
+                {/* <Route
+                    path="wallets"
+                    element={<Balance user={user} setUser={setUser} />}
+                /> */}
+                <Route
+                    path="orders"
+                    element={<Order user={user} setUser={setUser} />}
                 />
                 <Route path="register" element={<Register user={user} />} />
                 <Route
