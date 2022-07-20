@@ -44,7 +44,7 @@ const Order = ({ user, setUser }) => {
           <div id="layoutSidenav_content">
             <main>
               <div className="container-fluid px-4 balance-container">
-                <div className="row balance-switch-search "> <h3 style="padding: 0px 0rem 1rem; font-weight: 700; font-size: 27.5px; color: var(--side-bar-active-content-heading;"> Open Orders</h3> </div>
+                <div className="row balance-switch-search "> <h3> Open Orders</h3> </div>
               </div>
             </main>
           </div>
