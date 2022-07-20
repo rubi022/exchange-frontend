@@ -17,9 +17,10 @@
 
 .navbar-menu {
   color: #ffffff;
-  font-size: 16px;
+  font-size: 13px;
   padding-left: 2rem !important;
   text-decoration: none;
+  font-weight: bold;
 }
 
 /* main app */
