@@ -44,7 +44,7 @@ const Order = ({ user, setUser }) => {
           <div id="layoutSidenav_content">
             <main>
               <div className="container-fluid px-4 balance-container">
-                <div className="row balance-switch-search ">Open Orders</div>
+                <div className="row balance-switch-search "> <h2> Open Orders</h2> </div>
               </div>
             </main>
           </div>
