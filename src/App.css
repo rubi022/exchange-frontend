@@ -1,5 +1,3 @@
-
-
 .navbar {
   background-color: #28334e !important;
 }
@@ -17,8 +15,11 @@
   color: #28334e !important;
 }
 
-
-
+.navbar-menu {
+  color: #ffffff;
+  font-size: 16px;
+  padding-left: 2rem !important;
+}
 
 /* main app */
 .App {
@@ -37,18 +38,15 @@
 .card .card-sign {
   padding: 20px !important;
   background-color: white !important;
-width: 100%;
-
+  width: 100%;
 }
-
-
 
 .resgister-div {
   position: relative !important;
-  top: 150px  !important;
+  top: 150px !important;
 }
 
-.card-sign .row{
+.card-sign .row {
   padding: 30px;
 }
 .card-sign .btn-login-focus:focus {
@@ -109,27 +107,25 @@ width: 100%;
   color: white;
 }
 
-
 /* img card */
 
-.card-sign .loginImg{
+.card-sign .loginImg {
   width: 100%;
   height: auto;
 }
 
-.btn-withdrw{
-
+.btn-withdrw {
   margin-left: 5px;
 }
 
-.icon-img-currency{
+.icon-img-currency {
   width: 30px;
   height: 30px;
 }
 
-.balance-container .balance-switch-search{
+.balance-container .balance-switch-search {
   margin-top: 10px;
 }
-.balance-container .balance-switch-search .form-switch{
+.balance-container .balance-switch-search .form-switch {
   margin-top: 8px;
 }
