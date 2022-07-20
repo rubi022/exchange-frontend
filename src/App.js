@@ -14,6 +14,7 @@ import Market from './components/dashboard/Market'
 import ForgotPasswd from './components/ForgotPasswd'
 import ChangePassword from './components/ChangePassword'
 import Order from './components/dashboard/Order'
+import History from './components/dashboard/History'
 
 function App() {
     const [user, setUser] = useState()
@@ -57,6 +58,10 @@ function App() {
                 <Route
                     path="orders"
                     element={<Order user={user} setUser={setUser} />}
+                />
+                <Route
+                    path="history"
+                    element={<History user={user} setUser={setUser} />}
                 />
                 <Route path="register" element={<Register user={user} />} />
                 <Route

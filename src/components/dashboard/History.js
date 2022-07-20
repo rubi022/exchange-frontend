@@ -7,11 +7,11 @@ import DashboardNavbar from "./base/DashboardNavbar";
 import DashboardLayoutSideNav from "./base/DashboardLayoutSideNav.js";
 import { defaultAPI } from "../../api/api.js";
 
-const Order = ({ user, setUser }) => {
+const History = ({ user, setUser }) => {
   useEffect(() => {
-    async function getOrderData() {
+    async function getHistoryData() {
       let result = await fetch(
-        `${defaultAPI.api.tradeUrl}/market/orders?limit=25&page=1&state=wait`,
+        `${defaultAPI.api.tradeUrl}/market/history?limit=25&page=1&state=wait`,
         {
           method: "GET",
           withCredentials: "true",
@@ -25,10 +25,10 @@ const Order = ({ user, setUser }) => {
         }
       );
       result = await result.json();
-      console.log("my result for the order", result);
+      console.log("my result for the history", result);
     }
 
-    getOrderData();
+    getHistoryData();
     console.log("1");
   }, []);
 
@@ -44,7 +44,9 @@ const Order = ({ user, setUser }) => {
           <div id="layoutSidenav_content">
             <main>
               <div className="container-fluid px-4 balance-container">
-                <div className="row balance-switch-search ">order page</div>
+                <div className="row balance-switch-search ">
+                    history page
+                </div>
               </div>
             </main>
           </div>
@@ -54,4 +56,4 @@ const Order = ({ user, setUser }) => {
   );
 };
 
-export default Order;
+export default History;

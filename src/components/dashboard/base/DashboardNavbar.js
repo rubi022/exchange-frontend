@@ -32,7 +32,7 @@ function DashboardNavbar({ user, setUser }) {
 
             {/* menu of navbar */}
             <Link to="/trading/btcusdt" className='navbar-menu'>TRADE</Link>
-            <Link to="/wallets" className='navbar-menu'>WALLETS</Link>
+            <Link to="/balance" className='navbar-menu'>WALLETS</Link>
             <Link to="/orders" className='navbar-menu'>ORDERS</Link>
             <Link to="/history" className='navbar-menu'>HISTORY</Link>
 
