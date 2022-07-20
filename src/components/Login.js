@@ -32,7 +32,7 @@ const Login = ({ user, setUser }) => {
           Accept: "application/json",
         },
         body: JSON.stringify(item),
-      }
+      } 
     );
 
     result = await result.json();
@@ -111,23 +111,27 @@ const Login = ({ user, setUser }) => {
               </div>
               <div className="col-md-6">
                 <br />
-
+            
                 <form action="" className="login-form" onSubmit={onSubmit}>
+                  <label forHTML="email">Email</label>
                   <input
+                    id="email"
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     className="form-control"
-                    placeholder="Email"
+                    // placeholder="Email"
                     required
                   />
                   <br />
+                  <label forHTML="password">Password</label>
                   <input
+                    id="password"
                     type="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     className="form-control"
-                    placeholder="Password"
+                    // placeholder="Password"
                     required
                   />
                   <br />
