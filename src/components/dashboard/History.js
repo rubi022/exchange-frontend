@@ -11,7 +11,7 @@ const History = ({ user, setUser }) => {
   useEffect(() => {
     async function getHistoryData() {
       let result = await fetch(
-        `${defaultAPI.api.tradeUrl}/market/history?limit=25&page=1&state=wait`,
+        `${defaultAPI.api.tradeUrl}/market/orders?limit=25&page=1&state=wait`,
         {
           method: "GET",
           withCredentials: "true",
