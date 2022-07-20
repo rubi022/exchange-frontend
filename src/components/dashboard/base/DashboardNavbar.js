@@ -16,7 +16,7 @@ function DashboardNavbar({ user, setUser }) {
         > 
             {/* <!-- Navbar Brand--> */}
             {/* <a className="navbar-brand ps-3" href="index.html"> */}
-            <a className="navbar-brand ps-3" href="/" style=" font-weight: 500; padding-left: 61.8px !important; ">
+            <a className="navbar-brand ps-3" href="/">
                 coins.st
             </a>
             {/* <!-- Sidebar Toggle--> */}
