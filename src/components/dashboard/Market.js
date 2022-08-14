@@ -44,9 +44,12 @@ const Market = ({ user, setUser }) => {
             <MarketList
                 key={marketDetails[market]["at"]}
                 name={[market.toUpperCase()]}
-                max_price={marketDetails[market]["ticker"]["high"]}
-                min_amount={marketDetails[market]["ticker"]["low"]}
-                min_price={marketDetails[market]["ticker"]["volume"]}
+                last_price={marketDetails[market]["ticker"]["last"]}
+                percent_change={marketDetails[market]["ticker"]["price_change_percent"]}
+                daily_high={marketDetails[market]["ticker"]["high"]}
+                dauly_low={marketDetails[market]["ticker"]["low"]}
+                daily_volume={marketDetails[market]["ticker"]["volume"]}
+                daily_open={marketDetails[market]["ticker"]["open"]}
             />
         )
     })
@@ -86,16 +89,16 @@ const Market = ({ user, setUser }) => {
                                                             Last Price
                                                         </th>
                                                         <th scope="col">
-                                                            24 Change
+                                                            % Change
                                                         </th>
                                                         <th scope="col">
-                                                            24 High
+                                                            Low
                                                         </th>
                                                         <th scope="col">
-                                                            24 Low
+                                                            High
                                                         </th>
                                                         <th scope="col">
-                                                            24 Volume
+                                                            Volume
                                                         </th>
                                                     </tr>
                                                 </thead>
