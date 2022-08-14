@@ -71,14 +71,9 @@ const Market = ({ user, setUser }) => {
                                 {/* All market details*/}
 
                                 <div className="row mt-4 profile-list-row">
-                                    <div className="col-xl-12 col-md-12 profile-list-div card">
-                                        <ul className="list-group card-body">
-                                            <li
-                                                className="list-group-item list-group-item-dark"
-                                                aria-current="true"
-                                            >
-                                                All Market Items
-                                            </li>
+                                    <div className="col-xl-12 col-md-12 profile-list-div">
+
+                                        
                                             <table className="table table-bordered">
                                                 <thead>
                                                     <tr>
@@ -104,7 +99,6 @@ const Market = ({ user, setUser }) => {
                                                 </thead>
                                                 <tbody>{markets}</tbody>
                                             </table>
-                                        </ul>
                                     </div>
                                 </div>
                             </div>
