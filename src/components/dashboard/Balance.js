@@ -148,16 +148,11 @@ const Balance = ({ user, setUser }) => {
                 {/* All market details*/}
 
                 <div className="row mt-4 profile-list-row">
-                  <div className="col-xl-12 col-md-12 profile-list-div card">
-                    <ul className="list-group card-body">
-                      <li
-                        className="list-group-item list-group-item-dark"
-                        aria-current="true"
-                      >
-                        All Balance Items
-                      </li>
-                      <table className="table table-bordered">
-                        <thead>
+                  <div className="col-xl-12 col-md-12 profile-list-div ">
+                    
+
+                      <table className="table">
+                        <thead className="table-light">
                           <tr>
                             <th scope="col">CURRENCY</th>
                             {/* <th scope="col">
@@ -191,7 +186,6 @@ const Balance = ({ user, setUser }) => {
                                                     </tr> */}
                         </tbody>
                       </table>
-                    </ul>
                   </div>
                 </div>
               </div>
