@@ -1,20 +1,20 @@
 import React from 'react'
 
-function MarketList({ name, max_price, min_amount, min_price }) {
+function MarketList({ name, last_price, percent_change, daily_low, daily_high, daily_volume  }) {
     return (
         <tr>
             <td>
                 {name}
             </td>
 
-            <td>{max_price}</td>
-            <td>{min_amount}</td>
-            <td>{min_price}</td>
+            <td>{last_price}</td>
+            <td>{percent_change}</td>
+            <td>{daily_low}</td>
             <td>
-                {min_price}
+                {daily_high}
             </td>
             <td>
-                {min_price}
+                {daily_volume}
             </td>
         </tr>
     )
