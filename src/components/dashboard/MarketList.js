@@ -3,7 +3,7 @@ import React from 'react'
 function MarketList({ name, last_price, percent_change, daily_low, daily_high, daily_volume  }) {
     return (
         <tr>
-            <td>
+            <td scope="row">
                 {name}
             </td>
 
