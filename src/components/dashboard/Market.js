@@ -47,7 +47,7 @@ const Market = ({ user, setUser }) => {
                 last_price={marketDetails[market]["ticker"]["last"]}
                 percent_change={marketDetails[market]["ticker"]["price_change_percent"]}
                 daily_high={marketDetails[market]["ticker"]["high"]}
-                dauly_low={marketDetails[market]["ticker"]["low"]}
+                daily_low={marketDetails[market]["ticker"]["low"]}
                 daily_volume={marketDetails[market]["ticker"]["volume"]}
                 daily_open={marketDetails[market]["ticker"]["open"]}
             />
