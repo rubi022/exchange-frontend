@@ -75,7 +75,7 @@ const Market = ({ user, setUser }) => {
 
                                         
                                             <table className="table table-bordered">
-                                                <thead>
+                                                <thead className="table-light">
                                                     <tr>
                                                         <th scope="col">
                                                             Market
