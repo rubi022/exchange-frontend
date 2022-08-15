@@ -15,6 +15,8 @@ import ForgotPasswd from './components/ForgotPasswd'
 import ChangePassword from './components/ChangePassword'
 import Order from './components/dashboard/Order'
 import History from './components/dashboard/History'
+import React from "react";
+import Signuptwo from './components/dashboard/Signuptwo'
 
 function App() {
     const [user, setUser] = useState()
@@ -71,6 +73,10 @@ function App() {
                 <Route
                     path="email-verification"
                     element={<VerifyEmail user={user} />}
+                />
+                <Route 
+                    path='signup2'
+                    element={<Signuptwo user={user} setUser={setUser}/>}
                 />
             </Routes>
         </div>

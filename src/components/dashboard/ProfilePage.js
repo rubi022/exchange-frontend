@@ -18,7 +18,7 @@ import axios from "axios";
 import { defaultAPI } from "../../api/api.js";
 
 const ProfilePage = ({ user, setUser }) => {
-  // const getIteminfo = JSON.parse(localStorage.getItem("user-info"));
+  const getIteminfo = JSON.parse(localStorage.getItem("user-info"));
   // for change password
   const [userC, setUserC] = useState(
     JSON.parse(localStorage.getItem("user-info"))

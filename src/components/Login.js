@@ -38,7 +38,7 @@ const Login = ({ user, setUser }) => {
     result = await result.json();
     console.log(result.errors);
     // console.log({ result });
-    if (result?.errors) {
+    if (result.errors) {
       if (result.errors == "identity.session.missing_otp") {
         setIsOtp(true);
         return toast.warning("Enter 2FA code", {
