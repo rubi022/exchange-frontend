@@ -1,15 +1,7 @@
 import { Navigate } from "react-router-dom";
-// import './css/customProfile.css';
-// import './js/scripts.js';
 import "./js/datatables-simple-demo.js";
 import "./css/styles.css";
-// import { useEffect } from 'react';
-// import { Helmet } from "react-helmet";
-// import React, { useEffect, useState } from "react";
 import React, { useState, useEffect } from "react";
-import axios from "axios";
-// import { getWithExpiry } from "../../helper/utils";
-import { Link } from "react-router-dom";
 import DashboardNavbar from "./base/DashboardNavbar";
 import DashboardLayoutSideNav from "./base/DashboardLayoutSideNav.js";
 import { defaultAPI } from "../../api/api.js";
@@ -18,55 +10,23 @@ import BalanceList from "./BalanceList.js";
 const Balance = ({ user, setUser }) => {
   const [balanceDetails, setBalanceDetails] = useState([]);
 
-  // useEffect(() => {
-  //     fetch(`${defaultAPI.api.tradeUrl}/account/balances`, {
-  //         method: 'GET',
-  //         mode: 'no-cors',
-  //         headers: {
-  //             'Content-Type': 'application/json',
-  //         },
-  //     })
-  //         .then((response) => response.json())
-  //         .then((data) => {
-  //             // console.log('Success:', data)
-  //         })
-  //         .catch((error) => {
-  //             // console.error('Error:', error)
-  //         })
-  // }, []);
+  async function getBalanceData() {
+    let result = await fetch(`${defaultAPI.api.tradeUrl}/public/currencies`, {
+      method: "GET",
+      withCredentials: "true",
+      cookie: user,
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        session: "_barong_session",
+      },
+    });
+    result = await result.json();
+    console.log(result);
+    setBalanceDetails(result);
+  }
 
   useEffect(() => {
-    // let isMounted = true
-
-    // async function getBalanceData() {
-    //     const res = await fetch(
-    //         // `${defaultAPI.api.tradeUrl}/account/balances`
-    //         `${defaultAPI.api.tradeUrl}/account/balances`
-    //     )
-    //     const data = await res.json()
-    //     if (isMounted) setBalanceDetails(data)
-    // }
-    // getBalanceData()
-
-    // return () => {
-    //     isMounted = false
-    // }
-
-    async function getBalanceData() {
-      let result = await fetch(`${defaultAPI.api.tradeUrl}/account/balances`, {
-        method: "GET",
-        withCredentials: "true",
-        cookie: user,
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-          "session": "_barong_session"
-        },
-      });
-      result = await result.json();
-      console.log(result);
-    }
-
     getBalanceData();
     console.log("1");
   }, []);
@@ -76,16 +36,11 @@ const Balance = ({ user, setUser }) => {
   const balances = balanceDetails.map((balance) => {
     return (
       <BalanceList
-        // key={balance.id}
-        // currency={balance.currency}
-        // balance={balance.balance}
-        // locked={balance.locked}
         currencyId={balance.id}
         currencyName={balance.name}
         currencyAvailable={balance.price}
         locked={balance.deposit_fee}
         icon_url={balance.icon_url}
-        // min_price={balance.min_price}
       />
     );
   });
@@ -149,43 +104,22 @@ const Balance = ({ user, setUser }) => {
 
                 <div className="row mt-4 profile-list-row">
                   <div className="col-xl-12 col-md-12 profile-list-div ">
-                    
-
-                      <table className="table">
-                        <thead className="table-light">
-                          <tr>
-                            <th scope="col">CURRENCY</th>
-                            {/* <th scope="col">
+                    <table className="table">
+                      <thead className="table-light">
+                        <tr>
+                          <th scope="col">CURRENCY</th>
+                          {/* <th scope="col">
                                                             NAME
                                                         </th> */}
 
-                            <th scope="col">NAME</th>
-                            <th scope="col">AVAILABLE</th>
-                            <th scope="col">LOCKED</th>
-                            <th scope="col">ACTION</th>
-                            {/* <th scope="col">
-                                                            24 Volume
-                                                        </th> */}
-                          </tr>
-                        </thead>
-                        <tbody>
-                          {balances}
-                          {/* <tr>
-                                                        <td>currency</td>
-
-                                                        <td>balance</td>
-                                                        <td>locked</td>
-                                                        <td>
-                                                            <button className="btn btn-primary ">
-                                                                Deposit
-                                                            </button>
-                                                            <button className="btn btn-primary btn-withdrw">
-                                                                Withdraw
-                                                            </button>
-                                                        </td>
-                                                    </tr> */}
-                        </tbody>
-                      </table>
+                          <th scope="col">NAME</th>
+                          <th scope="col">AVAILABLE</th>
+                          <th scope="col">LOCKED</th>
+                          <th scope="col">ACTION</th>
+                        </tr>
+                      </thead>
+                      <tbody>{balances}</tbody>
+                    </table>
                   </div>
                 </div>
               </div>
