@@ -11,19 +11,22 @@ const Balance = ({ user, setUser }) => {
   const [balanceDetails, setBalanceDetails] = useState([]);
 
   async function getBalanceData() {
-    let result = await fetch(`${defaultAPI.api.tradeUrl}/public/currencies`, {
-      method: "GET",
-      withCredentials: "true",
-      cookie: user,
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-        session: "_barong_session",
-      },
-    });
-    result = await result.json();
-    console.log(result);
-    setBalanceDetails(result);
+    try{
+      let result = await fetch(`${defaultAPI.api.tradeUrl}account/balances`, {
+        method: "GET",
+        withCredentials: "true",
+        cookie: user,
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+          session: "_barong_session",
+        },
+      });
+      result = await result.json();
+      console.log(result);
+      setBalanceDetails(result);
+    }catch{}
+    
   }
 
   useEffect(() => {
@@ -33,17 +36,17 @@ const Balance = ({ user, setUser }) => {
 
   console.log(balanceDetails);
 
-  const balances = balanceDetails.map((balance) => {
-    return (
-      <BalanceList
-        currencyId={balance.id}
-        currencyName={balance.name}
-        currencyAvailable={balance.price}
-        locked={balance.deposit_fee}
-        icon_url={balance.icon_url}
-      />
-    );
-  });
+  // const balances = balanceDetails.map((balance) => {
+  //   return (
+  //     <BalanceList
+  //       currencyId={balance.id}
+  //       currencyName={balance.name}
+  //       currencyAvailable={balance.price}
+  //       locked={balance.deposit_fee}
+  //       icon_url={balance.icon_url}
+  //     />
+  //   );
+  // });
 
   if (!user) return <Navigate to="/login" />;
 
@@ -118,7 +121,9 @@ const Balance = ({ user, setUser }) => {
                           <th scope="col">ACTION</th>
                         </tr>
                       </thead>
-                      <tbody>{balances}</tbody>
+                      <tbody>
+                        {/* {balances} */}
+                      </tbody>
                     </table>
                   </div>
                 </div>

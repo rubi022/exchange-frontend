@@ -31,7 +31,7 @@ function Signuptwo() {
             items = {  email, password,username, refid };
         }
         let result = await fetch(
-            `${defaultAPI.api.authUrl}/identity/users?email=${email}&password=${password}&username=${username}&refid=${refid}`,
+            `${defaultAPI.api.authUrl}/identity/users?email=${email}&password=${password}`,
     
             {
               method: "POST", 
@@ -59,7 +59,7 @@ function Signuptwo() {
             const data = await result.json();
     
             localStorage.setItem("user-info", JSON.stringify(data));
-            navigate('login');
+            navigate('../login');
           }
     }
 
