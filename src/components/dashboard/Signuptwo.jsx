@@ -121,7 +121,7 @@ function Signuptwo() {
                 placeholder="Ref ID"
                 onChange={(e) => setRefid(e.target.value)}
               />
-              <label for="floatingPassword">Refferal Code</label>
+              <label for="floatingPassword"></label>
             </div>
 
             <div class="checkbox mb-3">
