@@ -86,7 +86,7 @@ function Signuptwo() {
         <main class="form-signin w-100 m-auto">
           <form>
             {/* <img class="mb-4" src="" alt="" width="72" height="57" /> */}
-            <h2 class="h3 mb-3 fw-normal" style={{ color: "white" }}>
+            <h2 class="h3 mb-3 fw-normal" >
               Please sign up
             </h2>
 
