@@ -149,7 +149,7 @@ function Signuptwo() {
               >
                 coins.st
               </h1>
-              <span>&copy; 2017–2022 © <p> {today.getFullYear()} </p> </span>
+              <span>&copy; {today.getFullYear()} coins.st </span>
             </p>
           </form>
         </main>
