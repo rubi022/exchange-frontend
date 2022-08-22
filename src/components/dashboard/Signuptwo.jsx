@@ -6,9 +6,7 @@ import { defaultAPI } from "../../api/api";
 import "./css/Sign.css";
 
 
-getYear() {
-    return new Date().getFullYear();
-}
+const today = new Date();
 
 function Signuptwo() {
   //States
@@ -151,7 +149,7 @@ function Signuptwo() {
               >
                 coins.st
               </h1>
-              <span>&copy; 2017–2022 © {this.getYear()} </span>
+              <span>&copy; 2017–2022 © <p> {today.getFullYear()} </p> </span>
             </p>
           </form>
         </main>
