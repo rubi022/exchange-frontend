@@ -1,6 +1,6 @@
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, Navigate } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Register from './components/Register'
 import Login from './components/Login'
@@ -75,9 +75,10 @@ function App() {
                     element={<VerifyEmail user={user} />}
                 />
                 <Route 
-                    path='signup2'
+                    path='signup'
                     element={<Signuptwo user={user} setUser={setUser}/>}
                 />
+                <Route path='*' element={<Navigate to='/'/>}/>
             </Routes>
         </div>
     )

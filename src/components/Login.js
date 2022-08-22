@@ -1,5 +1,5 @@
 import { Link, Navigate } from "react-router-dom";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import { setWithExpiry } from "../helper/utils";
 import loginImg from "../usingImages/loginImg.svg";
@@ -15,6 +15,9 @@ const Login = ({ user, setUser }) => {
   const [password, setPassword] = useState("");
   const [keepLogged, setKeepLogged] = useState(false);
   if (user) return <Navigate to="/" />;
+  const queryString = window.location.search;
+  const urlParam = new URLSearchParams(queryString);
+
   // const navigate = useNavigate();
 
   async function onSubmit(e) {
@@ -99,6 +102,13 @@ const Login = ({ user, setUser }) => {
     setUser(result);
     return <Navigate to="/" />;
   };
+
+  useEffect(()=>{
+    if(urlParam.get('showLogin') == 'true'){
+      toast.warn('Please login', {position: 'top-center'})
+    }
+  },[])
+
   return (
     <div className="container">
       <div className="row resgister-div">
@@ -178,7 +188,7 @@ const Login = ({ user, setUser }) => {
                         />
                         &nbsp;&nbsp;&nbsp; <span>or</span> &nbsp;&nbsp;&nbsp;
                         <Link
-                          to="/register"
+                          to="/signup"
                           className="btn btn-light"
                           aria-current="page"
                         >
