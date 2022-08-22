@@ -5,6 +5,11 @@ import { v4 as uuidv4 } from "uuid";
 import { defaultAPI } from "../../api/api";
 import "./css/Sign.css";
 
+
+getYear() {
+    return new Date().getFullYear();
+}
+
 function Signuptwo() {
   //States
   const [email, setEmail] = useState();
@@ -146,7 +151,7 @@ function Signuptwo() {
               >
                 coins.st
               </h1>
-              &copy; 2017–2022
+              <span>&copy; 2017–2022 © {this.getYear()} </span>
             </p>
           </form>
         </main>
