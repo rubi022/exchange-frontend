@@ -146,7 +146,7 @@ function Signuptwo() {
               >
                 coins.st
               </h1>
-              &copy; 2017–2022 © {this.getYear()}
+              &copy; 2017–2022
             </p>
           </form>
         </main>
