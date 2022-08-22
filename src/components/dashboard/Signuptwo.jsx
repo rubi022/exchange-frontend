@@ -30,7 +30,7 @@ function Signuptwo() {
       let refids = "ID" + id.slice(0, 8);
       refids = refids.toUpperCase();
       setRefid(refids);
-      items = { email, password, username, refid };
+      items = { email, password, username };
     }
     let result;
     if(refid != ""){
