@@ -125,7 +125,7 @@ function Signuptwo() {
             </div>
 
             <div class="checkbox mb-3">
-              <label style={{ color: "white" }}>
+              <label style={{ color:  }}>
                 I have read and agree to coins.st{" "}
                 <a href="#"> Terms of Service</a> and{" "}
                 <a href="#">Privacy Policy</a>.
