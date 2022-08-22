@@ -114,7 +114,7 @@ function Signuptwo() {
             </div>
             <div class="form-floating">
               <input
-                type="text"
+                type="hidden"
                 name="refid"
                 class="form-control"
                 id="refid"
