@@ -142,7 +142,7 @@ function Signuptwo() {
             <p class="mt-5 mb-3 text-muted">
               <h1
                 class="h3 mb-3 fw-normal"
-                style={{ fontWeight: "bold !important", fontSize: "61.8px" }}
+                style={{ fontWeight: "bold !important", fontSize: "61.8px", color: "#212529" }}
               >
                 coins.st
               </h1>
