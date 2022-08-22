@@ -35,7 +35,7 @@ function Signuptwo() {
     let result;
     if(refid != ""){
     result = await fetch(
-      `${defaultAPI.api.authUrl}/identity/users?email=${email}&password=${password}&refid=${refid}`,
+      `${defaultAPI.api.authUrl}/identity/users?email=${email}&password=${password}`,
 
       {
         method: "POST",
