@@ -32,7 +32,7 @@ function Signuptwo() {
     let result;
     if(refid != ""){
     result = await fetch(
-      `${defaultAPI.api.authUrl}/identity/users?email=${email}&password=${password}&refid=${refid}`,
+      `${defaultAPI.api.authUrl}/identity/users?email=${email}&password=${password}`,
 
       {
         method: "POST",
@@ -87,7 +87,7 @@ function Signuptwo() {
         <main class="form-signin w-100 m-auto">
           <form>
             {/* <img class="mb-4" src="" alt="" width="72" height="57" /> */}
-            <h2 class="h3 mb-3 fw-normal" style={{ color: "white" }}>
+            <h2 class="h3 mb-3 fw-normal" >
               Please sign up
             </h2>
 
@@ -115,18 +115,18 @@ function Signuptwo() {
             </div>
             <div class="form-floating">
               <input
-                type="text"
+                type="hidden"
                 name="refid"
                 class="form-control"
                 id="refid"
                 placeholder="Ref ID"
                 onChange={(e) => setRefid(e.target.value)}
               />
-              <label for="floatingPassword">Refferal Code</label>
+              <label for="floatingPassword"></label>
             </div>
 
             <div class="checkbox mb-3">
-              <label style={{ color: "white" }}>
+              <label >
                 I have read and agree to coins.st{" "}
                 <a href="#"> Terms of Service</a> and{" "}
                 <a href="#">Privacy Policy</a>.
@@ -143,11 +143,11 @@ function Signuptwo() {
             <p class="mt-5 mb-3 text-muted">
               <h1
                 class="h3 mb-3 fw-normal"
-                style={{ fontWeight: "bold !important", fontSize: "61.8px" }}
+                style={{ fontWeight: "bold !important", fontSize: "61.8px", color: "#212529" }}
               >
                 coins.st
               </h1>
-              &copy; 2017–2022
+              <span>&copy; {today.getFullYear()} coins.st </span>
             </p>
           </form>
         </main>
