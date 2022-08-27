@@ -76,8 +76,13 @@ function App() {
                 />
                 <Route 
                     path='signup'
+                    element={<Register user={user} setUser={setUser}/>}
+                />
+                <Route 
+                    path='signup2'
                     element={<Signuptwo user={user} setUser={setUser}/>}
                 />
+                
                 <Route path='*' element={<Navigate to='/'/>}/>
             </Routes>
         </div>
