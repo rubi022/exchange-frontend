@@ -37,7 +37,7 @@ import { MarketsList } from "../../containers/ToolBar/MarketSelector/MarketsList
 import { MarketsTabs } from "../../containers/ToolBar/MarketSelector/MarketsTabs";
 import {MobileBuySell} from "../../containers/MobileBuySell";
 import { OrderComponentDesktop } from "../../containers/OrderInsertDesktop";
-import {Assets} from "../../components/AssetComponent";
+
 
 class Trading extends React.Component {
   constructor() {
@@ -409,9 +409,7 @@ class Trading extends React.Component {
                 </div>
               </div>
               <div className="right">
-                <div className="obtc-parent grid-tr-trading">
-                  <RecentTrades />
-                </div>
+                
                 {/* <div className="ordercomponent-parent">
                   <div
                     className={`order-type-tab-container-close-button-container ${
@@ -435,9 +433,15 @@ class Trading extends React.Component {
                   {this.state.selectedDropdownItem === "Limit" ? <OrderComponentDesktop orderTypeTab={"Limit"}  handleDropdownItem={this.handleDropdownItem} /> : null}
                   {this.state.selectedDropdownItem === "Market" ? <OrderComponentDesktop orderTypeTab={"Market"} handleDropdownItem={this.handleDropdownItem} /> : null}
                 </div>
+              
+
+              <div className="obtc-parent grid-tr-trading">
+                  <RecentTrades />
+                </div> 
+
               </div>
             </div>
-            <Assets />
+
           </div>
         </div>
         <div className={"mobile-parent-tab-container"}>

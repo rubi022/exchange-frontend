@@ -276,9 +276,9 @@ class BeneficiariesComponent extends React.Component {
             label: this.t("page.body.profile.beneficiaries.modal.btn.create"),
             onClick: this.handleCreateBeneficiary,
             disabled: !this.canSubmit(),
-            className: this.canSubmit()
+            className: `mx-0 ${this.canSubmit()
               ? "btn btn-primary"
-              : "btn btn-secondary",
+              : "btn btn-secondary"}`,
           });
           body = React.createElement(
             "div",
@@ -423,7 +423,7 @@ class BeneficiariesComponent extends React.Component {
                 ),
               React.createElement(
                 "div",
-                { className: "col-12" },
+                { className: "col-12 px-2" },
                 React.createElement(
                   "div",
                   { className: "button-confirmation" },
@@ -730,7 +730,7 @@ class BeneficiariesComponent extends React.Component {
         { className: "card-innr flex-column" },
         React.createElement(
           "div",
-          { className: "card-head" },
+          { className: "card-head d-flex justify-content-between align-items-center" },
           React.createElement(
             "h4",
             { className: "card-title d-inline-block" },

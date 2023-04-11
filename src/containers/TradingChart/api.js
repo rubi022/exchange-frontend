@@ -26,7 +26,7 @@ const resolutionToSeconds = (r) => {
 const config = {
     supports_timescale_marks: true,
     supports_time: false,
-    supported_resolutions: ['1', '5', '15', '30', '60', '120', '240', '360', '720', 'd', '3d'],
+    supported_resolutions: ['1', '5', '15', '30', '60', '120', '180', '240', '360', '480', '720', 'd', '3d', '5d', '7d'],
 };
 export const dataFeedObject = (tradingChart, markets) => {
     const dataFeed = {
@@ -62,8 +62,8 @@ export const dataFeedObject = (tradingChart, markets) => {
                 minmov: 1,
                 pricescale: Math.pow(10, symbol.price_precision),
                 has_intraday: true,
-                intraday_multipliers: ['1', '5', '15', '30', '60', '120', '240', '360', '720', 'd', '3d'],
-                supported_resolutions: ['1', '5', '15', '30', '60', '120', '240', '360', '720', 'd', '3d'],
+                intraday_multipliers: ['1', '5', '15', '30', '60', '120', '180', '240', '360', '480', '720', 'd', '3d', '5d', '7d'],
+                supported_resolutions: ['1', '5', '15', '30', '60', '120', '180', '240', '360', '480', '720', 'd', '3d', '5d', '7d'],
                 volume_precision: symbol.amount_precision,
                 data_status: 'streaming',
             };

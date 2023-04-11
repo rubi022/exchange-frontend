@@ -2,7 +2,7 @@ import { Button, Checkbox, } from '@components/components';
 import { CustomInput, } from '../';
 import * as React from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
-import { USERNAME_REGEX, EMAIL_REGEX, PASSWORD_REGEX, } from '../../helpers';
+import { EMAIL_REGEX, PASSWORD_REGEX, } from '../../helpers';
 import {Link} from "react-router-dom";
 import {TNCUrl} from "../../api";
 import LockIcon from "../../assets/images/privacy.png";
@@ -26,8 +26,8 @@ class SignUpForm extends React.Component {
             })  
         },
         this.disableButton = () => {
-            const { email, password, confirmPassword, hasConfirmed, recaptchaConfirmed, isLoading, captchaType, username } = this.props;
-            if (!hasConfirmed || isLoading || !email.match(EMAIL_REGEX) || !password || !confirmPassword || !username) {
+            const { email, password, confirmPassword, hasConfirmed, recaptchaConfirmed, isLoading, captchaType } = this.props;
+            if (!hasConfirmed || isLoading || !email.match(EMAIL_REGEX) || !password || !confirmPassword ) {
                 return true;
             }
             if (captchaType !== 'none' && !recaptchaConfirmed) {
@@ -48,7 +48,7 @@ class SignUpForm extends React.Component {
         };
     }
     render() {
-        const { signInText, signInExists, exchangeSignUpText, email, password, confirmPassword, refId, isLoading, siteKey, captchaType, labelSignUp, emailLabel, passwordLabel, confirmPasswordLabel, referalCodeLabel, termsMessage, hasConfirmed, usernameError, emailError, passwordMessage, passwordError, confirmationError, termsNSText, username, userNameLabel, userNameFocussed, buttonText} = this.props;
+        const { signInText, signInExists, exchangeSignUpText, email, password, confirmPassword, refId, isLoading, siteKey, captchaType, labelSignUp, emailLabel, passwordLabel, confirmPasswordLabel, referalCodeLabel, termsMessage, hasConfirmed, emailError, passwordMessage, passwordError, confirmationError, termsNSText, buttonText} = this.props;
         const captcha = hasConfirmed && captchaType !== 'none' ?
             (React.createElement("div", { className: "base-sign-up-form__recaptcha" },
                 React.createElement(ReCAPTCHA, { sitekey: siteKey, onChange: this.props.recaptchaOnChange }))) : null;
@@ -69,10 +69,6 @@ class SignUpForm extends React.Component {
                     React.createElement("small", null, exchangeSignUpText)
                 ),
                 React.createElement("form", {action: "#"},
-                    React.createElement("div", {className: "input-item"},
-                        React.createElement(CustomInput, { type: "text", label: userNameLabel || 'Username', placeholder: userNameLabel || 'Username', defaultLabel: "Username", handleChangeInput: this.props.handleChangeUserName, inputValue: username, handleFocusInput: this.props.handleFocusUserName, classNameLabel: "base-sign-up-form__label", classNameInput: "base-sign-up-form__input", autoFocus: true }),
-                        true && React.createElement("p", { style: { color: "var(--color-red)", margin: "3px 0 0 3px" } }, usernameError), 
-                    ),
                     React.createElement("div", {className: "input-item"},
                         React.createElement(CustomInput, { type: "email", label: emailLabel || 'Email', placeholder: emailLabel || 'Email', defaultLabel: "Email", handleChangeInput: this.props.handleChangeEmail, inputValue: email, handleFocusInput: this.props.handleFocusEmail, classNameLabel: "base-sign-up-form__label", classNameInput: "base-sign-up-form__input", autoFocus: false }),
                         emailError && React.createElement("div", { className: "base-sign-up-form__error" }, emailError),
@@ -105,12 +101,11 @@ class SignUpForm extends React.Component {
         this.props.onSignUp();
     }
     isValidForm() {
-        const { username, email, password, confirmPassword } = this.props;
-        const isUsernameValid = username.match(USERNAME_REGEX);
+        const { email, password, confirmPassword } = this.props;
         const isEmailValid = email.match(EMAIL_REGEX);
         const isPasswordValid = password.match(PASSWORD_REGEX);
         const isConfirmPasswordValid = password === confirmPassword;
-        return (username && isUsernameValid) && (email && isEmailValid) &&
+        return(email && isEmailValid) &&
             (password && isPasswordValid) &&
             (confirmPassword && isConfirmPasswordValid);
     }

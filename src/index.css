@@ -6940,7 +6940,7 @@ base-tab
     border-top-right-radius: calc(var(--gap) * 0.761);
     border-bottom-right-radius: calc(var(--gap) * 0.761);
     font-size: calc(var(--gap) * 2.34);
-    margin-top: calc(var(--gap) * 1.1);
+    margin-top: calc(var(--gap) * 1.12);
   }
 
   .parent-order
@@ -14537,7 +14537,6 @@ input:checked + .slider-wallets:before {
 
 .desktop-hide-wallets .mobile-empty-wallets-switch-label {
   font-size: 0.9rem;
-  content: "";
 }
 
 /* FOR GREEN  background-image: linear-gradient(rgba(18,184,134,.15),rgba(18,184,134,.15));*/

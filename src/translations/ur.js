@@ -7,6 +7,7 @@ export const ur = {
     "page.header.navbar.wallets": "بٹوے",
     "page.header.navbar.openOrders": "طلبات",
     "page.header.navbar.history": "تاریخ",
+    "page.header.navbar.convert": "تبدیل",
     "page.header.navbar.profile": " پروفائل",
     "page.header.navbar.logout": "لاگ آؤٹ",
     "page.body.copy.success": "متن کاپی",

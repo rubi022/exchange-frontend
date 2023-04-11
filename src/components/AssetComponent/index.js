@@ -341,7 +341,7 @@ class AssetComponent extends React.Component {
             id: "page.body.wallets.min_deposit_warning",
           }, {
             min_amount: min_deposit_amount,
-            currency: wallet.currency,
+            currency: wallet.currency.toUpperCase(),
           }),
           mining_deposit_warning: this.props.intl.formatMessage({
             id: "page.body.wallets.mining_deposit_warning",

@@ -9,13 +9,14 @@ export const pgRoutes = (isLoggedIn) => {
     ['page.header.navbar.wallets', '/wallets', false],
     ['page.header.navbar.openOrders', '/orders', false],
     ['page.header.navbar.history', '/history', false],
+    ['page.header.navbar.convert', '/ieo', true],
   ];
   let routesUnloggedIn = [
     ['page.header.navbar.header', '#', false],
     ['page.productMenu.home', homePageUrl(), true],
     ['page.header.navbar.trade', '/trading/', false],
     // ['page.header.navbar.mining', '/mining', true],
-    // ['page.header.navbar.otc', '/otc', true],
+    ['page.header.navbar.otc', '/otc', true],
   ];
 
   routesUnloggedIn = routesUnloggedIn.concat(publicRoute())

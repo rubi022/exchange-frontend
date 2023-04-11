@@ -47,6 +47,7 @@ import {OrderBookDesktop, RecentTrades} from "../../containers";
 import {CurrentMarketsInfo} from "../../containers/CurrentMarketInfo";
 import PublicRoute from "../../helpers/PublicRoute";
 import PrivateRoute from "../../helpers/PrivateRoute";
+import { ConverterScreen } from "../../screens/Converter";
 
 Date.prototype.now = function () {
   return typeof Date.now == "function" ? Date.now() : new Date().getTime();
@@ -240,6 +241,12 @@ class LayoutComponent extends React.Component {
                 React.createElement(PrivateRoute, {
                   loading: userLoading,
                   isLogged: isLoggedIn,
+                  path: "/ieo",
+                  component: ConverterScreen,
+                }),
+                React.createElement(PrivateRoute, {
+                  loading: userLoading,
+                  isLogged: isLoggedIn,
                   path: "/my-orders",
                   component: OrdersTabScreen,
                 }),
@@ -281,6 +288,7 @@ class LayoutComponent extends React.Component {
                 }),
                 React.createElement(Route, {
                   exact: true,
+                  isLogged: isLoggedIn,
                   path: "/trading/:market?",
                   component: TradingScreen,
                 }),

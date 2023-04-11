@@ -8,6 +8,7 @@ export const es = {
       "page.header.navbar.wallets": "Billeteras",
       "page.header.navbar.openOrders": "Órdenes",
       "page.header.navbar.history": "Historia",
+      "page.header.navbar.convert": "Convertir",
       "page.header.navbar.profile": "Perfil",
       "page.header.navbar.logout": " Cerrar sesión",
       "page.body.copy.success": "Texto copiado",

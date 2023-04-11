@@ -19,8 +19,11 @@ import ur from "react-intl/locale-data/ur";
 import es from "react-intl/locale-data/es";
 import "./assets/css/vendor.bundle49f7.css";
 import "./assets/css/style.css";
+
+
 const history = createBrowserHistory();
 import * as serviceWorker from "./serviceWorker";
+
 
 addLocaleData([...en, ...ar, ...ur, ...es]);
 
@@ -34,6 +37,11 @@ ReactDOM.render(
     React.createElement(App, { history: history })
   ),
   document.getElementById("root")
+
 );
 
 serviceWorker.unregister();
+
+
+
+

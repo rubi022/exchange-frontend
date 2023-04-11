@@ -14,7 +14,7 @@ class UnderConstructionContainer extends React.Component {
         return(
             <div className={'under-construction-page__wrapper'}>
                 <div className={'under-construction-text-1'}>
-                    The Website is Under Construction.
+                     Updating the system 
                 </div>
                 <div className={'under-construction-icon__wrapper'}>
                     <UnderConstructionIcon />

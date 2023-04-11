@@ -36,7 +36,6 @@ class SignUp extends React.Component {
       recaptchaConfirmed: false,
       refId: "",
       hasConfirmed: false,
-      usernameError: "",
       emailError: "",
       passwordError: "",
       confirmationError: "",
@@ -44,9 +43,7 @@ class SignUp extends React.Component {
       passwordFocused: false,
       confirmPasswordFocused: false,
       refIdFocused: false,
-      username: '',
-      userNameFocussed: false,
-    };
+     };
     this.handleCheckboxClick = () => {
       this.setState({
         hasConfirmed: !this.state.hasConfirmed,
@@ -56,11 +53,6 @@ class SignUp extends React.Component {
       this.setState({
         recaptchaConfirmed: true,
         recaptcha_response: value,
-      });
-    };
-    this.handleChangeUserName = (value) => {
-      this.setState({
-        username: value,
       });
     };
     this.handleChangeEmail = (value) => {
@@ -98,11 +90,6 @@ class SignUp extends React.Component {
         confirmPasswordFocused: !this.state.confirmPasswordFocused,
       });
     };
-    this.handleFocusUserName = () => {
-      this.setState({
-        username: !this.state.username,
-      });
-    };
     this.handleFocusRefId = () => {
       this.setState({
         refIdFocused: !this.state.refIdFocused,
@@ -113,13 +100,12 @@ class SignUp extends React.Component {
       this.props.history.push("/signin");
     };
     this.handleSignUp = () => {
-      const { email, password, recaptcha_response, refId, username } = this.state;
+      const { email, password, recaptcha_response, refId } = this.state;
       const { i18n } = this.props;
       if (refId) {
         switch (captchaType()) {
           case "none":
             this.props.signUp({
-              username,
               email,
               password,
               refid: refId,
@@ -131,7 +117,6 @@ class SignUp extends React.Component {
           case "geetest":
           default:
             this.props.signUp({
-              username,
               email,
               password,
               recaptcha_response,
@@ -144,7 +129,6 @@ class SignUp extends React.Component {
         switch (captchaType()) {
           case "none":
             this.props.signUp({
-              username,
               email,
               password,
               lang: i18n.toUpperCase(),
@@ -154,7 +138,6 @@ class SignUp extends React.Component {
           case "geetest":
           default:
             this.props.signUp({
-              username,
               email,
               password,
               recaptcha_response,
@@ -199,27 +182,13 @@ class SignUp extends React.Component {
     };
     this.extractRefID = (url) => new URLSearchParams(url).get("refid");
     this.handleValidateForm = () => {
-      const { username, email, password, confirmPassword } = this.state;
-      const isUsernameValid = username.match(USERNAME_REGEX);
+      const { email, password, confirmPassword } = this.state;
       const isEmailValid = email.match(EMAIL_REGEX);
       const isPasswordValid = password.match(PASSWORD_REGEX);
       const isConfirmPasswordValid = password === confirmPassword;
-      if (!isUsernameValid) {
-        this.setState({
-          confirmationError: "",
-          usernameError: this.props.intl.formatMessage({
-            id: ERROR_INVALID_USERNAME,
-          }),
-          emailError: "",
-          passwordError: "",
-          hasConfirmed: false,
-        });
-        return;
-      }
       if (!isEmailValid && !isPasswordValid) {
         this.setState({
           confirmationError: "",
-          usernameError: "",
           emailError: this.props.intl.formatMessage({
             id: ERROR_INVALID_EMAIL,
           }),
@@ -233,7 +202,6 @@ class SignUp extends React.Component {
       if (!isEmailValid) {
         this.setState({
           confirmationError: "",
-          usernameError: "",
           emailError: this.props.intl.formatMessage({
             id: ERROR_INVALID_EMAIL,
           }),
@@ -245,7 +213,6 @@ class SignUp extends React.Component {
       if (!isPasswordValid) {
         this.setState({
           confirmationError: "",
-          usernameError: "",
           emailError: "",
           passwordError: this.props.intl.formatMessage({
             id: ERROR_INVALID_PASSWORD,
@@ -259,7 +226,6 @@ class SignUp extends React.Component {
           confirmationError: this.props.intl.formatMessage({
             id: ERROR_PASSWORD_CONFIRMATION,
           }),
-          usernameError: "",
           emailError: "",
           passwordError: "",
           hasConfirmed: false,
@@ -291,7 +257,6 @@ class SignUp extends React.Component {
       recaptcha_response,
       recaptchaConfirmed,
       hasConfirmed,
-      usernameError,
       emailError,
       passwordError,
       confirmationError,
@@ -299,8 +264,6 @@ class SignUp extends React.Component {
       passwordFocused,
       confirmPasswordFocused,
       refIdFocused,
-      userNameFocussed,
-      username,
     } = this.state;
     const { loading } = this.props;
     const className = cx("parent-sign-up-screen__container", { loading });
@@ -357,7 +320,6 @@ class SignUp extends React.Component {
             hasConfirmed: hasConfirmed,
             clickCheckBox: this.handleCheckboxClick,
             validateForm: this.handleValidateForm,
-            usernameError,
             emailError: emailError,
             passwordError: passwordError,
             passwordMessage: this.props.intl.formatMessage({
@@ -382,12 +344,6 @@ class SignUp extends React.Component {
               { id: "page.signUp.description" },
               { exchange_name: exchangeName }
             ),
-            username,
-            userNameFocussed: userNameFocussed,
-            handleChangeUserName: this.handleChangeUserName,
-            userNameLabel: this.props.intl.formatMessage({
-              id: "page.header.signUp.username",
-            }),
             buttonText: this.props.intl.formatMessage({
               id: "page.signUp.button",
             }),

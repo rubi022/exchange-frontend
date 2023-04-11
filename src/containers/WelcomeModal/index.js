@@ -14,7 +14,7 @@ export const WelcomeModal = () => {
         return (
             <div className={'text-justify'}>
                 <p>
-                    Thank you for visiting Crypto Mainframe, an innovative platform for crypto asset management.
+                    Thank you for visiting, an innovative platform for crypto asset management.
                 </p>
                 <p>
                     Mining in CM.MP and trading on CM.EX via the Crypto Mainframe wallet are due to be launched in 2021. Our solution is currently undergoing rigorous internal testing before an independent security audit.

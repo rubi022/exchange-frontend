@@ -55,6 +55,8 @@ class ChartsContainer extends React.Component {
             last: 0,
             price_change_percent: "+0.00%",
         };
+
+
         if (
             currentMarket &&
             marketTickers[currentMarket.id] &&
@@ -105,6 +107,9 @@ class ChartsContainer extends React.Component {
 		const last = this.getTickerValue('last');
         const high = this.getTickerValue('high');
         const low = this.getTickerValue('low');
+        const volume = this.getTickerValue('vol');
+        const change = this.getTickerValue('price_change_percent');
+
 		
         return (
             // React.createElement(TabPanel, { panels: this.renderTabs(), onTabChange: this.handleMakeRequest, currentTabIndex: this.state.currentTabIndex, onCurrentTabChange: this.onCurrentTabChange })
@@ -132,6 +137,8 @@ class ChartsContainer extends React.Component {
                             </div>
                         </div>
                         <div className='base-tab-panel__navigation-container-prices'>
+
+
                             <div className="base-tab-panel__navigation-container-prices--last">
                                 <span>{this.props.intl.formatMessage({id: "page.body.trade.header.markets.content.last_price"})}</span>
                                 <span className="base-tab-panel__navigation-container-prices--last-price" ref={this.lastPriceRef}>{Number(last)?.toFixed(currentMarket?.price_precision || 4)}</span>
@@ -146,6 +153,18 @@ class ChartsContainer extends React.Component {
                                  <span>{this.props.intl.formatMessage({id: "page.trading.toolbar.progressLabel.lowest24"})}</span>
                                 <span>{Number(low)?.toFixed(currentMarket?.price_precision || 4)}</span>
                             </div>
+
+                            <div className="base-tab-panel__navigation-container-prices--volume">
+                                <span>{this.props.intl.formatMessage({id: "page.trading.toolbar.progressLabel.volume24"})}</span>
+                                <span>{Number(volume)?.toFixed(currentMarket?.price_precision || 4)}</span>
+                            </div>
+
+
+                            
+
+
+
+
                         </div>
                     </div>
                     {this.renderTabs()}

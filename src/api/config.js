@@ -64,15 +64,15 @@ export const orderBookSideLimit = () => App.config.storage.orderBookSideLimit ||
 export const customMarketTabs = () => App.config.customMarketTabs;
 export const languages = () => App.config.languages.length > 0 ? App.config.languages : ['en', 'ar', 'ur', 'es'];
 export const productList = () => App.config.productsList.length > 0 ? App.config.productsList : [
-    ['page.productMenu.home', 'https://beta.elephantccx.com/', '/images/icon-home.svg', 'a'],
-    ['page.productMenu.market', 'https://beta.elephantccx.com/markets', '/images/icon-otc.svg', 'a'],
-    ['page.productMenu.exchange', 'https://beta.elephantccx.com/trading', '/images/icon-exchange.svg', 'a'],
-    ['page.productMenu.app', 'https://beta.elephantccx.com/app-view', '/images/icon-home.svg', 'a'],
-    ['page.productMenu.cards', 'https://beta.elephantccx.com/card', '/images/icon-exchange.svg', 'a'],
-    ['page.productMenu.mining', 'https://beta.elephantccx.com/mining', '/images/icon-exchange.svg', 'a'],
-    ['page.productMenu.p2p', 'https://beta.elephantccx.com/p2p', '/images/icon-otc.svg', 'a'],
-    ['page.productMenu.staking', 'https://beta.elephantccx.com/staking', '/images/icon-exchange.svg', 'a'],
-    ['page.productMenu.defi', 'https://beta.elephantccx.com/defi', '/images/icon-otc.svg', 'a'],
+    ['page.productMenu.home', '/', '/images/icon-home.svg', 'a'],
+    ['page.productMenu.market', '/markets', '/images/icon-otc.svg', 'a'],
+    ['page.productMenu.exchange', '/trading', '/images/icon-exchange.svg', 'a'],
+    ['page.productMenu.app', '/app-view', '/images/icon-home.svg', 'a'],
+    ['page.productMenu.cards', '/card', '/images/icon-exchange.svg', 'a'],
+    ['page.productMenu.mining', '/mining', '/images/icon-exchange.svg', 'a'],
+    ['page.productMenu.p2p', '/p2p', '/images/icon-otc.svg', 'a'],
+    ['page.productMenu.staking', '/staking', '/images/icon-exchange.svg', 'a'],
+    ['page.productMenu.defi', '/defi', '/images/icon-otc.svg', 'a'],
 ];
 export const walletCustomCurrency = () =>  App.config.walletCustomCurrency;
 export const TNCUrl = () => App.config.TNCUrl;

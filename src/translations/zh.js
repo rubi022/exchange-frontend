@@ -7,6 +7,7 @@ export const zh = {
     'page.header.navbar.wallets': '钱包',
     'page.header.navbar.openOrders': '未成交订单',
     'page.header.navbar.history': '历史',
+    'page.header.navbar.convert':'兑换',
     'page.header.navbar.profile': '个人资料',
     'page.header.navbar.logout': '退出',
     'page.body.copy.success': '成功',

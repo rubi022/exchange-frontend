@@ -34,7 +34,7 @@ export class TradingChartComponent extends React.PureComponent {
         ? "Light"
         : "Dark";
     this.params = {
-      interval: "15",
+      interval: "60",
       containerId: "tv_chart_container",
       libraryPath: "/charting_library/",
       chartsStorageUrl: "https://saveload.tradingview.com",
@@ -193,15 +193,15 @@ export class TradingChartComponent extends React.PureComponent {
       this.studies.push(id);
       id = this.tvWidget
         .chart()
-        .createStudy("Moving Average", false, false, [25], null, {
+        .createStudy("Moving Average", false, false, [50], null, {
           "plot.color": "#FF1616",
           "plot.linewidth": 2,
         });
       this.studies.push(id);
       id = this.tvWidget
         .chart()
-        .createStudy("Moving Average", false, false, [99], null, {
-          "plot.color": "#5DC9CA",
+        .createStudy("Moving Average", false, false, [200], null, {
+          "plot.color": "#ffffff",
           "plot.linewidth": 10,
         });
       this.studies.push(id);
