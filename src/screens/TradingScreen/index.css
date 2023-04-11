@@ -1,0 +1,10 @@
+.parent-dropdown-markets-list-container div table tbody tr:hover {
+  background-color: #0d1016 !important;
+}
+
+/*.trading-chart-wrapper .parent-market-depth {*/
+/*  background-color: #0d1016 !important;*/
+/*}*/
+.trading-chart-wrapper .base-tab-panel__navigation-container {
+  background: #151928!important;
+}

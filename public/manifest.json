@@ -1,25 +1,16 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Exchange",
+  "name": "Exchange",
   "icons": [
     {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
-    },
-    {
-      "src": "logo192.png",
-      "type": "image/png",
-      "sizes": "192x192"
-    },
-    {
-      "src": "logo512.png",
-      "type": "image/png",
-      "sizes": "512x512"
+      "src": "https://firebasestorage.googleapis.com/v0/b/palashg7563-blog-d9d54.appspot.com/o/Logo.png?alt=media&token=c210be11-5f59-445d-ad25-a3a02bbee2f0",
+      "sizes": "512x512 192x192 144x144 64x64 32x32 24x24 16x16",
+      "type": "image/png"
     }
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#0d1b32",
+  "background_color": "#ffffff",
+  "prefer_related_applications": false
 }

@@ -1,0 +1,467 @@
+.light-color-scheme {
+  --back-bg: #eaf0f7;
+  --back-bg-2: #fff;
+  --main-bg: #fff;
+  --second-bg: #222B41;
+  //--text: #657395;
+  --text: #303030;
+  --text-bright: black;
+  --placeholder-text: #737F92;
+  --input-place-holder: var(--text);
+  --header: #024b7d;
+  --header-text: #919EBA;
+  --button-normal: #0095ff;
+  --white: #FFFFFF;
+  --accent: #5fb4da;
+  //--green: #4dd73e;
+  --green: #23ac50;
+  --red: #f1432f !important;
+  --selected-item: #424964;
+  --gamboge: #E0A300;
+  --black: #0d1b32;
+
+  --background-dark: var(--base-bright);
+  --table-background-dark: var(--base-bright);
+  --table-background-dark-head: var(--base-bright);
+  --button-disabled: linear-gradient(#0071c1, #0071c1), #0071c1;
+  --outline-wallet-item-active: rgba(232, 241, 255, 0.19);
+  --text-light-grey: #c1d4df;
+  --text-table-grey: #737f92;
+  --input-block-bg: #1e2736;
+  --input-block-border-color: #62718b;
+  --input-block-color: #7a96a6;
+  --input-block-input-border-color: #62718b;
+  --input-block-input-color: #c1d4df;
+  --order-input-border-color: #62718b;
+  --order-input-icon-background: #252e3e;
+  --order-input-icon-color: #7a96a6;
+  --order-input-input-bg: rgba(0,0,0,0);
+  --order-input-input-color: #c1d4df;
+  --summary-field-border-color: #3591c9;
+  --withdraw-divider-border-color: #62718b;
+  --withdraw-summary-field-message-color: #c1d4df;
+  --withdraw-summary-field-amount-color: #62718b;
+  --withdraw-button-bg: linear-gradient(91.64deg, #3c96cd 0.06%, #2c8ac3 100%);
+  //--table-background: linear-gradient(#1f2a34, #0f1425);
+  --table-background: var(--base-bright);
+  --table-border-bottom: #62718b;
+  //--table-header-color: #c1d4df;
+  --table-header-color: #474f5d;
+  --table-header-bg-color: #fff;
+  --table-dark-header-color:  #E0E8F1 !important;
+  --title-component-color: #1c1b21;
+  //--table-even-row-background: rgba(122, 150, 166, 0.1);
+  --table-even-row-background: rgba(0, 0, 0, 0);
+  --checkbox-background: #fff;
+  --checkbox-checked-background: #fff;
+  --checkbox-hover-background: #f7f7f7;
+  --checkbox-border-color: #737f92;
+  --checkbox-symbol-color: var(--accent);
+  --transparent: transparent;
+  --sign-in-background-color: linear-gradient(#1f2a34, #0f1425);
+  --sign-in-label-color: #7a96a6;
+  --sign-in-input-color: var(--text);
+  --sign-in-input-border-color: #62718b;
+  --sign-up-checkbox-color: #c1d4df;
+  --sign-up-checkbox-mark-color: #a9cde1;
+  --history-action-buy: #5ba584;
+  --history-action-sell: #e95b5b;
+  --open-orders-action-buy: #5ba584;
+  --open-orders-action-sell: #e95b5b;
+  --open-orders-order-buy: #54b489;
+  --open-orders-order-sell: #e85e59;
+  --open-orders-background: #141b2b;
+  --open-orders-head: #1f2a34;
+  --order-dropdown-background-color: #1e2736;
+  --order-crypto-icon-background-color: #252e3e;
+  --order-crypto-font-color: #7a96a6;
+  --order-input-color: black;
+  --markets-filter-color: #666;
+  --markets-filter-active-bg-color: #f5f8fa;
+  --markets-filter-active-color: #f7fafc;
+  --markets-title-color: #c0c0c0;
+  --markets-base-unit-color: #022b47;
+  --markets-quote-unit-color: #92989b;
+  --markets-search-border-color: #d7dadb;
+  --markets-selected-color: rgba(63, 70, 173, 0.3);
+  --market-info-dropdown-bg-color: #323b48;
+  --market-info-dropdown-color: #c1d4df;
+  --market-tab-text-color: #a2a4a7;
+  --market-list-price: #222326;
+  --mobile-market-list: #fff;
+  --grid-item-bg: linear-gradient(167.06deg, #1f2a34 1.32%, #0f1425 103.6%);
+  --grid-placeholder-bg: rgba(73, 91, 119, 0.3);
+  --grid-placeholder-border-color: #818db8;
+  --grid-resizable-border-color: #7a96a6;
+  --alert-icon-size: calc(var(--gap) * 8.97);
+  --wallet-trades-item-bg-color: #c1d4df;
+  --wallet-trades-item-color: #fff;
+  --pagination-disabled: #4e5b71;
+  --pagination-active: #737f92;
+
+  /* layout */
+  --avatar-alt-height: 30px;
+  --avatar-alt-width: 30px;
+  --avatar-component-width: 50px;
+  --avatar-alt-font-size: 26px;
+  --checkbox-general-intent: 10px;
+  --checkbox-label-font-size: var(--font-size);
+  --checkbox-size: 10px;
+  --checkbox-symbol-size: 10px;
+  --gap: 0.5em;
+  --header-border: transparent;
+  --footer-border: #ddd;
+
+  /* DARK.PCSS */
+
+  /* typography */
+  --font-family: 'opensans', Roboto, Helvetica, sans-serif;
+  --font-weight: 525;
+  --font-size: 12px !important;
+  --font-size-smaller: calc(var(--font-size) * 0.9);
+  --font-size-bigger: calc(var(--font-size) * 1.1);
+  --line-height: 1.2;
+  --trading-header-font-size: calc(var(--font-size) * 1.1);
+  /* colors */
+  --base: var(--text);
+  --base-1: #FA00FF;
+  --base-2: var(--text);
+  --base-3: #0a1326;
+  --base-4: #FA00FF;
+  --base-5: #FA00FF;
+  --base-6: #FA00FF;
+  --base-7: #FA00FF;
+  --base-8: #FA00FF;
+  --base-bright: #fff;
+  --background: var(--back-bg);
+  --color-red: var(--red);
+  --avatar-border-alt-color: #FA00FF;
+  --avatar-background-alt-color: #FA00FF;
+  --avatar-alt-font-color: #FA00FF;
+  --background-wallet-item: var(--main-bg);
+  --background-wallet-item-alt: var(--main-bg);
+  --background-wallet-item-active: #FA00FF;
+  --background-dropdown: var(--main-bg);
+  --background-dropdown-hover: var(--header-text);
+  --background-dropdown-hover-text: var(--color-white);
+  --button-primary: var(--button-normal);
+  --button-hover: linear-gradient(0deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), var(--button-normal);
+  --button-active: linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), var(--button-normal);
+  --button-dark-gray: var(--color-white);
+  --outline-wallet-item-active: #FA00FF;
+  --sign-in-lable-color: var(--main-bg);
+  --grid-placeholder-bg: #FA00FF;
+  --bids-bg-color: rgba(43, 205, 118, 0.15);
+  --asks-bg-color: rgba(255, 61, 0, 0.15);
+
+  /* Recent Trades */
+  --recent-trades-positive-bg-color: rgba(43, 205, 118, 0.15);
+  --recent-trades-negative-bg-color: rgba(255, 61, 0, 0.15);
+
+  /* orders */
+  --orders-button-percentage-normal: linear-gradient(0deg, rgba(0, 0, 0, 0.11), rgba(0, 0, 0, 0.11)), var(--selected-item);
+  --orders-button-percentage-hover: linear-gradient(0deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), var(--orders-button-percentage-normal);
+  --orders-button-percentage-active: linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), var(--orders-button-percentage-normal);
+  --orders-button-green-normal: var(--color-green);
+  --orders-button-green-hover: linear-gradient(0deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), var(--orders-button-green-normal);
+  --orders-button-green-active: linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), var(--orders-button-green-normal);
+  --orders-button-red-normal: var(--color-red);
+  --orders-button-red-hover: linear-gradient(0deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), var(--orders-button-red-normal);
+  --orders-button-red-active: linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), var(--orders-button-red-normal);
+  --orders-execute-color: #b18d4f;
+  /*--orders-border-color: var(--text);*/
+  --orders-border-color: #2E3753;
+  --orders-placeholder-color: var(--placeholder-text);
+  --orders-text-secondary-color: var(--header-text);
+  --orders-text-primary-color: #737f92;
+
+  /* alerts */
+  --alert-background-color: var(--main-bg);
+  --alert-description-color: var(--text);
+
+  /* BASEAPP COLORS */
+
+  --dropdown-border: var(--placeholder-text);
+  --background-dropdown-text: var(--placeholder-text);
+  --background-dropdown-open-text: var(--header);
+  --font-light: lighter;
+  --sign-in-text: var(--text);
+  --sign-in-accent: var(--accent);
+  --email-form-bg: var(--main-bg);
+  --email-form-border: var(--text);
+  --email-form-accent: var(--accent);
+  --unknown-colors: #FA00FF;
+  --create-order-text: var(--text);
+  --sign-up-modal-border: var(--header);
+  --sign-up--modal-text: var(--placeholder-text);
+
+  --color-green: var(--green);
+  --base-9: var(--placeholder-text);
+  --base-new: var(--placeholder-text);
+  --header-border: #d7dadb;
+  --color-white: var(--white);
+  --muted-text: var(--placeholder-text);
+  --bright: #FA00FF;
+  --bright-1: var(--white);
+  --color-blue: var(--accent);
+
+  --navbar-text-color: #BABEC9;
+  --base-tab-text-color: #909296;
+  --text-muted: var(--placeholder-text);
+
+  --active-color: #FA00FF;
+  --table-text-color: var(--placeholder-text);
+  --table-subheader-text-color: #9b9b9b;
+  --order-button-sell: #FA00FF;
+
+  /* wallets */
+  --wallets-item-active: #FA00FF;
+  --wallets-locked-amount: var(--color-white);
+  --wallets-locked-amount-active: var(--color-white);
+  --wallets-item-font: var(--black);
+  --wallets-item-font-active: var(--black);
+  --wallets-item-bg: var(--main-bg);
+  --wallets-item-bg-active: var(--search-bar-field-background-variant);
+  --wallets-item-bg-hover: linear-gradient(0deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), var(--selected-item);
+  --wallets-item-border: var(--selected-item);
+  --wallets-font-bold: 800;
+  --wallets-balance: var(--base);
+  --wallets-table-divider: var(--text);
+
+  /* profile */
+  --profile-btn: var(--button-normal);
+  --profile-box-head: #FA00FF;
+  --profile-box: var(--main-bg);
+  --profile-grey: var(--placeholder-text);
+  --profile-slider-round: var(--accent);
+  --profile-slider: #0070bf;
+  --profile-activity-header: efefef;
+  --profile-activity-header-font: var(--table-header-text-color);
+  --profile-activity-border: var(--header-border);
+  --profile-url: var(--accent);
+  --wallets-font-color: #FA00FF;
+
+  /* KYC */
+  --kyc-title-color: var(--placeholder-text);
+  --kyc-header-color: var(--header);
+  --kyc-header-border: var(--text);
+  --kyc-progress-line: var(--placeholder-text);
+  --kyc-circle-color: var(--main-bg);
+  --kyc-active-color: var(--accent);
+  --kyc-grey: var(--placeholder-text);
+  --kyc-button: var(--button-normal);
+  --kyc-document-page-card-background: var(--card-body);
+  --kyc-document-page-card-input-text-color: var(--black);
+
+  /* NavBar languages */
+  --navbar-language-selector-background: var(--parent-header-background);
+  --navbar-language-selector-background-hover: var(--header-text);
+  --navbar-language-selector-color: var(--placeholder-text);
+  --navbar-language-selector-current-color: var(--navbar-text-color);
+  --navbar-language-selector-current-background: var(--parent-header-background);
+
+  /* Resend email confirmation screen */
+  --email-confirmation-screen-background: var(--main-bg);
+  --email-confirmation-screen-title-background: var(--header);
+  --email-confirmation-screen-title-color: var(--header-text);
+  --email-confirmation-screen-text-color: var(--placeholder-text);
+
+  /* Beneficiaries component profile screen */
+  --email-options-group-beneficiaries: #0d1b32;
+
+  /* Email verification screen */
+  --email-verification-screen-background: #1E2841;
+
+  /* ToolBar */
+  --trading-header-background: var(--table-dark-header-color);
+  --trading-header-btn-close: var(--table-dark-header-color);
+  --trading-header-btn-open: var(--table-dark-header-color);
+  --trading-header-selector-background: var(--parent-header-background);
+  --trading-header-selector-border: var(--header-border);
+  --trading-header-list-background: var(--trading-header-background);
+  --trading-header-fastsearch-button-color-active: var(--bright-1);
+  --trading-header-fastsearch-button-border-active: var(--accent);
+  --trading-header-positive: var(--green);
+  --trading-header-negative: var(--red);
+  --trading-header-search-border: var(--header-border);
+
+  --big-gap: 60px;
+  --active-tab-color: var(--accent);
+  --border-radius: 5px;
+
+  --active-tab-text-color:#022b47;
+  --normal-tab-text-color: #6a7ba0;
+  --parent-header-background: #0d1b32;
+  --parent-background: var(--back-bg); /*#00101A for dark*/
+  --card-body: var(--white);
+  --card-title-color: var(--black);
+  --market-selector-background: #01263F;
+  --search-bar-field-background-variant: #C7DFF9;
+  --search-bar-field-text-color: var(--text);
+  --auth-gfx-text-color: var(--black);
+  --page-auth-heading-text-color: var(--header);
+  --chart-icon-color: var(--black);
+  --chart-text-primary-color: #1c1b21;
+  --chart-text-secondary-color: #929292;
+  --chart-background-color: var(--white);
+  --scrollbar-thumb-background: #c2c2c2;
+  --advance-menu-dropdown-hover: var(--search-bar-field-background-variant);
+  --advance-menu-dropdown-border: var(--scrollbar-thumb-background);
+  --info-tooltip-backgroud: var(--back-bg);
+  --active-text-color-market-selector: #1c242c;
+  --selected-row-market-selector: #ddd;
+  --filter-market-selector: #9b9b9b;
+  --toolbar-label-text-color: rgb(186, 190, 201);
+  //--sidebar-menu-active-text-color: #0341ba;
+  --sidebar-menu-active-text-color: var(--parent-header-background);
+  --sidebar-menu-text-color: grey;
+  --sidebar-menu-icon-color: #6b6b6b;
+  --dropdown-input-background: var(--background);
+  --deposit-fiat-label: var(--base-2);
+  --tab-panel-base-tab-text-color: #6a7388;
+  --auth-page-text-color: var(--parent-header-background);
+  --auth-page-muted-text-color: rgb(48, 48, 48);
+  --side-bar-active-content-background-color: var(--main-bg);
+  --side-bar-active-content-heading: black;
+  --left-side-bar-background: var(--white);
+  --left-side-bar-border: #efefef;
+  --wallet-currency-card-text-color: rgb(0,0,0);
+  --wallet-table-background: var(--white);
+  --wallet-table-header-border: #ddd;
+  --wallet-currency-card-border: var(--transparent);
+  --wallet-table-button-border: 1px solid var(--header-border);
+  --wallet-table-button-background: var(--internal-light-dark);
+  --wallet-table-button-text-color: black;
+  --wallet-page-modal-footer-button: var(--parent-header-background);
+  --table-header-background: var(--white);
+  --table-data-text-color: #1c1b21;
+  --table-header-text-color: #666666;
+  --table-header-border: var(--wallet-table-header-border);
+  --wallet-modal-background: var(--main-bg);
+  --button-background: #01263F;
+  --modal-text-color: #7286a2;
+  --modal-table-background: var(--wallet-table-background);
+  --modal-input-field-background: var(--main-bg);
+  --modal-btn-primary-background: var(--wallet-page-modal-footer-button);
+  --profile-page-card-background: #e2e2e2;
+  --profile-page-card-text-color: var(--black);
+  --profile-page-card-font-weight: 400;
+  --badge-text-color: white;
+  --order-range-tooltip-span-background: #01263F;
+  --wallet-currency-button-hover: linear-gradient(90deg, #032051, #022640);
+  --wallet-currency-button-hover-opacity: 1;
+  --wallet-currency-button-opacity: 0.6;
+  --history-page-tab-active: linear-gradient(85deg, #48c2f6 0%, #1151d9 100%);
+  --history-page-tab-hover: linear-gradient(85deg, #48c2f6 0%, #1151d9 100%);
+  --history-page-tab-active-text-color: var(--white);
+  --history-page-tab-border-color: var(--table-header-border);
+  --profile-page-right-container-background: var(--side-bar-active-content-background-color);
+  --profile-account-activity-background: var(--profile-page-right-container-background);
+  --two-fact-card-background-color: var(--white);
+  --security-2fa-card-text-color: #0d1b32;
+  --auth-page-background: var(--auth-content-bg);
+  --auth-page-content-background: #fff;
+  --navbar-link-color: var(--navbar-text-color);
+  //--navbar-link-color: #657395;
+  --button-disabled-gradient: linear-gradient(90deg, #032051, #022640);
+  --link-text-color: var(--button-background);
+  --cliploader-border-color: var(--parent-header-background);
+  --color-green-opa: rgba(31,147,88,.2);
+  --color-red-opa: rgba(224,77,92,.2);
+  --trading-page-table-data-color: #333333;
+  --trading-page-table-data-secondary-color: #929292;
+  --trading-page-highlight-text-color-red: #f1432f;
+  --trading-page-highlight-text-color-green: #009423;
+  --input-text-color: black;
+  --order-book-last-price-border: transparent;
+  --last-price-animate-background-positive: #2BCD76;
+  --last-price-animate-background-negative: rgba(255, 61, 0, .8);
+  --checkbox-label-color: #737f92;
+  --sign-up-form-info-color: #232b3c;
+  --text-muted-2: #909296;
+
+  /*Mobile Version*/
+  --mobile-market-selector-background: var(--main-bg);
+  --mobile-market-selector-selected-row: var(--transparent);
+  --active-bottom-tab-color: var(--white);
+  --modal-title-text-color: var(--title-component-color);
+  --modal-base-input-text-color: black;
+  --base-summary-field-content-text-color: var(--black);
+  --mobile-wallet-currency-icon: var(--table-text-color);
+  --pill-success-text-color: rgba(18,184,134,1);
+  --trading-page-market-selector-currency-text: var(--base);
+  --auth-content-bg: var(--main-bg);
+  --auth-content-bg-color: #ffffff;
+  --page-header-title-color: var(--trading-page-market-selector-currency-text);
+  --mobile-market-negative: #f1432f;
+  --mobile-market-positive: #23ac50;
+  --mobile-market-nth-bg: white;
+  --base-order-tab-active: #0095ff;
+  --button-gradient: linear-gradient(85deg, #48c2f6 0%, #1151d9 100%);
+  --border-color: #232b3c;
+  --table-bg-alt: var(--background-wallet-item-alt);
+  --bottom-navtab-bg: var(--main-bg);
+
+  // Product Menu
+  --prod-menu-bg:                  white;
+  --prod-menu-icon:                #000000;
+  --prod-menu-text:                #0d1b32;
+  --prod-menu-box-shadow:          0 4px 20px rgba(28,63,90,.7);
+  --prod-menu-hover-bg:            #C7DFF9;
+  --prod-menu-hover-text:          #0d1b32;
+  --prod-menu-icon-bg:             #919EBA;
+  --prod-menu-lang-bg:             #0d1b32;
+  --prod-menu-mobile-bg:           #0d1b32;
+  --prod-menu-lang-border:         #232b2c;
+  --prod-menu-text-color:          #02437D;
+  --prod-menu-lang-list-text:      #FFFFFF;
+
+  .text-white {
+    color: #737f92 !important;
+  }
+
+  .parent-order {
+    .base-order {
+      .base-tab-panel__navigation-container {
+        .base-tab__active[tabindex="0"] .base-tab__pointer,
+        .base-tab__active[tabindex="1"] .base-tab__pointer {
+          display: none;
+        }
+        .base-tab__active {
+          color: var(--white);
+          &[tabindex="0"] {
+            background-color: var(--green);
+          }
+        }
+        .base-tab__active {
+          color: var(--white);
+          &[tabindex="1"] {
+            background-color: var(--red);
+          }
+        }
+      }
+    }
+    .base-order--extended {
+      .base-tab-panel__navigation-container {
+        .base-tab__active {
+          &[tabindex="0"],
+          &[tabindex="1"] {
+            background-color: var(--transparent) !important;
+          }
+          color: var(--normal-tab-text-color);
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    --mobile-market-selector-selected-row: var(--search-bar-field-background-variant) !important;
+    --active-bottom-tab-color: var(--black) !important;
+    --font-size: 16px !important;
+    --navbar-language-selector-current-color: var(--navbar-text-color) !important;
+
+    --prod-menu-icon: #ffffff;
+    --prod-menu-text: #ffffff;
+    --history-page-tab-active-text-color: var(--active-tab-text-color);
+  }
+}

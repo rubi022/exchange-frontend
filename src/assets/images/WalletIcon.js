@@ -1,0 +1,25 @@
+import * as React from 'react';
+export class WalletIcon extends React.Component {
+    render() {
+        const { color } = this.props;
+        return (
+            <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600">
+                <defs>
+                    <style>
+                        {
+                            `.cls-1,.cls-2{fill:none;stroke:${color};stroke-linecap:round;stroke-width:20px}.cls-1{stroke-miterlimit:10}.cls-2{stroke-linejoin:round}`
+                        }
+                    </style>
+                </defs>
+                <path className="cls-1" d="M45 212.2l28.5 47.3 46.5-27"/>
+                <path className="cls-1" d="M73.4 259.6a237.6 237.6 0 1 1 234.1 277.9 237.4 237.4 0 0 1-207-121"/>
+                <path className="cls-2"
+                      d="M444.4 282.9v58.9h-51.9c-14.6 0-26.5-13.2-26.5-29.5S378 283 392.5 283zM423.4 237.5H194.5"/>
+                <path className="cls-2"
+                      d="M423.4 341.8v59c0 8.4-6.3 15.4-14 15.4h-201c-7.6 0-13.9-7-13.9-15.4V204c0-8.5 6.3-15.4 13.9-15.4h167.5"/>
+                <path className="cls-2" d="M375.9 188.7h33.6c7.6 0 13.9 7 13.9 15.4v73.1"/>
+            </svg>
+        );
+    }
+}
+

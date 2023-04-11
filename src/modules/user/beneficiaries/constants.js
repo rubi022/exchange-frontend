@@ -1,0 +1,15 @@
+export const BENEFICIARIES_CREATE = 'beneficiaries/BENEFICIARIES_CREATE';
+export const BENEFICIARIES_CREATE_FETCH = 'beneficiaries/BENEFICIARIES_CREATE_FETCH';
+export const BENEFICIARIES_DELETE = 'beneficiaries/BENEFICIARIES_DELETE';
+export const BENEFICIARIES_DELETE_FETCH = 'beneficiaries/BENEFICIARIES_DELETE_FETCH';
+export const BENEFICIARY_FETCH = 'beneficiaries/BENEFICIARY_FETCH';
+export const BENEFICIARY_ERROR = 'beneficiaries/BENEFICIARY_ERROR';
+export const BENEFICIARIES_DATA = 'beneficiaries/BENEFICIARIES_DATA';
+export const BENEFICIARIES_MODAL = 'beneficiaries/BENEFICIARIES_MODAL';
+export const BENEFICIARIES_UPDATE = 'beneficiaries/BENEFICIARIES_UPDATE';
+export const BENEFICIARIES_UPDATE_FETCH = 'beneficiaries/BENEFICIARIES_UPDATE_FETCH';
+export const BENEFICIARY_RESEND_PIN = 'beneficiaries/BENEFICIARY_RESEND';
+export const BENEFICIARY_RESEND_PIN_FETCH = 'beneficiaries/BENEFICIARY_RESEND_PIN_FETCH';
+
+export const CURRENCIES_FETCH = 'currencies/CURRENCIES_FETCH';
+export const CURRENCIES_DATA = 'currencies/DATA';

@@ -1,92 +1,64 @@
-import './App.css'
-import 'bootstrap/dist/css/bootstrap.min.css'
-import { Routes, Route, Navigate } from 'react-router-dom'
-import Navbar from './components/Navbar'
-import Register from './components/Register'
-import Login from './components/Login'
-import ProfilePage from './components/dashboard/ProfilePage'
-import Trade from './components/dashboard/Trade'
-import Balance from './components/dashboard/Balance'
-import VerifyEmail from './components/VerifyEmail'
-import { useCallback, useEffect, useState } from 'react'
-import { getWithExpiry } from './helper/utils'
-import Market from './components/dashboard/Market'
-import ForgotPasswd from './components/ForgotPasswd'
-import ChangePassword from './components/ChangePassword'
-import Order from './components/dashboard/Order'
-import History from './components/dashboard/History'
-import React from "react";
-import Signuptwo from './components/dashboard/Signuptwo'
+import * as React from 'react';
+import { IntlProvider } from 'react-intl';
+import { connect } from 'react-redux';
+import { Router } from 'react-router';
+import { Alerts, ErrorWrapper, Header, BottomNavTab } from './containers';
+import { Layout } from './routes';
+import {rangerConnectFetch, rangerDisconnectFetch} from "./modules/public/ranger";
+import {selectRanger} from "./modules/public/ranger/selectors";
+import {selectUserLoggedIn} from "./modules/user/profile";
+import {BottomNavTAb} from "./containers/BottomNavTab";
+class AppLayout extends React.Component {
+    componentDidMount() {
+        //TODO: WIP
+        const { userLoggedIn, rangerState: { connected } } = this.props;
+        if (!connected) {
+            // this.props.rangerConnect({ withAuth: userLoggedIn });
+        }
+    }
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        const { userLoggedIn, rangerState: { connected } } = this.props;
+        if(prevProps.userLoggedIn !== userLoggedIn) {
+            // console.log(prevProps.userLoggedIn !== userLoggedIn, prevProps.rangerState.connected)
 
-function App() {
-    const [user, setUser] = useState()
-    const value = getWithExpiry('user-info')
-    // console.log({ value });
-    const loadUser = useCallback(() => {
-        setUser(value)
-    }, [])
+            if (prevProps.rangerState.connected) {
+                this.props.rangerDisconnect();
+                this.props.rangerConnect({withAuth: userLoggedIn});
+                return;
+            }
+            if (!connected) {
+                this.props.rangerConnect({withAuth: userLoggedIn});
+            }
+        }
+    }
 
-    useEffect(() => {
-        loadUser()
-    }, [])
+    componentWillUnmount() {
+        const { rangerState: { connected } } = this.props;
+        if (connected) {
+            this.props.rangerDisconnect();
+        }
+    }
 
-    return (
-        <div className="App">
-            {/* <Navbar setUser={setUser} user={user} /> */}
-            <Routes>
-                <Route
-                    exact
-                    path="/"
-                    element={<ProfilePage user={user} setUser={setUser} />}
-                />
-                <Route exact path='/forgot_password' element={<ForgotPasswd user={user}/>}/>
-                <Route exact path='/accounts/password_reset' element={<ChangePassword user={user}/>}/>
-                <Route
-                    path="trade"
-                    element={<Trade user={user} setUser={setUser} />}
-                />
-                <Route
-                    path="market"
-                    element={<Market user={user} setUser={setUser} />}
-                />
-                <Route
-                    path="balance"
-                    element={<Balance user={user} setUser={setUser} />}
-                />
-                {/* <Route
-                    path="wallets"
-                    element={<Balance user={user} setUser={setUser} />}
-                /> */}
-                <Route
-                    path="orders"
-                    element={<Order user={user} setUser={setUser} />}
-                />
-                <Route
-                    path="history"
-                    element={<History user={user} setUser={setUser} />}
-                />
-                <Route path="register" element={<Register user={user} />} />
-                <Route
-                    path="login"
-                    element={<Login user={user} setUser={setUser} />}
-                />
-                <Route
-                    path="email-verification"
-                    element={<VerifyEmail user={user} />}
-                />
-                <Route 
-                    path='signup'
-                    element={<Register user={user} setUser={setUser}/>}
-                />
-                <Route 
-                    path='signup2'
-                    element={<Signuptwo user={user} setUser={setUser}/>}
-                />
-                
-                <Route path='*' element={<Navigate to='/'/>}/>
-            </Routes>
-        </div>
-    )
+    render() {
+        const { locale, history } = this.props;
+        const { lang, messages } = locale;
+        return (React.createElement(IntlProvider, { locale: lang, messages: messages, key: lang },
+            React.createElement(Router, { history: history },
+                React.createElement(ErrorWrapper, null,
+                    React.createElement(Layout, null),
+                    ))));
+    }
 }
+const mapStateToProps = (state) => ({
+    locale: state.public.i18n,
+    rangerState: selectRanger(state),
+    userLoggedIn: selectUserLoggedIn(state),
+});
+const mapDispatchToProps = dispatch => ({
+    rangerConnect: (payload) => dispatch(rangerConnectFetch(payload)),
+    rangerDisconnect: (payload) => dispatch(rangerDisconnectFetch(payload)),
+});
 
-export default App
+const App = connect(mapStateToProps, mapDispatchToProps)(AppLayout);
+export { App, };
+
