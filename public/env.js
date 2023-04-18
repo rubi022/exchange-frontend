@@ -1,19 +1,19 @@
 window.env = {
   api: {
-    authUrl: 'http://localhost:3000/api/v2/barong',
-    tradeUrl: 'http://localhost:3000/api/v2/peatio',
-    applogicUrl: 'http://localhost:3000/api/v2/applogic',
-    rangerUrl: 'ws://localhost:3000/api/v2/ranger',
+    authUrl: 'https://cp.coins.st/api/v2/barong',
+    tradeUrl: 'https://cp.coins.st/api/v2/peatio',
+    applogicUrl: 'https://cp.coins.st/api/v2/applogic',
+    rangerUrl: 'wss://cp.coins.st/api/v2/ranger',
   },
-  authLogout: "100",
+  authLogout: "300",
   image: {
     dark: "/etc-logo.png",
     light: "/etc-logo.png",
   },
-  name: "Exchange",
-  withdrawOtp: false,
-  homepageUrl: "https://www.beta.elephantccx.com",
+  name: "coins.st - making crypto investing easy",
+  withdrawOtp: true,
+  homepageUrl: "/wallets",
   customMarketTabs: ["BTC","ETH","BNB","USDT"],
-  incrementalOrderBook: true,
+  incrementalOrderBook: false,
   considerMarketsDown: false
 };
